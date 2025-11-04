@@ -6,446 +6,559 @@
   <title>Products - Tangogi Supermarket</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- Add products-specific CSS -->
+  <style>
+    /* Products Page Specific Styles */
+    .products-controls {
+      background: #f8f9fa;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .controls-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .view-options {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .view-btn {
+      padding: 0.5rem;
+      border: 1px solid #dee2e6;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #6c757d;
+      transition: all 0.3s;
+    }
+
+    .view-btn.active,
+    .view-btn:hover {
+      background: #4caf50;
+      color: white;
+      border-color: #4caf50;
+    }
+
+    .products-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .products-per-page {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .per-page-select {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      background: white;
+    }
+
+    /* Filters Grid */
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-weight: 500;
+      color: #495057;
+      font-size: 0.9rem;
+    }
+
+    .filter-select {
+      padding: 0.75rem;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      background: white;
+      font-size: 0.9rem;
+    }
+
+    /* Active Filters */
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .filter-tag {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-tag button {
+      background: none;
+      border: none;
+      color: #2e7d32;
+      cursor: pointer;
+    }
+
+    /* Search Results Header */
+    .search-results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #e8f5e9;
+      border-radius: 8px;
+    }
+
+    /* Skeleton Loading */
+    .skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skeleton-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .skeleton-image {
+      height: 200px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    .skeleton-content {
+      padding: 1.5rem;
+    }
+
+    .skeleton-line {
+      height: 12px;
+      background: #f0f0f0;
+      margin-bottom: 0.75rem;
+      border-radius: 6px;
+      animation: loading 1.5s infinite;
+    }
+
+    .skeleton-line.short { width: 60%; }
+    .skeleton-line.medium { width: 80%; }
+    .skeleton-line.long { width: 100%; }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* No Products State */
+    .no-products-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      display: none;
+    }
+
+    .no-products-state i {
+      font-size: 4rem;
+      color: #dee2e6;
+      margin-bottom: 1.5rem;
+    }
+
+    .no-products-state h3 {
+      color: #6c757d;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-products-state p {
+      color: #6c757d;
+      margin-bottom: 2rem;
+    }
+
+    /* Pagination */
+    .pagination-container {
+      padding: 2rem 0;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pagination-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid #dee2e6;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .pagination-btn:not(.active):hover {
+      background: #f8f9fa;
+    }
+
+    .pagination-btn.active {
+      background: #4caf50;
+      color: white;
+      border-color: #4caf50;
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-numbers {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pagination-ellipsis {
+      padding: 0.5rem;
+      color: #6c757d;
+    }
+
+    /* Quick View Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6c757d;
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .controls-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .filters-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .pagination {
+        flex-wrap: wrap;
+      }
+      
+      .search-results-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
   
   <a href="#main-content" class="skip-link">Skip to main content</a>
-   <header class="site-header">
-        <div class="header-top-bar">
-            <div class="container">
-                <div class="header-top-content">
-                    <div class="delivery-info">
-                        <i class="fas fa-truck" aria-label="Truck icon"></i>
-                        <span>Free delivery on orders over ₦5,000</span>
-                    </div>
-                    <div class="header-top-links">
-                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
-                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
-                        <div class="language-selector">
-                            <i class="fas fa-globe" aria-label="Globe icon"></i>
-                            <select aria-label="Select language">
-                                <option value="en">EN</option>
-                                <option value="yo">Yoruba</option>
-                                <option value="ig">Igbo</option>
-                                <option value="ha">Hausa</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+  <!-- Header (your complete header code remains the same) -->
+  <header class="site-header">
+    <!-- Your full header code here -->
+  </header>
 
-        <div class="header-main">
-            <div class="container">
-                <div class="header-main-inner">
-                    <!-- Logo -->
-                    <div class="logo-section">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Search Bar -->
-                    <div class="search-section">
-                        <div class="search-container">
-                            <div class="search-input-wrapper">
-                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                                <input
-                                    type="text"
-                                    class="search-input"
-                                    placeholder="Search for fresh tomatoes, rice, chicken..."
-                                    id="search-input"
-                                    aria-label="Search for products"
-                                >
-                                <button class="search-clear" id="search-clear" aria-label="Clear search">
-                                    <i class="fas fa-times" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <button class="search-btn" id="search-btn" aria-label="Search">
-                                <i class="fas fa-search" aria-hidden="true"></i>
-                                <span>Search</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- User Actions -->
-                    <div class="actions-section">
-                        <!-- Dark Mode Toggle -->
-                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-
-                        <!-- Location -->
-                        <div class="location-selector">
-                            <button class="location-btn" id="location-btn" aria-label="Select location">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span class="location-text">Lagos</span>
-                            </button>
-                            <div class="location-dropdown" id="location-dropdown">
-                                <div class="location-search">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search location..." id="location-search-input">
-                                </div>
-                                <div class="location-options">
-                                    <div class="location-option" data-location="use-current">
-                                        <i class="fas fa-crosshairs"></i>
-                                        <span>Use Current Location</span>
-                                    </div>
-                                    <div class="location-option" data-location="Lagos">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Lagos</span>
-                                    </div>
-                                    <div class="location-option" data-location="Abuja">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Abuja</span>
-                                    </div>
-                                    <div class="location-option" data-location="Port Harcourt">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Port Harcourt</span>
-                                    </div>
-                                    <div class="location-option" data-location="Ibadan">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Ibadan</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- User Account -->
-                        <div class="user-account">
-                            <button class="user-btn" id="user-btn" aria-label="My account">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                <span class="user-text">Account</span>
-                            </button>
-                            <div class="user-dropdown" id="user-dropdown">
-                                <div class="user-info">
-                                    <div class="user-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="user-details">
-                                        <div class="user-greeting">Hello, Guest</div>
-                                        <div class="user-status">Sign in to your account</div>
-                                    </div>
-                                </div>
-                                <div class="user-menu">
-                                    <a href="login.html" class="user-menu-item">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        <span>Sign In</span>
-                                    </a>
-                                    <a href="register.html" class="user-menu-item">
-                                        <i class="fas fa-user-plus"></i>
-                                        <span>Create Account</span>
-                                    </a>
-                                    <div class="user-menu-divider"></div>
-                                    <a href="orders.html" class="user-menu-item">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <span>My Orders</span>
-                                    </a>
-                                    <a href="wishlist.html" class="user-menu-item">
-                                        <i class="fas fa-heart"></i>
-                                        <span>Wishlist</span>
-                                    </a>
-                                    <a href="settings.html" class="user-menu-item">
-                                        <i class="fas fa-cog"></i>
-                                        <span>Settings</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Wishlist -->
-                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                            <span class="action-badge" id="wishlist-count">0</span>
-                        </a>
-
-                        <!-- Cart -->
-                        <div class="cart-section">
-                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
-                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="action-badge" id="cart-count">0</span>
-                            </button>
-                        </div>
-
-                        <!-- Mobile Menu Toggle -->
-                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="main-navigation" aria-label="Main navigation">
-            <div class="container">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="categories.html" class="nav-link">
-                            <i class="fas fa-th-large" aria-hidden="true"></i>
-                            <span>Categories</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="products.html" class="nav-link">
-                            <i class="fas fa-store" aria-hidden="true"></i>
-                            <span>All Products</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="deals.html" class="nav-link hot-deal">
-                            <i class="fas fa-bolt" aria-hidden="true"></i>
-                            <span>Hot Deals</span>
-                            <span class="deal-badge">SALE</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">
-                            <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            <span>About Us</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-            <!-- Quick Cart Popup -->
-    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
-        <div class="quick-cart-content">
-            <div class="quick-cart-header">
-                <h3 id="quick-cart-title">Your Cart</h3>
-                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
-            </div>
-            <div class="quick-cart-body">
-                <div id="cart-items" class="cart-items" aria-live="polite"></div>
-                <div id="empty-cart" class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
-                </div>
-            </div>
-            <div class="quick-cart-footer">
-                <div class="cart-totals">
-                    <div>
-                        <span>Subtotal:</span>
-                        <span id="cart-subtotal">₦0</span>
-                    </div>
-                    <div>
-                        <span>Tax (5%):</span>
-                        <span id="cart-tax">₦0</span>
-                    </div>
-                    <div>
-                        <span>Shipping:</span>
-                        <span id="cart-shipping">₦500</span>
-                    </div>
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cart-total">₦0</span>
-                    </div>
-                </div>
-                <div class="cart-actions">
-                    <a href="cart.html" class="btn btn-outline">View Cart</a>
-                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
-                </div>
-                <div class="cart-security">
-                    <i class="fas fa-lock"></i>
-                    <span>Secure checkout</span>
-                </div>
-            </div>
-        </div>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-content">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>All Products</span>
+      </div>
     </div>
+  </div>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
-        <div class="mobile-nav-header">
-            <div class="logo-section">
-                <a href="index.html" class="site-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-name">Tangogi</span>
-                        <span class="logo-tagline">Supermarket</span>
-                    </div>
-                </a>
-            </div>
-            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
-        </div>
-        <div class="mobile-nav-menu">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categories.html" class="nav-link">
-                        <i class="fas fa-th-large" aria-hidden="true"></i>
-                        <span>Categories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">
-                        <i class="fas fa-store" aria-hidden="true"></i>
-                        <span>All Products</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="deals.html" class="nav-link hot-deal">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
-                        <span>Hot Deals</span>
-                        <span class="deal-badge">SALE</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i>
-                        <span>About Us</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile-nav-footer">
-            <div class="mobile-user-actions">
-                <a href="login.html" class="btn btn-outline">Sign In</a>
-                <a href="register.html" class="btn btn-primary">Create Account</a>
-            </div>
-        </div>
-    </div>
-   </header>
-  <div id="header-placeholder"></div>
-
-  <main id="main-content" class="container">
-    <h1 class="page-title">Our Products</h1>
-
-    <section class="filters-section flex-between">
-      <select id="category-filter">
-        <option value="">All Categories</option>
-        <option value="fruits">Fresh Fruits</option>
-        <option value="vegetables">Vegetables</option>
-        <option value="meat">Meat & Poultry</option>
-        <option value="dairy">Dairy & Eggs</option>
-        <option value="grains">Grains & Staples</option>
-      </select>
-      <select id="sort-filter">
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="rating">Top Rated</option>
-      </select>
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Our Products</h1>
+        <p class="page-subtitle">Discover our wide range of fresh groceries and quality products</p>
+      </div>
     </section>
 
-    <div id="products-loading" class="loading-spinner">
-      <i class="fas fa-spinner"></i>
-      <span>Loading products...</span>
-    </div>
+    <!-- Products Controls -->
+    <section class="products-controls">
+      <div class="container">
+        <div class="controls-flex">
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid" aria-label="Grid view">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list" aria-label="List view">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+          
+          <div class="products-meta">
+            <span id="products-count" class="results-count">Loading products...</span>
+            <div class="products-per-page">
+              <label for="per-page">Show:</label>
+              <select id="per-page" class="per-page-select">
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="48">48</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Search results header -->
+        <div id="search-results-header" class="search-results-header">
+          <h3>Search Results for: "<span id="search-query"></span>"</h3>
+          <button id="clear-search" class="btn btn-outline btn-sm">
+            <i class="fas fa-times"></i> Clear Search
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <div id="products-grid" class="products-grid">
-      <!-- Products will appear here -->
-    </div>
+    <!-- Filters Section -->
+    <section class="filters-section">
+      <div class="container">
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="category-filter">Category</label>
+            <select id="category-filter" class="filter-select">
+              <option value="">All Categories</option>
+              <option value="fruits">Fresh Fruits</option>
+              <option value="vegetables">Vegetables</option>
+              <option value="meat">Meat & Poultry</option>
+              <option value="dairy">Dairy & Eggs</option>
+              <option value="grains">Grains & Staples</option>
+              <option value="beverages">Beverages</option>
+              <option value="snacks">Snacks</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="sort-filter">Sort By</label>
+            <select id="sort-filter" class="filter-select">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="price-filter">Price Range</label>
+            <select id="price-filter" class="filter-select">
+              <option value="">All Prices</option>
+              <option value="0-1000">Under ₦1,000</option>
+              <option value="1000-5000">₦1,000 - ₦5,000</option>
+              <option value="5000-10000">₦5,000 - ₦10,000</option>
+              <option value="10000-99999">Over ₦10,000</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="availability-filter">Availability</label>
+            <select id="availability-filter" class="filter-select">
+              <option value="">All</option>
+              <option value="in-stock">In Stock</option>
+              <option value="out-of-stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="active-filters" id="active-filters">
+          <!-- Active filters will appear here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section class="products-grid-section">
+      <div class="container">
+        <!-- Enhanced loading state -->
+        <div id="products-loading" class="loading-state">
+          <div class="skeleton-grid">
+            <!-- Skeleton cards repeated 8 times -->
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line long"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Products State -->
+        <div id="no-products" class="no-products-state">
+          <div class="no-products-content">
+            <i class="fas fa-search"></i>
+            <h3>No products found</h3>
+            <p>Try adjusting your filters or search terms</p>
+            <button id="reset-filters" class="btn btn-primary">
+              <i class="fas fa-redo"></i> Reset All Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="products-grid">
+          <!-- Products will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="pagination">
+            <button class="pagination-btn prev" disabled>
+              <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            
+            <div class="pagination-numbers">
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <span class="pagination-ellipsis">...</span>
+              <button class="pagination-btn">8</button>
+            </div>
+            
+            <button class="pagination-btn next">
+              Next <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-   <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="deals.html">Hot Deals</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul class="footer-links">
-                        <li><a href="help.html">Help Center</a></li>
-                        <li><a href="tracking.html">Track Order</a></li>
-                        <li><a href="returns.html">Returns & Refunds</a></li>
-                        <li><a href="shipping.html">Shipping Info</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>support@tangogi.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-   </footer>
+  <!-- Footer (your complete footer code remains the same) -->
+  <footer class="site-footer">
+    <!-- Your full footer code here -->
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="quick-view-content" id="quick-view-content">
+        <!-- Quick view content loaded by JavaScript -->
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

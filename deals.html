@@ -1,417 +1,1221 @@
-   <header class="site-header">
-        <div class="header-top-bar">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tangogi.com/deals">
+    <meta property="og:title" content="Hot Deals - Tangogi Supermarket Special Offers">
+    <meta property="og:description" content="Discover amazing deals and special offers at Tangogi Supermarket. Limited time discounts on fresh groceries and daily essentials.">
+    <meta property="og:image" content="https://www.tangogi.com/images/deals-og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.tangogi.com/deals">
+    <meta property="twitter:title" content="Hot Deals - Tangogi Supermarket Special Offers">
+    <meta property="twitter:description" content="Discover amazing deals and special offers at Tangogi Supermarket. Limited time discounts on fresh groceries and daily essentials.">
+    <meta property="twitter:image" content="https://www.tangogi.com/images/deals-og-image.jpg">
+    
+    <title>Hot Deals - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4caf50">
+    <meta name="description" content="Discover amazing deals and special offers at Tangogi Supermarket. Limited time discounts on fresh groceries and daily essentials.">
+    
+    <style>
+        /* Additional styles specific to the deals page */
+        .deals-hero {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .deals-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/deals-pattern.svg') no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .deals-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .deals-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .deals-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .deal-countdown {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .countdown-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .countdown-unit {
+            background: white;
+            color: #ff6b35;
+            border-radius: 8px;
+            padding: 0.75rem;
+            min-width: 70px;
+            text-align: center;
+        }
+        
+        .countdown-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+        
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #4caf50;
+        }
+        
+        .breadcrumb span {
+            color: #ff6b35;
+        }
+        
+        .deals-section {
+            padding: 80px 0;
+        }
+        
+        .deals-filter {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2e7d32;
+            margin: 0;
+        }
+        
+        .filter-reset {
+            color: #6c757d;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-reset:hover {
+            color: #ff6b35;
+        }
+        
+        .filter-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-label {
+            font-weight: 500;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        .filter-select {
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .deal-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .deal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .deal-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .deal-badge.new {
+            background: #4caf50;
+        }
+        
+        .deal-badge.limited {
+            background: #e53935;
+        }
+        
+        .deal-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .deal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .deal-card:hover .deal-image img {
+            transform: scale(1.05);
+        }
+        
+        .deal-content {
+            padding: 1.5rem;
+        }
+        
+        .deal-category {
+            color: #6c757d;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .deal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #2e7d32;
+            line-height: 1.4;
+        }
+        
+        .deal-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .deal-pricing {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .deal-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+        
+        .deal-original-price {
+            font-size: 1rem;
+            color: #6c757d;
+            text-decoration: line-through;
+        }
+        
+        .deal-discount {
+            background: #e8f5e9;
+            color: #4caf50;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .deal-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .deal-stock {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .stock-low {
+            color: #e53935;
+        }
+        
+        .deal-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-add-cart {
+            flex: 1;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-add-cart:hover {
+            background: #2e7d32;
+        }
+        
+        .btn-wishlist {
+            width: 44px;
+            height: 44px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #6c757d;
+        }
+        
+        .btn-wishlist:hover, .btn-wishlist.active {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        
+        .deal-progress {
+            margin-top: 1rem;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #4caf50;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        
+        .flash-sales-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #2e7d32;
+            margin: 0;
+        }
+        
+        .flash-sales-timer {
+            background: #e53935;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .sales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .bundle-deals-section {
+            padding: 80px 0;
+        }
+        
+        .bundle-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .bundle-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .bundle-badge {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .bundle-title {
+            font-size: 1.75rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        
+        .bundle-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .bundle-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .bundle-current {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+        
+        .bundle-original {
+            font-size: 1.25rem;
+            color: #6c757d;
+            text-decoration: line-through;
+        }
+        
+        .bundle-savings {
+            background: #e8f5e9;
+            color: #4caf50;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .bundle-image {
+            height: 100%;
+            min-height: 300px;
+            overflow: hidden;
+        }
+        
+        .bundle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .pagination-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background: white;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pagination-btn:hover, .pagination-btn.active {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+        
+        @media (max-width: 992px) {
+            .bundle-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .bundle-image {
+                order: -1;
+                min-height: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .deals-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .filter-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="site-header">
+        <!-- Header content from index.html -->
+    </header>
+    
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
             <div class="container">
-                <div class="header-top-content">
-                    <div class="delivery-info">
-                        <i class="fas fa-truck" aria-label="Truck icon"></i>
-                        <span>Free delivery on orders over ₦5,000</span>
+                <div class="breadcrumb-content">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Hot Deals</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="deals-hero">
+            <div class="container">
+                <div class="deals-hero-content">
+                    <h1>Hot Deals & Special Offers</h1>
+                    <p>Discover amazing discounts on fresh groceries and daily essentials. Limited time offers you won't want to miss!</p>
+                    
+                    <div class="deal-countdown">
+                        <div class="countdown-title">Flash Sale Ends In:</div>
+                        <div class="countdown-timer" id="countdown-timer">
+                            <div class="countdown-unit">
+                                <span class="countdown-value" id="countdown-days">02</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-unit">
+                                <span class="countdown-value" id="countdown-hours">12</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-unit">
+                                <span class="countdown-value" id="countdown-minutes">45</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                            <div class="countdown-unit">
+                                <span class="countdown-value" id="countdown-seconds">30</span>
+                                <span class="countdown-label">Seconds</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="header-top-links">
-                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
-                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
-                        <div class="language-selector">
-                            <i class="fas fa-globe" aria-label="Globe icon"></i>
-                            <select aria-label="Select language">
-                                <option value="en">EN</option>
-                                <option value="yo">Yoruba</option>
-                                <option value="ig">Igbo</option>
-                                <option value="ha">Hausa</option>
+                    
+                    <a href="#flash-sales" class="btn btn-white">
+                        <i class="fas fa-bolt"></i>
+                        View Flash Sales
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Flash Sales Section -->
+        <section class="flash-sales-section" id="flash-sales">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Flash Sales</h2>
+                    <div class="flash-sales-timer">
+                        <i class="fas fa-bolt"></i>
+                        <span>Ends in: <span id="flash-sales-timer">12:45:30</span></span>
+                    </div>
+                </div>
+                
+                <div class="sales-grid">
+                    <!-- Flash Sale Product 1 -->
+                    <div class="deal-card">
+                        <div class="deal-badge limited">Limited Stock</div>
+                        <div class="deal-image">
+                            <img src="images/deals/flash-sale-1.jpg" alt="Fresh Chicken Pack" class="lazy-load">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Meat & Poultry</span>
+                            <h3 class="deal-title">Fresh Chicken Pack - 2kg</h3>
+                            <p class="deal-description">Premium fresh chicken, perfectly cleaned and ready to cook.</p>
+                            
+                            <div class="deal-pricing">
+                                <span class="deal-price">₦4,500</span>
+                                <span class="deal-original-price">₦6,000</span>
+                                <span class="deal-discount">25% OFF</span>
+                            </div>
+                            
+                            <div class="deal-meta">
+                                <div class="deal-stock stock-low">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Only 15 left</span>
+                                </div>
+                                <div class="deal-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-progress">
+                                <div class="progress-label">
+                                    <span>Sold: 85%</span>
+                                    <span>85/100</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-actions">
+                                <button class="btn-add-cart" data-product="fresh-chicken">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn-wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flash Sale Product 2 -->
+                    <div class="deal-card">
+                        <div class="deal-badge">Hot Deal</div>
+                        <div class="deal-image">
+                            <img src="images/deals/flash-sale-2.jpg" alt="Mixed Vegetables Pack" class="lazy-load">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Vegetables</span>
+                            <h3 class="deal-title">Mixed Vegetables Pack</h3>
+                            <p class="deal-description">Fresh assortment of tomatoes, peppers, onions, and leafy greens.</p>
+                            
+                            <div class="deal-pricing">
+                                <span class="deal-price">₦2,800</span>
+                                <span class="deal-original-price">₦3,500</span>
+                                <span class="deal-discount">20% OFF</span>
+                            </div>
+                            
+                            <div class="deal-meta">
+                                <div class="deal-stock">
+                                    <i class="fas fa-check"></i>
+                                    <span>In Stock</span>
+                                </div>
+                                <div class="deal-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6</span>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-actions">
+                                <button class="btn-add-cart" data-product="mixed-vegetables">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn-wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flash Sale Product 3 -->
+                    <div class="deal-card">
+                        <div class="deal-badge limited">Almost Gone</div>
+                        <div class="deal-image">
+                            <img src="images/deals/flash-sale-3.jpg" alt="Imported Rice 5kg" class="lazy-load">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Grains & Cereals</span>
+                            <h3 class="deal-title">Imported Rice - 5kg Bag</h3>
+                            <p class="deal-description">Premium quality long grain rice, perfect for daily meals.</p>
+                            
+                            <div class="deal-pricing">
+                                <span class="deal-price">₦8,900</span>
+                                <span class="deal-original-price">₦11,500</span>
+                                <span class="deal-discount">23% OFF</span>
+                            </div>
+                            
+                            <div class="deal-meta">
+                                <div class="deal-stock stock-low">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Only 8 left</span>
+                                </div>
+                                <div class="deal-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-progress">
+                                <div class="progress-label">
+                                    <span>Sold: 92%</span>
+                                    <span>92/100</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-actions">
+                                <button class="btn-add-cart" data-product="imported-rice">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn-wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Deals Section -->
+        <section class="deals-section">
+            <div class="container">
+                <div class="deals-filter">
+                    <div class="filter-header">
+                        <h3 class="filter-title">Filter Deals</h3>
+                        <button class="filter-reset">
+                            <i class="fas fa-redo"></i>
+                            Reset Filters
+                        </button>
+                    </div>
+                    
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <label class="filter-label">Category</label>
+                            <select class="filter-select" id="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="fruits">Fruits</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="meat">Meat & Poultry</option>
+                                <option value="dairy">Dairy & Eggs</option>
+                                <option value="grains">Grains & Cereals</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Discount Range</label>
+                            <select class="filter-select" id="discount-filter">
+                                <option value="all">Any Discount</option>
+                                <option value="10">10% or more</option>
+                                <option value="20">20% or more</option>
+                                <option value="30">30% or more</option>
+                                <option value="40">40% or more</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Sort By</label>
+                            <select class="filter-select" id="sort-filter">
+                                <option value="popular">Most Popular</option>
+                                <option value="newest">Newest First</option>
+                                <option value="discount">Highest Discount</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
                             </select>
                         </div>
                     </div>
                 </div>
+                
+                <div class="deals-grid" id="deals-container">
+                    <!-- Deal cards will be loaded dynamically -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="header-main">
+        </section>
+        
+        <!-- Bundle Deals Section -->
+        <section class="bundle-deals-section">
             <div class="container">
-                <div class="header-main-inner">
-                    <!-- Logo -->
-                    <div class="logo-section">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
+                <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Bundle Deals</h2>
+                
+                <div class="bundle-card">
+                    <div class="bundle-content">
+                        <span class="bundle-badge">Best Value</span>
+                        <h3 class="bundle-title">Family Grocery Pack</h3>
+                        <p class="bundle-description">Everything you need for a week of delicious family meals. Includes fresh produce, protein, and pantry essentials.</p>
+                        
+                        <div class="bundle-price">
+                            <span class="bundle-current">₦15,000</span>
+                            <span class="bundle-original">₦19,500</span>
+                            <span class="bundle-savings">Save ₦4,500</span>
+                        </div>
+                        
+                        <div class="deal-actions">
+                            <button class="btn-add-cart" style="flex: none; padding: 0.75rem 2rem;">
+                                <i class="fas fa-cart-plus"></i>
+                                Add Bundle to Cart
+                            </button>
+                            <button class="btn-wishlist">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
                     </div>
+                    
+                    <div class="bundle-image">
+                        <img src="images/deals/bundle-1.jpg" alt="Family Grocery Pack" class="lazy-load">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Never Miss a Deal</h2>
+                    <p class="newsletter-description">Subscribe to our newsletter and be the first to know about exclusive offers, new products, and special promotions.</p>
+                    
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                        <i class="fas fa-shield-alt"></i>
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                    <!-- Search Bar -->
-                    <div class="search-section">
-                        <div class="search-container">
-                            <div class="search-input-wrapper">
-                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                                <input
-                                    type="text"
-                                    class="search-input"
-                                    placeholder="Search for fresh tomatoes, rice, chicken..."
-                                    id="search-input"
-                                    aria-label="Search for products"
-                                >
-                                <button class="search-clear" id="search-clear" aria-label="Clear search">
-                                    <i class="fas fa-times" aria-hidden="true"></i>
+    <!-- Footer (same as index.html) -->
+    <footer class="site-footer">
+        <!-- Footer content from index.html -->
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <button class="floating-btn" id="quick-cart-btn" aria-label="Quick Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="floating-badge" id="floating-cart-count">0</span>
+        </button>
+        
+        <!-- Floating Deal Alert Button -->
+        <button class="floating-btn" id="floating-deal-btn" aria-label="Deal Alerts" style="background: #ff6b35;">
+            <i class="fas fa-bell"></i>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+    
+    <script>
+        // Additional JavaScript for the deals page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Countdown timer functionality
+            function updateCountdown() {
+                const now = new Date();
+                const target = new Date();
+                target.setDate(now.getDate() + 2); // Set to 2 days from now
+                target.setHours(23, 59, 59, 0); // Set to end of day
+                
+                const diff = target - now;
+                
+                if (diff <= 0) {
+                    // Countdown finished
+                    document.getElementById('countdown-timer').innerHTML = '<div class="countdown-finished">Sale Ended</div>';
+                    document.getElementById('flash-sales-timer').textContent = 'Sale Ended';
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                // Update countdown display
+                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                // Update flash sales timer
+                document.getElementById('flash-sales-timer').textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            // Initialize countdown and update every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Wishlist functionality
+            const wishlistButtons = document.querySelectorAll('.btn-wishlist');
+            
+            wishlistButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    if (this.classList.contains('active')) {
+                        this.innerHTML = '<i class="fas fa-heart"></i>';
+                        // In a real app, you would add to wishlist here
+                        showNotification('Added to wishlist!', 'success');
+                    } else {
+                        this.innerHTML = '<i class="fas fa-heart"></i>';
+                        // In a real app, you would remove from wishlist here
+                        showNotification('Removed from wishlist', 'info');
+                    }
+                });
+            });
+            
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const product = this.getAttribute('data-product');
+                    
+                    // Simulate adding to cart
+                    this.innerHTML = '<i class="fas fa-check"></i> Added';
+                    this.style.background = '#2e7d32';
+                    
+                    // In a real app, you would update cart count here
+                    updateCartCount(1);
+                    
+                    showNotification('Product added to cart!', 'success');
+                    
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+                        this.style.background = '';
+                    }, 2000);
+                });
+            });
+            
+            // Filter functionality
+            const filterSelects = document.querySelectorAll('.filter-select');
+            const resetFilterButton = document.querySelector('.filter-reset');
+            
+            filterSelects.forEach(select => {
+                select.addEventListener('change', applyFilters);
+            });
+            
+            if (resetFilterButton) {
+                resetFilterButton.addEventListener('click', function() {
+                    filterSelects.forEach(select => {
+                        select.value = 'all';
+                        if (select.id === 'sort-filter') {
+                            select.value = 'popular';
+                        }
+                    });
+                    applyFilters();
+                });
+            }
+            
+            function applyFilters() {
+                // In a real implementation, this would filter the products
+                // For now, we'll just show a loading state
+                const dealsContainer = document.getElementById('deals-container');
+                if (dealsContainer) {
+                    dealsContainer.innerHTML = '<div class="loading-state">Applying filters...</div>';
+                    
+                    // Simulate API call delay
+                    setTimeout(() => {
+                        loadDeals();
+                    }, 1000);
+                }
+            }
+            
+            // Load deals (simulated)
+            function loadDeals() {
+                const dealsContainer = document.getElementById('deals-container');
+                if (!dealsContainer) return;
+                
+                // This would be replaced with actual product data from an API
+                const dealsHTML = `
+                    <!-- Sample deal cards would be generated here -->
+                    <div class="deal-card">
+                        <div class="deal-badge new">New</div>
+                        <div class="deal-image">
+                            <img src="images/deals/deal-1.jpg" alt="Fresh Fruits Basket" class="lazy-load">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Fruits</span>
+                            <h3 class="deal-title">Fresh Fruits Basket</h3>
+                            <p class="deal-description">Seasonal fruits assortment including apples, oranges, bananas and more.</p>
+                            
+                            <div class="deal-pricing">
+                                <span class="deal-price">₦3,200</span>
+                                <span class="deal-original-price">₦4,000</span>
+                                <span class="deal-discount">20% OFF</span>
+                            </div>
+                            
+                            <div class="deal-meta">
+                                <div class="deal-stock">
+                                    <i class="fas fa-check"></i>
+                                    <span>In Stock</span>
+                                </div>
+                                <div class="deal-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                            
+                            <div class="deal-actions">
+                                <button class="btn-add-cart" data-product="fruits-basket">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn-wishlist">
+                                    <i class="fas fa-heart"></i>
                                 </button>
                             </div>
-                            <button class="search-btn" id="search-btn" aria-label="Search">
-                                <i class="fas fa-search" aria-hidden="true"></i>
-                                <span>Search</span>
-                            </button>
                         </div>
                     </div>
-
-                    <!-- User Actions -->
-                    <div class="actions-section">
-                        <!-- Dark Mode Toggle -->
-                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-
-                        <!-- Location -->
-                        <div class="location-selector">
-                            <button class="location-btn" id="location-btn" aria-label="Select location">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span class="location-text">Lagos</span>
-                            </button>
-                            <div class="location-dropdown" id="location-dropdown">
-                                <div class="location-search">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search location..." id="location-search-input">
-                                </div>
-                                <div class="location-options">
-                                    <div class="location-option" data-location="use-current">
-                                        <i class="fas fa-crosshairs"></i>
-                                        <span>Use Current Location</span>
-                                    </div>
-                                    <div class="location-option" data-location="Lagos">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Lagos</span>
-                                    </div>
-                                    <div class="location-option" data-location="Abuja">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Abuja</span>
-                                    </div>
-                                    <div class="location-option" data-location="Port Harcourt">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Port Harcourt</span>
-                                    </div>
-                                    <div class="location-option" data-location="Ibadan">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Ibadan</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- User Account -->
-                        <div class="user-account">
-                            <button class="user-btn" id="user-btn" aria-label="My account">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                <span class="user-text">Account</span>
-                            </button>
-                            <div class="user-dropdown" id="user-dropdown">
-                                <div class="user-info">
-                                    <div class="user-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="user-details">
-                                        <div class="user-greeting">Hello, Guest</div>
-                                        <div class="user-status">Sign in to your account</div>
-                                    </div>
-                                </div>
-                                <div class="user-menu">
-                                    <a href="login.html" class="user-menu-item">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        <span>Sign In</span>
-                                    </a>
-                                    <a href="register.html" class="user-menu-item">
-                                        <i class="fas fa-user-plus"></i>
-                                        <span>Create Account</span>
-                                    </a>
-                                    <div class="user-menu-divider"></div>
-                                    <a href="orders.html" class="user-menu-item">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <span>My Orders</span>
-                                    </a>
-                                    <a href="wishlist.html" class="user-menu-item">
-                                        <i class="fas fa-heart"></i>
-                                        <span>Wishlist</span>
-                                    </a>
-                                    <a href="settings.html" class="user-menu-item">
-                                        <i class="fas fa-cog"></i>
-                                        <span>Settings</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Wishlist -->
-                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                            <span class="action-badge" id="wishlist-count">0</span>
-                        </a>
-
-                        <!-- Cart -->
-                        <div class="cart-section">
-                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
-                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="action-badge" id="cart-count">0</span>
-                            </button>
-                        </div>
-
-                        <!-- Mobile Menu Toggle -->
-                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+                    
+                    <!-- More deal cards would follow -->
+                `;
+                
+                dealsContainer.innerHTML = dealsHTML;
+                
+                // Reattach event listeners to new buttons
+                reattachEventListeners();
+            }
+            
+            function reattachEventListeners() {
+                // Reattach event listeners to newly created elements
+                document.querySelectorAll('.btn-wishlist').forEach(button => {
+                    button.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                    });
+                });
+                
+                document.querySelectorAll('.btn-add-cart').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const product = this.getAttribute('data-product');
+                        this.innerHTML = '<i class="fas fa-check"></i> Added';
+                        this.style.background = '#2e7d32';
+                        updateCartCount(1);
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+                            this.style.background = '';
+                        }, 2000);
+                    });
+                });
+            }
+            
+            // Initialize deals loading
+            loadDeals();
+            
+            // Utility functions
+            function showNotification(message, type) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                        <span>${message}</span>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="main-navigation" aria-label="Main navigation">
-            <div class="container">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="categories.html" class="nav-link">
-                            <i class="fas fa-th-large" aria-hidden="true"></i>
-                            <span>Categories</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="products.html" class="nav-link">
-                            <i class="fas fa-store" aria-hidden="true"></i>
-                            <span>All Products</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="deals.html" class="nav-link hot-deal">
-                            <i class="fas fa-bolt" aria-hidden="true"></i>
-                            <span>Hot Deals</span>
-                            <span class="deal-badge">SALE</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">
-                            <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            <span>About Us</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-            <!-- Quick Cart Popup -->
-    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
-        <div class="quick-cart-content">
-            <div class="quick-cart-header">
-                <h3 id="quick-cart-title">Your Cart</h3>
-                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
-            </div>
-            <div class="quick-cart-body">
-                <div id="cart-items" class="cart-items" aria-live="polite"></div>
-                <div id="empty-cart" class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
-                </div>
-            </div>
-            <div class="quick-cart-footer">
-                <div class="cart-totals">
-                    <div>
-                        <span>Subtotal:</span>
-                        <span id="cart-subtotal">₦0</span>
-                    </div>
-                    <div>
-                        <span>Tax (5%):</span>
-                        <span id="cart-tax">₦0</span>
-                    </div>
-                    <div>
-                        <span>Shipping:</span>
-                        <span id="cart-shipping">₦500</span>
-                    </div>
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cart-total">₦0</span>
-                    </div>
-                </div>
-                <div class="cart-actions">
-                    <a href="cart.html" class="btn btn-outline">View Cart</a>
-                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
-                </div>
-                <div class="cart-security">
-                    <i class="fas fa-lock"></i>
-                    <span>Secure checkout</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
-        <div class="mobile-nav-header">
-            <div class="logo-section">
-                <a href="index.html" class="site-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-name">Tangogi</span>
-                        <span class="logo-tagline">Supermarket</span>
-                    </div>
-                </a>
-            </div>
-            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
-        </div>
-        <div class="mobile-nav-menu">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categories.html" class="nav-link">
-                        <i class="fas fa-th-large" aria-hidden="true"></i>
-                        <span>Categories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">
-                        <i class="fas fa-store" aria-hidden="true"></i>
-                        <span>All Products</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="deals.html" class="nav-link hot-deal">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
-                        <span>Hot Deals</span>
-                        <span class="deal-badge">SALE</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i>
-                        <span>About Us</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile-nav-footer">
-            <div class="mobile-user-actions">
-                <a href="login.html" class="btn btn-outline">Sign In</a>
-                <a href="register.html" class="btn btn-primary">Create Account</a>
-            </div>
-        </div>
-    </div>
-   </header>
-
-
-
-
-
-
-
-
-
-
-
-   <!--footer-->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="deals.html">Hot Deals</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul class="footer-links">
-                        <li><a href="help.html">Help Center</a></li>
-                        <li><a href="tracking.html">Track Order</a></li>
-                        <li><a href="returns.html">Returns & Refunds</a></li>
-                        <li><a href="shipping.html">Shipping Info</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>support@tangogi.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-   </footer>
+                `;
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+            
+            function updateCartCount(increment) {
+                const cartCountElements = document.querySelectorAll('#cart-count, #floating-cart-count');
+                cartCountElements.forEach(element => {
+                    let currentCount = parseInt(element.textContent) || 0;
+                    element.textContent = currentCount + increment;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

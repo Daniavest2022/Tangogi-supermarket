@@ -17,9 +17,11 @@ class TangogiApp {
 
   async init() {
     console.log('🛒 Tangogi Supermarket Initialized');
+    this.setupPerformanceMonitoring();
+    this.setupOfflineDetection();
     this.loadCart();
     this.loadWishlist();
-    this.initializeHeaderFunctionality(); // ✅ Works with inline header
+    this.initializeHeaderFunctionality();
     this.setupCoreFeatures();
     await this.loadPageContent();
     this.loadCartPage();
@@ -120,7 +122,9 @@ class TangogiApp {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const img = entry.target;
-          img.src = img.dataset.src || img.src;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+          }
           img.classList.add('loaded');
           observer.unobserve(img);
         }
@@ -187,10 +191,13 @@ class TangogiApp {
 
     if (newQuantity <= 0) {
       this.removeFromCart(cartId);
+    } else if (newQuantity > 99) {
+      this.showNotification('Maximum quantity reached', 'warning');
     } else {
       item.quantity = newQuantity;
       this.saveCart();
       this.updateQuickCart();
+      this.updateCartPage();
     }
   }
 
@@ -221,8 +228,15 @@ class TangogiApp {
 
     localStorage.setItem('tangogi-wishlist', JSON.stringify(this.state.wishlist));
     this.updateWishlistDisplay();
-  }
 
+    document.querySelectorAll(`[data-wishlist-id="${productId}"]`).forEach(btn => {
+      const icon = btn.querySelector('i');
+      icon.className = this.state.wishlist.includes(productId) 
+        ? 'fas fa-heart' 
+        : 'far fa-heart';
+    });
+  }
+  
   updateWishlistDisplay() {
     const wishlistCount = document.getElementById('wishlist-count');
     if (wishlistCount) {
@@ -231,7 +245,7 @@ class TangogiApp {
     }
   }
 
-  // Header functionality (for inline header)
+  // Header functionality
   initializeHeaderFunctionality() {
     console.log('🔧 Initializing header functionality...');
     this.setupMobileMenu();
@@ -246,19 +260,21 @@ class TangogiApp {
     const mobileNav = document.getElementById('mobile-navigation');
     const closeBtn = document.getElementById('close-mobile-nav');
 
-    if (menuToggle && mobileNav) {
-      menuToggle.addEventListener('click', () => {
-        mobileNav.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    }
+    if (!menuToggle || !mobileNav) return;
 
-    if (closeBtn && mobileNav) {
-      closeBtn.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
   }
 
   setupSearch() {
@@ -268,10 +284,16 @@ class TangogiApp {
 
     if (!searchInput) return;
 
+    let searchTimeout;
     searchInput.addEventListener('input', () => {
       if (searchClear) {
         searchClear.style.display = searchInput.value ? 'block' : 'none';
       }
+      
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        // Real-time search suggestions could go here
+      }, 300);
     });
 
     if (searchClear) {
@@ -308,18 +330,7 @@ class TangogiApp {
 
     document.addEventListener('click', () => {
       locationDropdown.classList.remove('active');
-    });
 
-    document.querySelectorAll('.location-option').forEach(option => {
-      option.addEventListener('click', () => {
-        const location = option.dataset.location;
-        if (location === 'use-current') {
-          this.getCurrentLocation();
-        } else {
-          this.selectLocation(option.textContent.trim());
-        }
-        locationDropdown.classList.remove('active');
-      });
     });
   }
 
@@ -409,22 +420,41 @@ class TangogiApp {
       emptyCart.style.display = 'none';
 
       cartItems.innerHTML = this.state.cart.map(item => `
-        <div class="cart-item">
+
+
+        <div class="cart-item" data-cart-id="${item.cartId}">
           <img src="${item.image}" alt="${item.name}" class="cart-item-image">
           <div class="cart-item-details">
             <div class="cart-item-name">${item.name}</div>
             <div class="cart-item-price">₦${item.price.toLocaleString()}</div>
             <div class="cart-item-quantity">
-              <button class="quantity-btn" onclick="app.updateCartQuantity(${item.cartId}, ${item.quantity - 1})">-</button>
-              <span>${item.quantity}</span>
-              <button class="quantity-btn" onclick="app.updateCartQuantity(${item.cartId}, ${item.quantity + 1})">+</button>
+              <button class="quantity-btn dec" aria-label="Decrease quantity">-</button>
+              <span class="quantity-value">${item.quantity}</span>
+              <button class="quantity-btn inc" aria-label="Increase quantity">+</button>
             </div>
           </div>
-          <button class="remove-item" onclick="app.removeFromCart(${item.cartId})" aria-label="Remove ${item.name}">
+
+
+          <button class="remove-item" aria-label="Remove ${item.name}">
             <i class="fas fa-times"></i>
           </button>
         </div>
       `).join('');
+
+      cartItems.querySelectorAll('.remove-item').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          this.removeFromCart(this.state.cart[index].cartId);
+        });
+      });
+
+      cartItems.querySelectorAll('.quantity-btn').forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+          const item = this.state.cart[index];
+          if (!item) return;
+          const newQty = btn.classList.contains('inc') ? item.quantity + 1 : item.quantity - 1;
+          this.updateCartQuantity(item.cartId, newQty);
+        });
+      });
 
       const subtotal = this.state.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
       const tax = subtotal * this.state.taxRate;
@@ -434,6 +464,43 @@ class TangogiApp {
       if (cartTax) cartTax.textContent = '₦' + tax.toFixed(2);
       if (cartShipping) cartShipping.textContent = '₦' + this.state.shippingCost.toLocaleString();
       if (cartTotal) cartTotal.textContent = '₦' + total.toFixed(2);
+    }
+  }
+
+  setupOfflineDetection() {
+    window.addEventListener('online', () => {
+      this.showNotification('Connection restored', 'success');
+    });
+    
+    window.addEventListener('offline', () => {
+      this.showNotification('You are currently offline', 'warning');
+    });
+  }
+
+  setupPerformanceMonitoring() {
+    window.addEventListener('load', () => {
+      if (performance.timing) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page loaded in ${loadTime}ms`);
+      }
+    });
+  }
+
+  trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', action, {
+        'event_category': category,
+        'event_label': label
+      });
+    }
+  }
+
+  loadCachedProducts() {
+    const cached = localStorage.getItem('tangogi-cached-products');
+    if (cached) {
+      const products = JSON.parse(cached);
+      this.state.featuredProducts = products.slice(0, 4);
+      this.renderProducts(this.state.featuredProducts, document.getElementById('featured-products'));
     }
   }
 
@@ -463,6 +530,8 @@ class TangogiApp {
       console.error('Error loading featured products:', error);
       if (loadingSpinner) {
         loadingSpinner.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Failed to load products.</span>';
+        this.showNotification('Failed to load products', 'error');
+        this.loadCachedProducts();
       }
     }
   }
@@ -553,12 +622,12 @@ class TangogiApp {
       return;
     }
 
-    container.innerHTML = products.map(product => `
-      <div class="product-card" data-product-id="${product.id}">
+    container.innerHTML = products.map((product, index) => `
+      <div class="product-card" data-product-id="${product.id}" data-product-index="${index}">
         <div class="product-image">
           <img src="${product.image}" alt="${product.name}" loading="lazy">
-          <button class="wishlist-btn" onclick="app.toggleWishlist(${product.id})" aria-label="Add ${product.name} to wishlist">
-            <i class="far fa-heart"></i>
+          <button class="wishlist-btn" data-wishlist-id="${product.id}" aria-label="${this.state.wishlist.includes(product.id) ? 'Remove from' : 'Add to'} wishlist">
+            <i class="${this.state.wishlist.includes(product.id) ? 'fas fa-heart' : 'far fa-heart'}"></i>
           </button>
         </div>
         <div class="product-info">
@@ -571,12 +640,28 @@ class TangogiApp {
             <span class="price">₦${product.price.toLocaleString()}</span>
             <span class="unit">/${product.unit}</span>
           </div>
-          <button class="btn btn-primary add-to-cart" onclick="app.addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+          <button class="btn btn-primary add-to-cart" data-product-id="${product.id}">
             <i class="fas fa-shopping-cart"></i> Add to Cart
           </button>
         </div>
       </div>
     `).join('');
+
+    container.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = parseInt(btn.dataset.productId);
+        const product = this.state.featuredProducts.find(p => p.id === id) || 
+                        this.state.allProducts.find(p => p.id === id);
+        if (product) this.addToCart(product);
+      });
+    });
+
+    container.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = parseInt(btn.dataset.wishlistId);
+        this.toggleWishlist(id);
+      });
+    });
   }
 
   loadCartPage() {
@@ -601,22 +686,37 @@ class TangogiApp {
       emptyCartMessage.style.display = 'none';
 
       cartItemsContainer.innerHTML = this.state.cart.map(item => `
-        <div class="cart-item">
+        <div class="cart-item" data-cart-id="${item.cartId}">
           <img src="${item.image}" alt="${item.name}" class="cart-item-image">
           <div class="cart-item-details">
             <div class="cart-item-name">${item.name}</div>
             <div class="cart-item-price">₦${item.price.toLocaleString()}</div>
             <div class="cart-item-quantity">
-              <button class="quantity-btn" onclick="app.updateCartQuantity(${item.cartId}, ${item.quantity - 1})">-</button>
-              <span>${item.quantity}</span>
-              <button class="quantity-btn" onclick="app.updateCartQuantity(${item.cartId}, ${item.quantity + 1})">+</button>
+              <button class="quantity-btn dec" aria-label="Decrease quantity">-</button>
+              <span class="quantity-value">${item.quantity}</span>
+              <button class="quantity-btn inc" aria-label="Increase quantity">+</button>
             </div>
           </div>
-          <button class="remove-item" onclick="app.removeFromCart(${item.cartId})" aria-label="Remove ${item.name}">
+          <button class="remove-item" aria-label="Remove ${item.name}">
             <i class="fas fa-times"></i>
           </button>
         </div>
       `).join('');
+
+      cartItemsContainer.querySelectorAll('.remove-item').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          this.removeFromCart(this.state.cart[index].cartId);
+        });
+      });
+
+      cartItemsContainer.querySelectorAll('.quantity-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          const item = this.state.cart[index];
+          if (!item) return;
+          const newQty = btn.classList.contains('inc') ? item.quantity + 1 : item.quantity - 1;
+          this.updateCartQuantity(item.cartId, newQty);
+        });
+      });
 
       const subtotal = this.state.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
       const tax = subtotal * this.state.taxRate;
@@ -629,9 +729,11 @@ class TangogiApp {
 
       const checkoutBtn = document.getElementById('checkout-btn');
       if (checkoutBtn) {
-        checkoutBtn.onclick = () => {
+        const handleClick = () => {
           alert('✅ Checkout functionality will be added soon!\n\nIn a real app, this would connect to a payment gateway.');
         };
+        checkoutBtn.removeEventListener('click', handleClick);
+        checkoutBtn.addEventListener('click', handleClick);
       }
     }
   }
@@ -698,19 +800,80 @@ class TangogiApp {
     return icons[type] || 'info-circle';
   }
 
-  registerServiceWorker() {
+ registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
         .then(registration => {
           console.log('SW registered:', registration);
+          registration.addEventListener('updatefound', () => {
+            this.showNotification('New version available', 'info');
+          });
         })
         .catch(error => {
           console.log('SW registration failed:', error);
         });
     }
   }
-}
+} // ✅ THIS CLOSING BRACE IS REQUIRED
 
+// Initialize the app
+document.addEventListener('DOMContentLoaded', () => {
+  window.app = new TangogiApp();
+}); // ← THIS WAS MISSING - CLASS CLOSING BRACE
+
+// Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
   window.app = new TangogiApp();
 });
+
+// About Page Specific JavaScript (only runs on about.html)
+if (window.location.pathname.includes('about.html')) 
+  document.addEventListener('DOMContentLoaded', function() {
+    const milestoneNumbers = document.querySelectorAll('.milestone-number');
+    
+    function animateNumbers() {
+      milestoneNumbers.forEach(number => {
+        const target = parseInt(number.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          number.textContent = Math.floor(current).toLocaleString();
+        }, 16);
+      });
+    }
+    
+    function checkScroll() {
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+      
+      const milestonesSection = document.querySelector('.milestones-section');
+      if (milestonesSection) {
+        const sectionTop = milestonesSection.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 100 && !milestonesSection.classList.contains('animated')) {
+          milestonesSection.classList.add('animated');
+          animateNumbers();
+        }
+      }
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+    
+    document.querySelectorAll('.value-card, .story-content, .cta-content').forEach(el => {
+      el.classList.add('fade-in');
+    });
+  });
