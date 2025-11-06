@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop by Category - Tangogi Supermarket</title>
+  <!-- ✅ Fixed Font Awesome CDN (removed extra spaces) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="categories.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-   <header class="site-header">
+  
+  <!-- ✅ FULL INLINE HEADER (your existing header) -->
+  <header class="site-header">
         <div class="header-top-bar">
             <div class="container">
                 <div class="header-top-content">
@@ -344,80 +348,244 @@
         </div>
     </div>
    </header>
-  <!-- Header will load here -->
-  <div id="header-placeholder"></div>
 
   <main id="main-content" class="container">
-    <div class="section-header">
-      <h1 class="page-title">Shop by Category</h1>
-      <p class="page-subtitle">Browse our fresh collections</p>
-    </div>
-
-    <div class="categories-grid">
-      <a href="products.html?category=fruits" class="category-card">
-        <div class="category-image">
-          <img src="images/categories/fruits.jpg" alt="Fresh Fruits">
-        </div>
-        <div class="category-content">
-          <i class="fas fa-apple-alt"></i>
-          <h3>Fresh Fruits</h3>
-          <span class="category-count">50+ Products</span>
-        </div>
-      </a>
-      <a href="products.html?category=vegetables" class="category-card">
-        <div class="category-image">
-          <img src="images/categories/vegetables.jpg" alt="Fresh Vegetables">
-        </div>
-        <div class="category-content">
-          <i class="fas fa-carrot"></i>
-          <h3>Vegetables</h3>
-          <span class="category-count">40+ Products</span>
-        </div>
-      </a>
-      <a href="products.html?category=meat" class="category-card">
-        <div class="category-image">
-          <img src="images/categories/meat.jpg" alt="Meat & Poultry">
-        </div>
-        <div class="category-content">
-          <i class="fas fa-drumstick-bite"></i>
-          <h3>Meat & Poultry</h3>
-          <span class="category-count">30+ Products</span>
-        </div>
-      </a>
-      <a href="products.html?category=dairy" class="category-card">
-        <div class="category-image">
-          <img src="images/categories/dairy.jpg" alt="Dairy Products">
-        </div>
-        <div class="category-content">
-          <i class="fas fa-cheese"></i>
-          <h3>Dairy & Eggs</h3>
-          <span class="category-count">25+ Products</span>
-        </div>
-      </a>
-      <a href="products.html?category=grains" class="category-card">
-        <div class="category-image">
-          <img src="images/categories/grains.jpg" alt="Grains & Staples">
-        </div>
-        <div class="category-content">
-          <i class="fas fa-bread-slice"></i>
-          <h3>Grains & Staples</h3>
-          <span class="category-count">20+ Products</span>
-        </div>
-      </a>
-      <a href="products.html" class="category-card view-all">
-        <div class="category-image">
-          <div class="view-all-icon">
-            <i class="fas fa-th-large"></i>
+    <!-- Hero Section for Categories -->
+    <section class="category-hero">
+      <div class="hero-content text-center">
+        <h1 class="page-title">Shop by Category</h1>
+        <p class="page-subtitle">Discover our fresh collections organized for your convenience</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" data-count="12">0</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="150" data-suffix="+">0</span>
+            <span class="stat-label">Products</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="99">0</span>
+            <span class="stat-label">% Freshness</span>
           </div>
         </div>
-        <div class="category-content">
-          <h3>View All</h3>
-          <span class="category-count">150+ Products</span>
+      </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="category-filters">
+      <div class="filters-container">
+        <div class="filter-group">
+          <label for="category-search">Search Categories:</label>
+          <input type="text" id="category-search" class="category-search-input" placeholder="Search categories...">
         </div>
-      </a>
-    </div>
+        <div class="filter-group">
+          <label for="sort-categories">Sort by:</label>
+          <select id="sort-categories" class="sort-select">
+            <option value="default">Default</option>
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
+            <option value="products-desc">Most Products</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Categories Grid -->
+    <section class="categories-section">
+      <div class="categories-grid" id="categories-container">
+        <!-- Fresh Produce -->
+        <a href="products.html?category=fruits" class="category-card" data-category="fruits" data-products="50">
+          <div class="category-image">
+            <img src="images/categories/fruits.jpg" alt="Fresh Fruits" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-apple-alt"></i>
+            <h3>Fresh Fruits</h3>
+            <span class="category-count">50+ Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=vegetables" class="category-card" data-category="vegetables" data-products="40">
+          <div class="category-image">
+            <img src="images/categories/vegetables.jpg" alt="Fresh Vegetables" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-carrot"></i>
+            <h3>Vegetables</h3>
+            <span class="category-count">40+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Meat & Seafood -->
+        <a href="products.html?category=meat" class="category-card" data-category="meat" data-products="30">
+          <div class="category-image">
+            <img src="images/categories/meat.jpg" alt="Meat & Poultry" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-drumstick-bite"></i>
+            <h3>Meat & Poultry</h3>
+            <span class="category-count">30+ Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=seafood" class="category-card" data-category="seafood" data-products="25">
+          <div class="category-image">
+            <img src="images/categories/seafood.jpg" alt="Fresh Seafood" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-fish"></i>
+            <h3>Seafood</h3>
+            <span class="category-count">25+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Dairy & Eggs -->
+        <a href="products.html?category=dairy" class="category-card" data-category="dairy" data-products="25">
+          <div class="category-image">
+            <img src="images/categories/dairy.jpg" alt="Dairy Products" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-cheese"></i>
+            <h3>Dairy & Eggs</h3>
+            <span class="category-count">25+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Pantry Staples -->
+        <a href="products.html?category=grains" class="category-card" data-category="grains" data-products="20">
+          <div class="category-image">
+            <img src="images/categories/grains.jpg" alt="Grains & Staples" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-bread-slice"></i>
+            <h3>Grains & Staples</h3>
+            <span class="category-count">20+ Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=oil" class="category-card" data-category="oil" data-products="15">
+          <div class="category-image">
+            <img src="images/categories/oil.jpg" alt="Cooking Oil" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-oil-can"></i>
+            <h3>Cooking Oil</h3>
+            <span class="category-count">15+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Beverages -->
+        <a href="products.html?category=beverages" class="category-card" data-category="beverages" data-products="35">
+          <div class="category-image">
+            <img src="images/categories/beverages.jpg" alt="Beverages" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-wine-bottle"></i>
+            <h3>Beverages</h3>
+            <span class="category-count">35+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Bakery -->
+        <a href="products.html?category=bakery" class="category-card" data-category="bakery" data-products="22">
+          <div class="category-image">
+            <img src="images/categories/bakery.jpg" alt="Bakery" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-bread-slice"></i>
+            <h3>Bakery</h3>
+            <span class="category-count">22+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Frozen Foods -->
+        <a href="products.html?category=frozen" class="category-card" data-category="frozen" data-products="28">
+          <div class="category-image">
+            <img src="images/categories/frozen.jpg" alt="Frozen Foods" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-snowflake"></i>
+            <h3>Frozen Foods</h3>
+            <span class="category-count">28+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Cleaning & Household -->
+        <a href="products.html?category=cleaning" class="category-card" data-category="cleaning" data-products="32">
+          <div class="category-image">
+            <img src="images/categories/cleaning.jpg" alt="Cleaning Supplies" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-broom"></i>
+            <h3>Cleaning & Household</h3>
+            <span class="category-count">32+ Products</span>
+          </div>
+        </a>
+        
+        <!-- Personal Care -->
+        <a href="products.html?category=personal" class="category-card" data-category="personal" data-products="26">
+          <div class="category-image">
+            <img src="images/categories/personal.jpg" alt="Personal Care" class="lazy-load">
+          </div>
+          <div class="category-content">
+            <i class="fas fa-spa"></i>
+            <h3>Personal Care</h3>
+            <span class="category-count">26+ Products</span>
+          </div>
+        </a>
+        
+        <!-- View All -->
+        <a href="products.html" class="category-card view-all">
+          <div class="category-image">
+            <div class="view-all-icon">
+              <i class="fas fa-th-large"></i>
+            </div>
+          </div>
+          <div class="category-content">
+            <h3>View All Categories</h3>
+            <span class="category-count">150+ Products</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Category Features Section -->
+    <section class="category-features">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Farm Fresh</h3>
+          <p>Direct from local farmers to your doorstep within hours of harvest.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3>Fast Delivery</h3>
+          <p>Get your groceries delivered within 60 minutes across Lagos.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Quality Guaranteed</h3>
+          <p>Every product is quality-checked before delivery.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Our customer service team is always ready to assist you.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- ✅ FULL INLINE FOOTER -->
   <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -489,6 +657,86 @@
         </div>
    </footer>
 
+  <!-- Quick Cart & Mobile Nav (required for JS) -->
+  <div id="quick-cart" class="quick-cart">...</div>
+  <div id="mobile-navigation" class="mobile-navigation">...</div>
+
   <script src="app.js"></script>
+  
+  <!-- ✅ Category Page Specific JavaScript -->
+  <script>
+    // Category filtering and search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('category-search');
+      const sortSelect = document.getElementById('sort-categories');
+      const categoriesContainer = document.getElementById('categories-container');
+      const categoryCards = document.querySelectorAll('.category-card:not(.view-all)');
+      
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        categoryCards.forEach(card => {
+          const categoryName = card.querySelector('h3').textContent.toLowerCase();
+          const categoryDescription = card.querySelector('.category-count').textContent.toLowerCase();
+          if (categoryName.includes(searchTerm) || categoryDescription.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+      
+      // Sorting functionality
+      sortSelect.addEventListener('change', function() {
+        const sortBy = this.value;
+        const cardsArray = Array.from(categoryCards);
+        
+        let sortedCards;
+        switch(sortBy) {
+          case 'name-asc':
+            sortedCards = cardsArray.sort((a, b) => 
+              a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent)
+            );
+            break;
+          case 'name-desc':
+            sortedCards = cardsArray.sort((a, b) => 
+              b.querySelector('h3').textContent.localeCompare(a.querySelector('h3').textContent)
+            );
+            break;
+          case 'products-desc':
+            sortedCards = cardsArray.sort((a, b) => 
+              parseInt(b.getAttribute('data-products')) - parseInt(a.getAttribute('data-products'))
+            );
+            break;
+          default:
+            sortedCards = cardsArray.sort((a, b) => 
+              parseInt(a.getAttribute('data-category')) - parseInt(b.getAttribute('data-category'))
+            );
+        }
+        
+        // Clear and re-append sorted cards
+        sortedCards.forEach(card => categoriesContainer.appendChild(card));
+      });
+      
+      // Initialize counters (if not already done in app.js)
+      if (typeof app === 'undefined') {
+        // Simple counter animation for this page
+        const counters = document.querySelectorAll('[data-count]');
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-count'));
+          const suffix = counter.getAttribute('data-suffix') || '';
+          let current = 0;
+          const timer = setInterval(() => {
+            current += Math.ceil(target / 50);
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            counter.textContent = current + suffix;
+          }, 30);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

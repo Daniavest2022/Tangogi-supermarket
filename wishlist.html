@@ -1,4 +1,15 @@
-   <header class="site-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
         <div class="header-top-bar">
             <div class="container">
                 <div class="header-top-content">
@@ -334,10 +345,302 @@
     </div>
    </header>
 
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Wishlist Hero -->
+        <section class="wishlist-hero">
+            <div class="container">
+                <div class="wishlist-hero-content">
+                    <h1>My Wishlist</h1>
+                    <p>Save your favorite items for later</p>
+                    <div class="wishlist-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="wishlist-total">12</span>
+                            <span class="stat-label">Items Saved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">₦8,450</span>
+                            <span class="stat-label">Potential Savings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Wishlist Controls -->
+        <section class="wishlist-controls">
+            <div class="container">
+                <div class="controls-flex">
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                            Grid
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                            List
+                        </button>
+                    </div>
+                    <div class="wishlist-actions">
+                        <div class="sort-options">
+                            <label for="wishlist-sort">Sort by:</label>
+                            <select id="wishlist-sort">
+                                <option value="recent">Recently Added</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name">Name A-Z</option>
+                                <option value="discount">Best Discount</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-outline" id="share-wishlist">
+                            <i class="fas fa-share-alt"></i>
+                            Share List
+                        </button>
+                        <button class="btn btn-danger" id="clear-wishlist">
+                            <i class="fas fa-trash"></i>
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Wishlist Content -->
+        <section class="wishlist-content">
+            <div class="container">
+                <!-- Empty Wishlist State -->
+                <div class="empty-wishlist" id="empty-wishlist" style="display: none;">
+                    <div class="empty-state">
+                        <i class="fas fa-heart"></i>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Start adding items you love to your wishlist</p>
+                        <a href="products.html" class="btn btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            Start Shopping
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Wishlist Items Grid -->
+                <div class="wishlist-grid" id="wishlist-items">
+                    <!-- Wishlist Item 1 -->
+                    <div class="wishlist-item">
+                        <div class="item-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Organic Apples" loading="lazy">
+                            <div class="item-badges">
+                                <span class="badge discount">-15%</span>
+                                <span class="badge organic">Organic</span>
+                            </div>
+                            <button class="wishlist-remove" title="Remove from wishlist">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="item-info">
+                            <h3 class="item-name">Fresh Organic Apples</h3>
+                            <div class="item-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.5 (128)</span>
+                            </div>
+                            <div class="item-price">
+                                <span class="current-price">₦850</span>
+                                <span class="original-price">₦1,000</span>
+                                <span class="savings">Save ₦150</span>
+                            </div>
+                            <div class="item-stock">
+                                <span class="stock-status in-stock">
+                                    <i class="fas fa-check-circle"></i>
+                                    In Stock
+                                </span>
+                                <span class="delivery-time">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Delivery in 2 hours
+                                </span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="btn btn-primary add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-outline move-to-cart" style="display: none;">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Move to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-meta">
+                            <span class="added-date">
+                                <i class="far fa-calendar"></i>
+                                Added Jan 10, 2024
+                            </span>
+                            <div class="price-alert">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Notify when price drops</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Wishlist Item 2 -->
+                    <div class="wishlist-item">
+                        <div class="item-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Basmati Rice" loading="lazy">
+                            <div class="item-badges">
+                                <span class="badge bestseller">Bestseller</span>
+                            </div>
+                            <button class="wishlist-remove" title="Remove from wishlist">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="item-info">
+                            <h3 class="item-name">Premium Basmati Rice</h3>
+                            <div class="item-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.0 (256)</span>
+                            </div>
+                            <div class="item-price">
+                                <span class="current-price">₦4,500</span>
+                                <span class="unit">per 5kg</span>
+                            </div>
+                            <div class="item-stock">
+                                <span class="stock-status in-stock">
+                                    <i class="fas fa-check-circle"></i>
+                                    In Stock
+                                </span>
+                                <span class="delivery-time">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Delivery in 4 hours
+                                </span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="btn btn-primary add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-meta">
+                            <span class="added-date">
+                                <i class="far fa-calendar"></i>
+                                Added Jan 8, 2024
+                            </span>
+                            <div class="price-alert">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Notify when price drops</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More wishlist items would be listed here -->
+                </div>
+
+                <!-- Wishlist Recommendations -->
+                <div class="recommendations-section">
+                    <h3 class="section-title">You Might Also Like</h3>
+                    <div class="recommendations-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x200" alt="Organic Bananas" loading="lazy">
+                                <button class="wishlist-btn" title="Add to wishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-name">Organic Bananas</h4>
+                                <div class="product-price">
+                                    <span class="price">₦600</span>
+                                    <span class="unit">per kg</span>
+                                </div>
+                                <button class="btn btn-outline add-to-cart">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <!-- More recommendation cards -->
+                    </div>
+                </div>
+
+                <!-- Price Drop Alerts -->
+                <div class="alerts-section">
+                    <div class="alerts-header">
+                        <h3>
+                            <i class="fas fa-bell"></i>
+                            Price Drop Alerts
+                        </h3>
+                        <button class="btn btn-outline btn-sm" id="manage-alerts">
+                            Manage Alerts
+                        </button>
+                    </div>
+                    <div class="alerts-list">
+                        <div class="alert-item">
+                            <div class="alert-info">
+                                <h4>Fresh Tomatoes</h4>
+                                <p>Price dropped from ₦1,200 to ₦850</p>
+                                <span class="alert-time">2 hours ago</span>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn btn-primary btn-sm">
+                                    View Item
+                                </button>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-info">
+                                <h4>Chicken Breast</h4>
+                                <p>Price dropped from ₦2,800 to ₦2,200</p>
+                                <span class="alert-time">1 day ago</span>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn btn-primary btn-sm">
+                                    View Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bulk Actions Bar -->
+        <div class="bulk-actions-bar" id="bulk-actions" style="display: none;">
+            <div class="container">
+                <div class="bulk-actions-content">
+                    <div class="selection-info">
+                        <span id="selected-count">0 items selected</span>
+                    </div>
+                    <div class="bulk-buttons">
+                        <button class="btn btn-outline" id="bulk-add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add Selected to Cart
+                        </button>
+                        <button class="btn btn-outline" id="bulk-remove">
+                            <i class="fas fa-trash"></i>
+                            Remove Selected
+                        </button>
+                        <button class="btn btn-outline" id="clear-selection">
+                            Clear Selection
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -408,3 +711,83 @@
             </div>
         </div>
    </footer>
+
+    <!-- Share Wishlist Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share Your Wishlist</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <div class="share-link">
+                        <label>Shareable Link</label>
+                        <div class="link-input-group">
+                            <input type="text" id="share-link" value="https://tangogi.com/wishlist/abc123" readonly>
+                            <button class="btn btn-outline" id="copy-link">
+                                <i class="fas fa-copy"></i>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                    <div class="share-platforms">
+                        <label>Share via</label>
+                        <div class="platform-buttons">
+                            <button class="btn btn-social btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </button>
+                            <button class="btn btn-social btn-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                            <button class="btn btn-social btn-twitter">
+                                <i class="fab fa-twitter"></i>
+                                Twitter
+                            </button>
+                            <button class="btn btn-social btn-telegram">
+                                <i class="fab fa-telegram"></i>
+                                Telegram
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-settings">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="allow-editing">
+                        <span>Allow recipients to add items to this wishlist</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="public-wishlist">
+                        <span>Make this wishlist public</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear Wishlist Confirmation -->
+    <div class="modal" id="clear-confirm-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Clear Wishlist</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h4>Are you sure you want to clear your wishlist?</h4>
+                    <p>This will remove all items from your wishlist. This action cannot be undone.</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancel-clear">Cancel</button>
+                <button class="btn btn-danger" id="confirm-clear">Clear Wishlist</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

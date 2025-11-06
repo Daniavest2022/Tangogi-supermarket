@@ -1,4 +1,15 @@
-   <header class="site-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
         <div class="header-top-bar">
             <div class="container">
                 <div class="header-top-content">
@@ -162,11 +173,11 @@
                         </div>
 
                         <!-- Mobile Menu Toggle -->
-                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
                     </div>
                 </div>
             </div>
@@ -334,9 +345,208 @@
     </div>
    </header>
 
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Login Hero -->
+        <section class="auth-hero">
+            <div class="container">
+                <div class="auth-hero-content">
+                    <h1>Welcome Back!</h1>
+                    <p>Sign in to your account to continue shopping</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Login Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <!-- Login Form -->
+                    <div class="auth-form-container">
+                        <div class="auth-form-header">
+                            <h2>Sign In to Your Account</h2>
+                            <p>Enter your credentials to access your account</p>
+                        </div>
 
-   <!--footer-->
+                        <form class="auth-form" id="login-form">
+                            <!-- Email/Phone Input -->
+                            <div class="form-group">
+                                <label for="login-identifier">
+                                    <i class="fas fa-user"></i>
+                                    Email or Phone Number *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="login-identifier" 
+                                    name="identifier" 
+                                    placeholder="Enter your email or phone number" 
+                                    required
+                                >
+                            </div>
+
+                            <!-- Password Input -->
+                            <div class="form-group">
+                                <label for="login-password">
+                                    <i class="fas fa-lock"></i>
+                                    Password *
+                                </label>
+                                <div class="password-wrapper">
+                                    <input 
+                                        type="password" 
+                                        id="login-password" 
+                                        name="password" 
+                                        placeholder="Enter your password" 
+                                        required
+                                    >
+                                    <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-options">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="remember" id="remember-me">
+                                        <span>Remember me</span>
+                                    </label>
+                                    <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                                </div>
+                            </div>
+
+                            <!-- Security Check (if needed) -->
+                            <div class="security-check" id="security-check" style="display: none;">
+                                <div class="captcha-container">
+                                    <div class="captcha-challenge">
+                                        <span id="captcha-text">ABCD123</span>
+                                    </div>
+                                    <input type="text" id="captcha-input" placeholder="Enter the text above" required>
+                                    <button type="button" class="btn btn-outline btn-sm" id="refresh-captcha">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-block btn-large">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Sign In
+                            </button>
+
+                            <!-- Form Errors -->
+                            <div class="form-errors" id="login-errors" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span id="error-message"></span>
+                            </div>
+                        </form>
+
+                        <!-- Alternative Login Options -->
+                        <div class="auth-divider">
+                            <span>Or continue with</span>
+                        </div>
+
+                        <div class="social-auth">
+                            <button class="btn btn-social btn-google" type="button">
+                                <i class="fab fa-google"></i>
+                                Continue with Google
+                            </button>
+                            <button class="btn btn-social btn-facebook" type="button">
+                                <i class="fab fa-facebook-f"></i>
+                                Continue with Facebook
+                            </button>
+                            <button class="btn btn-social btn-apple" type="button">
+                                <i class="fab fa-apple"></i>
+                                Continue with Apple
+                            </button>
+                        </div>
+
+                        <!-- Sign Up Link -->
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="register.html">Create one here</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Login Benefits -->
+                    <div class="auth-benefits">
+                        <h3>Why Sign In?</h3>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4>Order History</h4>
+                                    <p>Quick access to your past orders and easy reordering</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4>Saved Wishlists</h4>
+                                    <p>Access your saved items and price drop alerts</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4>Faster Checkout</h4>
+                                    <p>Save your details for quicker future purchases</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4>Exclusive Offers</h4>
+                                    <p>Member-only discounts and early access to sales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Features -->
+        <section class="security-features-section">
+            <div class="container">
+                <h2 class="section-title">Your Security is Our Priority</h2>
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>SSL Encrypted</h3>
+                        <p>All your data is protected with 256-bit SSL encryption</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure Payments</h3>
+                        <p>Your payment information is never stored on our servers</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Privacy Protected</h3>
+                        <p>We never share your personal information with third parties</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <!--footer-->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -407,3 +617,64 @@
             </div>
         </div>
    </footer>
+
+    <!-- Two-Factor Authentication Modal -->
+    <div class="modal" id="2fa-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Two-Factor Authentication</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>For your security, please enter the 6-digit code sent to your registered phone number</p>
+                <div class="verification-inputs">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="1">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="2">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="3">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="4">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="5">
+                    <input type="text" maxlength="1" class="verification-digit" data-index="6">
+                </div>
+                <div class="verification-actions">
+                    <button class="btn btn-outline" id="resend-2fa">
+                        Resend Code (60s)
+                    </button>
+                    <button class="btn btn-primary" id="verify-2fa">
+                        Verify & Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Device Login Modal -->
+    <div class="modal" id="new-device-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>New Device Detected</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="device-info">
+                    <i class="fas fa-laptop"></i>
+                    <div class="device-details">
+                        <h4>Windows 10 • Chrome Browser</h4>
+                        <p>Lagos, Nigeria • Just now</p>
+                    </div>
+                </div>
+                <p>Is this you signing in? For security, we need to confirm this is your device.</p>
+                <div class="device-actions">
+                    <button class="btn btn-outline" id="deny-device">
+                        No, It's Not Me
+                    </button>
+                    <button class="btn btn-primary" id="trust-device">
+                        Yes, Trust This Device
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

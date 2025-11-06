@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - Tangogi Supermarket</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-     <header class="site-header">
-        <div class="header-top-bar">
+  <!-- Header (same as your original) -->
+  <header class="site-header">
+    <div class="header-top-bar">
             <div class="container">
                 <div class="header-top-content">
                     <div class="delivery-info">
@@ -171,11 +174,11 @@
                         </div>
 
                         <!-- Mobile Menu Toggle -->
-                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
                     </div>
                 </div>
             </div>
@@ -341,58 +344,362 @@
             </div>
         </div>
     </div>
-   </header>
-    <!-- Include header.html content here or use JS to load -->
+  </header>
 
   <main class="container">
-    <h1 class="page-title">Contact Us</h1>
-
-    <section class="contact-info grid grid-3">
-      <div class="info-card">
-        <i class="fas fa-map-marker-alt"></i>
-        <h3>Our Location</h3>
-        <p>No. 1 Campground Rd, Anthony Village, Lagos</p>
-        <div id="map-container" aria-label="Location Map"></div> <!-- Placeholder for map -->
-      </div>
-
-      <div class="info-card">
-        <i class="fas fa-phone-alt"></i>
-        <h3>Call Us</h3>
-        <p>+234 901 865 1283<br>+234 805 301 9459</p>
-      </div>
-
-      <div class="info-card">
-        <i class="fas fa-envelope"></i>
-        <h3>Email Us</h3>
-        <p>support@tangogi.com</p>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="hero-subtitle">We're here to help you with any questions or concerns about your shopping experience</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="24">0</div>
+            <div class="stat-label">Hours Response</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="98">0</div>
+            <div class="stat-label">% Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="1000">0</div>
+            <div class="stat-label">+ Customers Helped</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="contact-form">
-      <h2>Send Us a Message</h2>
-      <form id="contact-form" class="form-grid">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" required aria-required="true">
+    <!-- Contact Info Cards -->
+    <section class="contact-info grid grid-3">
+      <div class="info-card">
+        <div class="card-icon">
+          <i class="fas fa-map-marker-alt"></i>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required aria-required="true">
+        <h3>Visit Our Store</h3>
+        <p>No. 1 Campground Rd, Anthony Village, Lagos</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="app.openInGoogleMaps()">
+            <i class="fas fa-directions"></i>
+            Get Directions
+          </button>
         </div>
-        <div class="form-group full-width">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" required>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">
+          <i class="fas fa-phone-alt"></i>
         </div>
-        <div class="form-group full-width">
-          <label for="message">Message</label>
-          <textarea id="message" rows="6" required></textarea>
+        <h3>Call Us</h3>
+        <p>+234 901 865 1283</p>
+        <p>+234 805 301 9459</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="app.callNumber('+2349018651283')">
+            <i class="fas fa-phone"></i>
+            Call Now
+          </button>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email Us</h3>
+        <p>support@tangogi.com</p>
+        <p>orders@tangogi.com</p>
+        <div class="card-actions">
+          <button class="btn btn-outline" onclick="app.composeEmail()">
+            <i class="fas fa-paper-plane"></i>
+            Send Email
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section">
+      <div class="section-header">
+        <h2>Find Us Easily</h2>
+        <p>Visit our supermarket for the freshest groceries and best service</p>
+      </div>
+      <div class="map-container">
+        <div id="map-placeholder" class="map-placeholder">
+          <div class="map-content">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4>Our Location</h4>
+            <p>No. 1 Campground Rd, Anthony Village, Lagos</p>
+            <div class="map-features">
+              <div class="map-feature">
+                <i class="fas fa-clock"></i>
+                <span>Open 7AM - 10PM Daily</span>
+              </div>
+              <div class="map-feature">
+                <i class="fas fa-parking"></i>
+                <span>Free Parking Available</span>
+              </div>
+              <div class="map-feature">
+                <i class="fas fa-wheelchair"></i>
+                <span>Wheelchair Accessible</span>
+              </div>
+            </div>
+            <div class="map-actions">
+              <button class="btn btn-primary" onclick="app.openInGoogleMaps()">
+                <i class="fas fa-external-link-alt"></i>
+                Open in Maps
+              </button>
+              <button class="btn btn-outline" onclick="app.getDirections()">
+                <i class="fas fa-route"></i>
+                Get Directions
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below and we'll get back to you within 24 hours</p>
+        </div>
+        
+        <form id="contact-form" class="contact-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">
+                <i class="fas fa-user"></i>
+                Full Name *
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                placeholder="Enter your full name"
+                required
+                aria-required="true"
+              >
+              <div class="form-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                <i class="fas fa-envelope"></i>
+                Email Address *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="Daniavest2022@gmail.com"
+                required
+                aria-required="true"
+              >
+              <div class="form-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">
+                <i class="fas fa-phone"></i>
+                Phone Number
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                placeholder="+234 901 865 1283"
+              >
+              <div class="form-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">
+                <i class="fas fa-tag"></i>
+                Subject *
+              </label>
+              <select id="subject" name="subject" required aria-required="true">
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Issue</option>
+                <option value="delivery">Delivery Problem</option>
+                <option value="product">Product Quality</option>
+                <option value="partnership">Partnership</option>
+                <option value="careers">Careers</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="form-feedback"></div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="order-number">
+                <i class="fas fa-receipt"></i>
+                Order Number (if applicable)
+              </label>
+              <input 
+                type="text" 
+                id="order-number" 
+                name="orderNumber"
+                placeholder="e.g., TGO-123456"
+              >
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">
+                <i class="fas fa-comment"></i>
+                Message *
+              </label>
+              <textarea 
+                id="message" 
+                name="message"
+                rows="6" 
+                placeholder="Please describe your inquiry in detail..."
+                required
+                aria-required="true"
+              ></textarea>
+              <div class="char-counter">
+                <span id="char-count">0</span>/500 characters
+              </div>
+              <div class="form-feedback"></div>
+            </div>
+
+            <div class="form-group full-width">
+              <div class="form-options">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="newsletter" name="newsletter">
+                  <span class="checkmark"></span>
+                  Subscribe to our newsletter for updates and offers
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="urgent" name="urgent">
+                  <span class="checkmark"></span>
+                  This is an urgent matter
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-outline">
+              <i class="fas fa-redo"></i>
+              Clear Form
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Quick Contact Sidebar -->
+      <div class="quick-contact">
+        <div class="quick-contact-card">
+          <h3>Quick Help</h3>
+          
+          <div class="quick-links">
+            <a href="faq.html" class="quick-link">
+              <i class="fas fa-question-circle"></i>
+              <div>
+                <strong>FAQ</strong>
+                <span>Common questions answered</span>
+              </div>
+            </a>
+            
+            <a href="tracking.html" class="quick-link">
+              <i class="fas fa-shipping-fast"></i>
+              <div>
+                <strong>Track Order</strong>
+                <span>Check delivery status</span>
+              </div>
+            </a>
+            
+            <a href="returns.html" class="quick-link">
+              <i class="fas fa-undo-alt"></i>
+              <div>
+                <strong>Returns</strong>
+                <span>Return policy & process</span>
+              </div>
+            </a>
+            
+            <a href="help.html" class="quick-link">
+              <i class="fas fa-life-ring"></i>
+              <div>
+                <strong>Help Center</strong>
+                <span>Complete support guide</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="business-hours">
+            <h4>Business Hours</h4>
+            <div class="hours-list">
+              <div class="hour-item">
+                <span>Monday - Friday</span>
+                <span>7:00 AM - 10:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span>Saturday</span>
+                <span>7:00 AM - 11:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span>Sunday</span>
+                <span>8:00 AM - 9:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="emergency-contact">
+            <div class="emergency-info">
+              <i class="fas fa-exclamation-triangle"></i>
+              <div>
+                <strong>Urgent Delivery Issues?</strong>
+                <span>Call: +234 901 865 1283</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Preview Section -->
+    <section class="faq-preview">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>What are your delivery hours?</h4>
+          <p>We deliver from 8:00 AM to 9:00 PM daily, including weekends.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you offer same-day delivery?</h4>
+          <p>Yes! Orders placed before 2:00 PM are eligible for same-day delivery.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What payment methods do you accept?</h4>
+          <p>We accept cash on delivery, bank transfer, and all major credit/debit cards.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I modify my order after placing it?</h4>
+          <p>Orders can be modified within 30 minutes of placement through your account.</p>
+        </div>
+      </div>
+      <div class="faq-actions">
+        <a href="faq.html" class="btn btn-outline">
+          <i class="fas fa-question-circle"></i>
+          View All FAQs
+        </a>
+      </div>
     </section>
   </main>
 
-   <footer class="site-footer">
+  <!-- Footer (same as your original) -->
+  <footer class="site-footer">
+    <!-- Footer will be loaded here -->
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -462,6 +769,15 @@
             </div>
         </div>
    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <button class="floating-btn" id="quick-cart-btn" aria-label="Quick Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="floating-badge" id="floating-cart-count">0</span>
+        </button>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 </body>

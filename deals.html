@@ -18,627 +18,347 @@
     <title>Hot Deals - Tangogi Supermarket</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="deals-enhancements.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4caf50">
     <meta name="description" content="Discover amazing deals and special offers at Tangogi Supermarket. Limited time discounts on fresh groceries and daily essentials.">
-    
-    <style>
-        /* Additional styles specific to the deals page */
-        .deals-hero {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            padding: 100px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .deals-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('images/deals-pattern.svg') no-repeat center;
-            background-size: cover;
-            opacity: 0.1;
-        }
-        
-        .deals-hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .deals-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .deals-hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .deal-countdown {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 500px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .countdown-title {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .countdown-unit {
-            background: white;
-            color: #ff6b35;
-            border-radius: 8px;
-            padding: 0.75rem;
-            min-width: 70px;
-            text-align: center;
-        }
-        
-        .countdown-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            display: block;
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            text-transform: uppercase;
-        }
-        
-        .breadcrumb {
-            background-color: #f8f9fa;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .breadcrumb a {
-            color: #6c757d;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: #4caf50;
-        }
-        
-        .breadcrumb span {
-            color: #ff6b35;
-        }
-        
-        .deals-section {
-            padding: 80px 0;
-        }
-        
-        .deals-filter {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .filter-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .filter-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2e7d32;
-            margin: 0;
-        }
-        
-        .filter-reset {
-            color: #6c757d;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .filter-reset:hover {
-            color: #ff6b35;
-        }
-        
-        .filter-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .filter-label {
-            font-weight: 500;
-            color: #495057;
-            font-size: 0.9rem;
-        }
-        
-        .filter-select {
-            padding: 0.75rem;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            background: white;
-            cursor: pointer;
-        }
-        
-        .deals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .deal-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .deal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .deal-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: #ff6b35;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-        
-        .deal-badge.new {
-            background: #4caf50;
-        }
-        
-        .deal-badge.limited {
-            background: #e53935;
-        }
-        
-        .deal-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .deal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .deal-card:hover .deal-image img {
-            transform: scale(1.05);
-        }
-        
-        .deal-content {
-            padding: 1.5rem;
-        }
-        
-        .deal-category {
-            color: #6c757d;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .deal-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #2e7d32;
-            line-height: 1.4;
-        }
-        
-        .deal-description {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-        
-        .deal-pricing {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        
-        .deal-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2e7d32;
-        }
-        
-        .deal-original-price {
-            font-size: 1rem;
-            color: #6c757d;
-            text-decoration: line-through;
-        }
-        
-        .deal-discount {
-            background: #e8f5e9;
-            color: #4caf50;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .deal-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
-            color: #6c757d;
-        }
-        
-        .deal-stock {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        
-        .stock-low {
-            color: #e53935;
-        }
-        
-        .deal-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .btn-add-cart {
-            flex: 1;
-            background: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-add-cart:hover {
-            background: #2e7d32;
-        }
-        
-        .btn-wishlist {
-            width: 44px;
-            height: 44px;
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: #6c757d;
-        }
-        
-        .btn-wishlist:hover, .btn-wishlist.active {
-            background: #ff6b35;
-            color: white;
-            border-color: #ff6b35;
-        }
-        
-        .deal-progress {
-            margin-top: 1rem;
-        }
-        
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-bottom: 0.5rem;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: #e9ecef;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: #4caf50;
-            border-radius: 3px;
-            transition: width 0.3s;
-        }
-        
-        .flash-sales-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            color: #2e7d32;
-            margin: 0;
-        }
-        
-        .flash-sales-timer {
-            background: #e53935;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .sales-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .bundle-deals-section {
-            padding: 80px 0;
-        }
-        
-        .bundle-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-        
-        .bundle-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .bundle-badge {
-            background: #ff6b35;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        
-        .bundle-title {
-            font-size: 1.75rem;
-            color: #2e7d32;
-            margin-bottom: 1rem;
-        }
-        
-        .bundle-description {
-            color: #6c757d;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .bundle-price {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .bundle-current {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2e7d32;
-        }
-        
-        .bundle-original {
-            font-size: 1.25rem;
-            color: #6c757d;
-            text-decoration: line-through;
-        }
-        
-        .bundle-savings {
-            background: #e8f5e9;
-            color: #4caf50;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-        
-        .bundle-image {
-            height: 100%;
-            min-height: 300px;
-            overflow: hidden;
-        }
-        
-        .bundle-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .newsletter-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .newsletter-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-btn {
-            background: #ff6b35;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0.75rem 1.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .newsletter-btn:hover {
-            background: #e55a2b;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
-        }
-        
-        .pagination-btn {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            background: white;
-            color: #6c757d;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .pagination-btn:hover, .pagination-btn.active {
-            background: #4caf50;
-            color: white;
-            border-color: #4caf50;
-        }
-        
-        @media (max-width: 992px) {
-            .bundle-card {
-                grid-template-columns: 1fr;
-            }
-            
-            .bundle-image {
-                order: -1;
-                min-height: 200px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .deals-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-            
-            .filter-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header (same as index.html) -->
     <header class="site-header">
-        <!-- Header content from index.html -->
+       <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-info">
+                        <i class="fas fa-truck" aria-label="Truck icon"></i>
+                        <span>Free delivery on orders over ₦5,000</span>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
+                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
+                        <div class="language-selector">
+                            <i class="fas fa-globe" aria-label="Globe icon"></i>
+                            <select aria-label="Select language">
+                                <option value="en">EN</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ha">Hausa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="actions-section">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Location -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <span>Use Current Location</span>
+                                    </div>
+                                    <div class="location-option" data-location="Lagos">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lagos</span>
+                                    </div>
+                                    <div class="location-option" data-location="Abuja">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Abuja</span>
+                                    </div>
+                                    <div class="location-option" data-location="Port Harcourt">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Port Harcourt</span>
+                                    </div>
+                                    <div class="location-option" data-location="Ibadan">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Ibadan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span class="user-text">Account</span>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                    </a>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="action-badge" id="wishlist-count">0</span>
+                        </a>
+
+                        <!-- Cart -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <!-- Quick Cart Popup -->
+    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
+        <div class="quick-cart-content">
+            <div class="quick-cart-header">
+                <h3 id="quick-cart-title">Your Cart</h3>
+                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="quick-cart-body">
+                <div id="cart-items" class="cart-items" aria-live="polite"></div>
+                <div id="empty-cart" class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="quick-cart-footer">
+                <div class="cart-totals">
+                    <div>
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div>
+                        <span>Tax (5%):</span>
+                        <span id="cart-tax">₦0</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₦500</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+                <div class="cart-security">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <div class="logo-section">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Tangogi</span>
+                        <span class="logo-tagline">Supermarket</span>
+                    </div>
+                </a>
+            </div>
+            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+        </div>
+        <div class="mobile-nav-menu">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <span>All Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="deals.html" class="nav-link hot-deal">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <span>Hot Deals</span>
+                        <span class="deal-badge">SALE</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <div class="mobile-user-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Create Account</a>
+            </div>
+        </div>
+    </div>
     </header>
     
     <!-- Skip link for accessibility -->
@@ -971,7 +691,74 @@
 
     <!-- Footer (same as index.html) -->
     <footer class="site-footer">
-        <!-- Footer content from index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Floating Actions -->

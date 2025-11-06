@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account - Tangogi Supermarket</title>
+    <title>Help Center - Tangogi Supermarket</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -347,368 +347,375 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Registration Hero Section -->
-        <section class="auth-hero">
+        <!-- Help Hero Section -->
+        <section class="help-hero">
             <div class="container">
-                <div class="auth-hero-content">
-                    <h1>Join Tangogi Family</h1>
-                    <p>Create your account and enjoy seamless grocery shopping with exclusive benefits</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Registration Form Section -->
-        <section class="auth-section">
-            <div class="container">
-                <div class="auth-container">
-                    <!-- Progress Indicator -->
-                    <div class="registration-progress">
-                        <div class="progress-steps">
-                            <div class="step active" data-step="1">
-                                <span class="step-number">1</span>
-                                <span class="step-label">Account</span>
-                            </div>
-                            <div class="step" data-step="2">
-                                <span class="step-number">2</span>
-                                <span class="step-label">Profile</span>
-                            </div>
-                            <div class="step" data-step="3">
-                                <span class="step-number">3</span>
-                                <span class="step-label">Preferences</span>
-                            </div>
+                <div class="help-hero-content">
+                    <h1>How can we help you?</h1>
+                    <p>Find answers, guides, and support for all your questions</p>
+                    
+                    <!-- Quick Help Search -->
+                    <div class="help-search">
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Search for help topics, orders, or issues..." id="help-search-input">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                Search
+                            </button>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 33%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Multi-step Registration Form -->
-                    <form class="registration-form" id="registration-form">
-                        <!-- Step 1: Account Information -->
-                        <div class="form-step active" data-step="1">
-                            <div class="form-header">
-                                <h2>Account Information</h2>
-                                <p>Create your login credentials</p>
-                            </div>
-                            
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="firstName">
-                                        <i class="fas fa-user"></i>
-                                        First Name *
-                                    </label>
-                                    <input type="text" id="firstName" name="firstName" required>
-                                    <span class="form-hint">Your legal first name</span>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="lastName">
-                                        <i class="fas fa-user"></i>
-                                        Last Name *
-                                    </label>
-                                    <input type="text" id="lastName" name="lastName" required>
-                                    <span class="form-hint">Your legal last name</span>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">
-                                    <i class="fas fa-envelope"></i>
-                                    Email Address *
-                                </label>
-                                <input type="email" id="email" name="email" required>
-                                <span class="form-hint">We'll send verification code to this email</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">
-                                    <i class="fas fa-phone"></i>
-                                    Phone Number *
-                                </label>
-                                <div class="phone-input-group">
-                                    <select id="countryCode" name="countryCode">
-                                        <option value="+234">+234 (NG)</option>
-                                        <option value="+1">+1 (US)</option>
-                                        <option value="+44">+44 (UK)</option>
-                                    </select>
-                                    <input type="tel" id="phone" name="phone" required>
-                                </div>
-                            </div>
-
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="password">
-                                        <i class="fas fa-lock"></i>
-                                        Password *
-                                    </label>
-                                    <div class="password-wrapper">
-                                        <input type="password" id="password" name="password" required>
-                                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </div>
-                                    <div class="password-strength">
-                                        <div class="strength-bar">
-                                            <div class="strength-fill" data-strength="0"></div>
-                                        </div>
-                                        <span class="strength-text">Password strength</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="confirmPassword">
-                                        <i class="fas fa-lock"></i>
-                                        Confirm Password *
-                                    </label>
-                                    <div class="password-wrapper">
-                                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </div>
-                                    <span class="form-hint">Re-enter your password</span>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="button" class="btn btn-primary btn-next" data-next="2">
-                                    Continue to Profile
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Profile Information -->
-                        <div class="form-step" data-step="2">
-                            <div class="form-header">
-                                <h2>Profile Information</h2>
-                                <p>Tell us more about yourself</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="deliveryAddress">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Delivery Address *
-                                </label>
-                                <div class="address-input-group">
-                                    <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="Start typing your address..." required>
-                                    <button type="button" class="btn btn-outline" id="detectLocation">
-                                        <i class="fas fa-crosshairs"></i>
-                                        Detect
-                                    </button>
-                                </div>
-                                <span class="form-hint">Your primary delivery location</span>
-                            </div>
-
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="city">
-                                        <i class="fas fa-city"></i>
-                                        City *
-                                    </label>
-                                    <input type="text" id="city" name="city" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="state">
-                                        <i class="fas fa-map"></i>
-                                        State *
-                                    </label>
-                                    <select id="state" name="state" required>
-                                        <option value="">Select State</option>
-                                        <option value="Lagos">Lagos</option>
-                                        <option value="Abuja">Abuja</option>
-                                        <option value="Rivers">Rivers</option>
-                                        <option value="Oyo">Oyo</option>
-                                        <!-- Add more states -->
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Preferred Delivery Time</label>
-                                <div class="delivery-preferences">
-                                    <label class="preference-option">
-                                        <input type="radio" name="deliveryTime" value="morning" checked>
-                                        <span class="preference-label">
-                                            <i class="fas fa-sun"></i>
-                                            Morning (8AM - 12PM)
-                                        </span>
-                                    </label>
-                                    <label class="preference-option">
-                                        <input type="radio" name="deliveryTime" value="afternoon">
-                                        <span class="preference-label">
-                                            <i class="fas fa-cloud-sun"></i>
-                                            Afternoon (12PM - 4PM)
-                                        </span>
-                                    </label>
-                                    <label class="preference-option">
-                                        <input type="radio" name="deliveryTime" value="evening">
-                                        <span class="preference-label">
-                                            <i class="fas fa-moon"></i>
-                                            Evening (4PM - 8PM)
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="button" class="btn btn-outline btn-prev" data-prev="1">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Back
-                                </button>
-                                <button type="button" class="btn btn-primary btn-next" data-next="3">
-                                    Continue to Preferences
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Preferences -->
-                        <div class="form-step" data-step="3">
-                            <div class="form-header">
-                                <h2>Shopping Preferences</h2>
-                                <p>Customize your shopping experience</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Favorite Categories</label>
-                                <div class="category-preferences">
-                                    <label class="category-option">
-                                        <input type="checkbox" name="categories" value="fruits">
-                                        <span class="category-label">
-                                            <i class="fas fa-apple-alt"></i>
-                                            Fruits & Vegetables
-                                        </span>
-                                    </label>
-                                    <label class="category-option">
-                                        <input type="checkbox" name="categories" value="dairy">
-                                        <span class="category-label">
-                                            <i class="fas fa-cheese"></i>
-                                            Dairy & Eggs
-                                        </span>
-                                    </label>
-                                    <label class="category-option">
-                                        <input type="checkbox" name="categories" value="meat">
-                                        <span class="category-label">
-                                            <i class="fas fa-drumstick-bite"></i>
-                                            Meat & Poultry
-                                        </span>
-                                    </label>
-                                    <label class="category-option">
-                                        <input type="checkbox" name="categories" value="bakery">
-                                        <span class="category-label">
-                                            <i class="fas fa-bread-slice"></i>
-                                            Bakery
-                                        </span>
-                                    </label>
-                                    <label class="category-option">
-                                        <input type="checkbox" name="categories" value="beverages">
-                                        <span class="category-label">
-                                            <i class="fas fa-wine-bottle"></i>
-                                            Beverages
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Communication Preferences</label>
-                                <div class="communication-preferences">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="emailOffers" checked>
-                                        <span>Send me email offers and promotions</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="smsOffers" checked>
-                                        <span>Send me SMS offers and updates</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="newsletter">
-                                        <span>Subscribe to weekly newsletter</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="terms" required>
-                                    <span>I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a> *</span>
-                                </label>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="button" class="btn btn-outline btn-prev" data-prev="2">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Back
-                                </button>
-                                <button type="submit" class="btn btn-primary btn-large">
-                                    <i class="fas fa-user-plus"></i>
-                                    Create Account
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Alternative Registration Options -->
-                    <div class="auth-divider">
-                        <span>Or register with</span>
-                    </div>
-
-                    <div class="social-auth">
-                        <button class="btn btn-social btn-google">
-                            <i class="fab fa-google"></i>
-                            Continue with Google
-                        </button>
-                        <button class="btn btn-social btn-facebook">
-                            <i class="fab fa-facebook-f"></i>
-                            Continue with Facebook
-                        </button>
-                        <button class="btn btn-social btn-apple">
-                            <i class="fab fa-apple"></i>
-                            Continue with Apple
-                        </button>
-                    </div>
-
-                    <div class="auth-footer">
-                        <p>Already have an account? <a href="login.html">Sign in here</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Benefits Section -->
-        <section class="benefits-section">
+        <!-- Quick Help Categories -->
+        <section class="quick-help-section">
             <div class="container">
-                <h2 class="section-title">Why Join Tangogi?</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
+                <h2 class="section-title">Quick Help Categories</h2>
+                <div class="help-categories-grid">
+                    <div class="help-category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Orders & Delivery</h3>
+                        <p>Track orders, delivery issues, and order modifications</p>
+                        <a href="#orders" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="help-category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3>Returns & Refunds</h3>
+                        <p>Return items, request refunds, and exchange products</p>
+                        <a href="#returns" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="help-category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Payments & Billing</h3>
+                        <p>Payment methods, billing issues, and transaction problems</p>
+                        <a href="#payments" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="help-category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Account & Security</h3>
+                        <p>Account management, login issues, and security settings</p>
+                        <a href="#account" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="help-category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Delivery & Shipping</h3>
+                        <p>Delivery times, shipping fees, and area coverage</p>
+                        <a href="#delivery" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="help-category-card">
+                        <div class="category-icon">
                             <i class="fas fa-gift"></i>
                         </div>
-                        <h3>Welcome Bonus</h3>
-                        <p>Get ₦1,000 off your first order above ₦5,000</p>
+                        <h3>Promotions & Offers</h3>
+                        <p>Discount codes, special offers, and loyalty programs</p>
+                        <a href="#promotions" class="category-link">Get Help <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Help Topics -->
+        <section class="popular-topics-section">
+            <div class="container">
+                <h2 class="section-title">Popular Help Topics</h2>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <h3>How do I track my order?</h3>
+                        <p>Learn how to track your order in real-time and get delivery updates</p>
+                        <div class="topic-meta">
+                            <span class="views"><i class="fas fa-eye"></i> 2.4k views</span>
+                            <span class="helpful"><i class="fas fa-thumbs-up"></i> 95% helpful</span>
                         </div>
-                        <h3>Fast Delivery</h3>
-                        <p>Same-day delivery for orders before 2PM</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-star"></i>
+                    
+                    <div class="topic-card">
+                        <h3>What is your return policy?</h3>
+                        <p>Understand our 7-day return policy and how to initiate returns</p>
+                        <div class="topic-meta">
+                            <span class="views"><i class="fas fa-eye"></i> 1.8k views</span>
+                            <span class="helpful"><i class="fas fa-thumbs-up"></i> 92% helpful</span>
                         </div>
-                        <h3>Exclusive Deals</h3>
-                        <p>Member-only discounts and early access to sales</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-history"></i>
+                    
+                    <div class="topic-card">
+                        <h3>How to change delivery address?</h3>
+                        <p>Steps to update your delivery address for current and future orders</p>
+                        <div class="topic-meta">
+                            <span class="views"><i class="fas fa-eye"></i> 1.5k views</span>
+                            <span class="helpful"><i class="fas fa-thumbs-up"></i> 88% helpful</span>
                         </div>
-                        <h3>Order History</h3>
-                        <p>Quick reordering of your favorite items</p>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3>Payment methods accepted</h3>
+                        <p>List of all payment options including cards, transfers, and cash on delivery</p>
+                        <div class="topic-meta">
+                            <span class="views"><i class="fas fa-eye"></i> 1.2k views</span>
+                            <span class="helpful"><i class="fas fa-thumbs-up"></i> 96% helpful</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-categories">
+                    <div class="faq-category">
+                        <h3 id="orders">Orders & Delivery</h3>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>How long does delivery take?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Delivery times vary by location:</p>
+                                    <ul>
+                                        <li><strong>Lagos Mainland:</strong> 2-4 hours</li>
+                                        <li><strong>Lagos Island:</strong> 3-5 hours</li>
+                                        <li><strong>Other States:</strong> 24-48 hours</li>
+                                    </ul>
+                                    <p>Express delivery (1-2 hours) is available for select areas at an additional cost.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>Can I modify my order after placing it?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>You can modify your order within 30 minutes of placing it. After this period, the order enters processing and cannot be changed. Contact customer support immediately if you need to make changes.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>What if I'm not available during delivery?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>If you're not available, our delivery agent will:</p>
+                                    <ol>
+                                        <li>Attempt to call you twice</li>
+                                        <li>Leave the package with a neighbor (if you've given permission)</li>
+                                        <li>Reschedule delivery for the next available slot</li>
+                                        <li>Return to warehouse after 2 failed attempts (extra charges may apply for redelivery)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-category">
+                        <h3 id="returns">Returns & Refunds</h3>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>What is your return policy?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>We offer a 7-day return policy for most items. Conditions apply:</p>
+                                    <ul>
+                                        <li>Items must be unopened and in original packaging</li>
+                                        <li>Perishable goods cannot be returned unless spoiled</li>
+                                        <li>Proof of purchase required</li>
+                                        <li>Return shipping is free for defective items</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>How long do refunds take?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Refund processing times:</p>
+                                    <ul>
+                                        <li><strong>Credit/Debit Cards:</strong> 5-7 business days</li>
+                                        <li><strong>Bank Transfer:</strong> 2-3 business days</li>
+                                        <li><strong>Wallet Balance:</strong> Instant</li>
+                                        <li><strong>Cash on Delivery Returns:</strong> Bank transfer within 3 days</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- More FAQ categories would follow -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support Section -->
+        <section class="contact-support-section">
+            <div class="container">
+                <div class="contact-support-grid">
+                    <div class="contact-info">
+                        <h2>Still need help?</h2>
+                        <p>Our support team is here to assist you 24/7</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Call Us</h4>
+                                    <p>+234 901 865 1283</p>
+                                    <span>Available 24/7</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Live Chat</h4>
+                                    <p>Instant messaging support</p>
+                                    <span>Average response: 2 minutes</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Email Us</h4>
+                                    <p>support@tangogi.com</p>
+                                    <span>Response within 4 hours</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Visit Us</h4>
+                                    <p>No. 1 Campground Rd, Anthony Village, Lagos</p>
+                                    <span>Mon-Sat: 8AM - 8PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <div class="contact-form">
+                            <h3>Send us a message</h3>
+                            <form id="support-form">
+                                <div class="form-group">
+                                    <label for="support-name">Full Name *</label>
+                                    <input type="text" id="support-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="support-email">Email Address *</label>
+                                    <input type="email" id="support-email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="support-order">Order Number (if applicable)</label>
+                                    <input type="text" id="support-order" name="order_number" placeholder="e.g., TGO-123456">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="support-category">Issue Category *</label>
+                                    <select id="support-category" name="category" required>
+                                        <option value="">Select category</option>
+                                        <option value="order">Order Issue</option>
+                                        <option value="delivery">Delivery Problem</option>
+                                        <option value="payment">Payment Issue</option>
+                                        <option value="return">Return/Refund</option>
+                                        <option value="account">Account Problem</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="support-message">Message *</label>
+                                    <textarea id="support-message" name="message" rows="5" placeholder="Please describe your issue in detail..." required></textarea>
+                                    <div class="char-counter">
+                                        <span id="message-chars">0</span>/1000 characters
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="support-attachments">Attachments (optional)</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="support-attachments" name="attachments" multiple accept="image/*,.pdf,.doc,.docx">
+                                        <label for="support-attachments" class="file-upload-label">
+                                            <i class="fas fa-paperclip"></i>
+                                            Add files (max 5MB each)
+                                        </label>
+                                    </div>
+                                    <div class="file-preview" id="file-preview"></div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Status -->
+        <section class="support-status-section">
+            <div class="container">
+                <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-indicator online"></div>
+                        <div class="status-info">
+                            <h4>Live Chat</h4>
+                            <p>Currently online</p>
+                            <span>2 min average wait time</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-indicator online"></div>
+                        <div class="status-info">
+                            <h4>Phone Support</h4>
+                            <p>Available 24/7</p>
+                            <span>Immediate assistance</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-indicator busy"></div>
+                        <div class="status-info">
+                            <h4>Email Support</h4>
+                            <p>High volume</p>
+                            <span>4+ hour response time</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -787,32 +794,37 @@
         </div>
    </footer>
 
-    <!-- Verification Modal -->
-    <div class="modal" id="verification-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Verify Your Email</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>We've sent a 6-digit verification code to <strong id="verification-email"></strong></p>
-                <div class="verification-inputs">
-                    <input type="text" maxlength="1" class="verification-digit">
-                    <input type="text" maxlength="1" class="verification-digit">
-                    <input type="text" maxlength="1" class="verification-digit">
-                    <input type="text" maxlength="1" class="verification-digit">
-                    <input type="text" maxlength="1" class="verification-digit">
-                    <input type="text" maxlength="1" class="verification-digit">
+    <!-- Live Chat Widget -->
+    <div class="live-chat-widget" id="live-chat">
+        <div class="chat-header">
+            <div class="chat-info">
+                <div class="agent-avatar">
+                    <i class="fas fa-headset"></i>
                 </div>
-                <div class="verification-actions">
-                    <button class="btn btn-outline" id="resend-code">
-                        Resend Code (60s)
-                    </button>
-                    <button class="btn btn-primary" id="verify-email">
-                        Verify Email
-                    </button>
+                <div class="agent-details">
+                    <h4>Customer Support</h4>
+                    <span class="status online">Online</span>
                 </div>
             </div>
+            <button class="chat-minimize">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages">
+            <div class="message agent">
+                <div class="message-content">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+                <span class="message-time">2:30 PM</span>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." id="chat-message">
+            <button class="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
