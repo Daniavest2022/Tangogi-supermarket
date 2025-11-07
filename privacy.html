@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-info">
+                        <i class="fas fa-truck" aria-label="Truck icon"></i>
+                        <span>Free delivery on orders over ₦5,000</span>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
+                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
+                        <div class="language-selector">
+                            <i class="fas fa-globe" aria-label="Globe icon"></i>
+                            <select aria-label="Select language">
+                                <option value="en">EN</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ha">Hausa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="actions-section">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Location -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <span>Use Current Location</span>
+                                    </div>
+                                    <div class="location-option" data-location="Lagos">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lagos</span>
+                                    </div>
+                                    <div class="location-option" data-location="Abuja">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Abuja</span>
+                                    </div>
+                                    <div class="location-option" data-location="Port Harcourt">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Port Harcourt</span>
+                                    </div>
+                                    <div class="location-option" data-location="Ibadan">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Ibadan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span class="user-text">Account</span>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                    </a>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="action-badge" id="wishlist-count">0</span>
+                        </a>
+
+                        <!-- Cart -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <!-- Quick Cart Popup -->
+    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
+        <div class="quick-cart-content">
+            <div class="quick-cart-header">
+                <h3 id="quick-cart-title">Your Cart</h3>
+                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="quick-cart-body">
+                <div id="cart-items" class="cart-items" aria-live="polite"></div>
+                <div id="empty-cart" class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="quick-cart-footer">
+                <div class="cart-totals">
+                    <div>
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div>
+                        <span>Tax (5%):</span>
+                        <span id="cart-tax">₦0</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₦500</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+                <div class="cart-security">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <div class="logo-section">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Tangogi</span>
+                        <span class="logo-tagline">Supermarket</span>
+                    </div>
+                </a>
+            </div>
+            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+        </div>
+        <div class="mobile-nav-menu">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <span>All Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="deals.html" class="nav-link hot-deal">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <span>Hot Deals</span>
+                        <span class="deal-badge">SALE</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <div class="mobile-user-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Create Account</a>
+            </div>
+        </div>
+    </div>
+   </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Privacy Hero -->
+        <section class="privacy-hero">
+            <div class="container">
+                <div class="privacy-hero-content">
+                    <h1>Privacy Policy</h1>
+                    <p>Your privacy and data security are our top priorities</p>
+                    <div class="privacy-badges">
+                        <div class="privacy-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>GDPR Compliant</span>
+                        </div>
+                        <div class="privacy-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>Data Encrypted</span>
+                        </div>
+                        <div class="privacy-badge">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Your Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Navigation -->
+        <section class="privacy-nav-section">
+            <div class="container">
+                <div class="privacy-nav">
+                    <button class="nav-item active" data-target="overview">Overview</button>
+                    <button class="nav-item" data-target="data-collection">Data Collection</button>
+                    <button class="nav-item" data-target="data-usage">Data Usage</button>
+                    <button class="nav-item" data-target="data-sharing">Data Sharing</button>
+                    <button class="nav-item" data-target="your-rights">Your Rights</button>
+                    <button class="nav-item" data-target="cookies">Cookies</button>
+                    <button class="nav-item" data-target="security">Security</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Last Updated -->
+        <section class="last-updated-section">
+            <div class="container">
+                <div class="last-updated-card">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="update-info">
+                        <h3>Last Updated: January 15, 2024</h3>
+                        <p>We regularly update our privacy policy to ensure transparency and compliance with data protection laws.</p>
+                    </div>
+                    <button class="btn btn-outline" id="view-changes">
+                        <i class="fas fa-history"></i>
+                        View Change History
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Content -->
+        <section class="privacy-content-section">
+            <div class="container">
+                <div class="privacy-content">
+                    <!-- Overview Section -->
+                    <div class="privacy-section active" id="overview-section">
+                        <div class="section-header">
+                            <h2>Privacy Overview</h2>
+                            <p>Understanding how we protect and use your information</p>
+                        </div>
+
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <div class="principle-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Transparency</h3>
+                                <p>We clearly communicate how we collect, use, and protect your data</p>
+                            </div>
+
+                            <div class="principle-card">
+                                <div class="principle-icon">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <h3>Control</h3>
+                                <p>You have full control over your personal information and preferences</p>
+                            </div>
+
+                            <div class="principle-card">
+                                <div class="principle-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Security</h3>
+                                <p>Advanced security measures protect your data from unauthorized access</p>
+                            </div>
+
+                            <div class="principle-card">
+                                <div class="principle-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h3>Compliance</h3>
+                                <p>We adhere to GDPR, NDPA, and other data protection regulations</p>
+                            </div>
+                        </div>
+
+                        <div class="key-points">
+                            <h3>Key Points</h3>
+                            <div class="points-grid">
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>We never sell your personal data to third parties</span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>You can delete your data at any time</span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>We use encryption to protect your information</span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Clear opt-out options for marketing communications</span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Regular security audits and updates</span>
+                                </div>
+                                <div class="point-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Data minimization - we only collect what we need</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Collection Section -->
+                    <div class="privacy-section" id="data-collection-section">
+                        <div class="section-header">
+                            <h2>Data We Collect</h2>
+                            <p>Information we gather to provide and improve our services</p>
+                        </div>
+
+                        <div class="data-categories">
+                            <div class="data-category">
+                                <div class="category-header">
+                                    <i class="fas fa-user-circle"></i>
+                                    <h3>Personal Information</h3>
+                                    <span class="data-purpose">Account & Identity</span>
+                                </div>
+                                <div class="data-items">
+                                    <div class="data-item">
+                                        <span class="data-label">Full Name</span>
+                                        <span class="data-purpose">Account identification and personalization</span>
+                                        <span class="data-required">Required</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Email Address</span>
+                                        <span class="data-purpose">Account verification and communication</span>
+                                        <span class="data-required">Required</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Phone Number</span>
+                                        <span class="data-purpose">Delivery coordination and security</span>
+                                        <span class="data-required">Required</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Delivery Address</span>
+                                        <span class="data-purpose">Order fulfillment and location services</span>
+                                        <span class="data-required">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data-category">
+                                <div class="category-header">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <h3>Transaction Data</h3>
+                                    <span class="data-purpose">Order Processing</span>
+                                </div>
+                                <div class="data-items">
+                                    <div class="data-item">
+                                        <span class="data-label">Order History</span>
+                                        <span class="data-purpose">Order management and customer service</span>
+                                        <span class="data-optional">Optional</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Payment Information</span>
+                                        <span class="data-purpose">Transaction processing (encrypted)</span>
+                                        <span class="data-required">Required</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Billing Address</span>
+                                        <span class="data-purpose">Payment verification and receipts</span>
+                                        <span class="data-optional">Optional</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data-category">
+                                <div class="category-header">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h3>Usage Data</h3>
+                                    <span class="data-purpose">Service Improvement</span>
+                                </div>
+                                <div class="data-items">
+                                    <div class="data-item">
+                                        <span class="data-label">Browsing History</span>
+                                        <span class="data-purpose">Personalized recommendations</span>
+                                        <span class="data-optional">Optional</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Device Information</span>
+                                        <span class="data-purpose">App optimization and security</span>
+                                        <span class="data-optional">Optional</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-label">Location Data</span>
+                                        <span class="data-purpose">Delivery optimization and local offers</span>
+                                        <span class="data-optional">Optional</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-retention">
+                            <h3>Data Retention Periods</h3>
+                            <div class="retention-grid">
+                                <div class="retention-item">
+                                    <span class="data-type">Account Information</span>
+                                    <span class="retention-period">Until account deletion</span>
+                                </div>
+                                <div class="retention-item">
+                                    <span class="data-type">Order History</span>
+                                    <span class="retention-period">5 years for legal compliance</span>
+                                </div>
+                                <div class="retention-item">
+                                    <span class="data-type">Payment Data</span>
+                                    <span class="retention-period">7 years for tax purposes</span>
+                                </div>
+                                <div class="retention-item">
+                                    <span class="data-type">Usage Analytics</span>
+                                    <span class="retention-period">2 years anonymized</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Usage Section -->
+                    <div class="privacy-section" id="data-usage-section">
+                        <div class="section-header">
+                            <h2>How We Use Your Data</h2>
+                            <p>Purposes for processing your personal information</p>
+                        </div>
+
+                        <div class="usage-purposes">
+                            <div class="purpose-card essential">
+                                <div class="purpose-header">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <h3>Order Fulfillment</h3>
+                                    <span class="purpose-badge">Essential</span>
+                                </div>
+                                <p>Process and deliver your orders, manage payments, and provide customer support.</p>
+                                <div class="legal-basis">
+                                    <strong>Legal Basis:</strong> Contract fulfillment
+                                </div>
+                            </div>
+
+                            <div class="purpose-card essential">
+                                <div class="purpose-header">
+                                    <i class="fas fa-user-check"></i>
+                                    <h3>Account Management</h3>
+                                    <span class="purpose-badge">Essential</span>
+                                </div>
+                                <p>Create and maintain your account, verify identity, and secure your data.</p>
+                                <div class="legal-basis">
+                                    <strong>Legal Basis:</strong> Contract fulfillment
+                                </div>
+                            </div>
+
+                            <div class="purpose-card optional">
+                                <div class="purpose-header">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <h3>Marketing & Communications</h3>
+                                    <span class="purpose-badge">Optional</span>
+                                </div>
+                                <p>Send promotional offers, updates, and personalized recommendations.</p>
+                                <div class="legal-basis">
+                                    <strong>Legal Basis:</strong> Consent
+                                </div>
+                                <div class="opt-out-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>You can opt-out anytime in your account settings</span>
+                                </div>
+                            </div>
+
+                            <div class="purpose-card optional">
+                                <div class="purpose-header">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <h3>Analytics & Improvement</h3>
+                                    <span class="purpose-badge">Optional</span>
+                                </div>
+                                <p>Analyze usage patterns to improve our services and user experience.</p>
+                                <div class="legal-basis">
+                                    <strong>Legal Basis:</strong> Legitimate interest
+                                </div>
+                            </div>
+
+                            <div class="purpose-card essential">
+                                <div class="purpose-header">
+                                    <i class="fas fa-gavel"></i>
+                                    <h3>Legal Compliance</h3>
+                                    <span class="purpose-badge">Essential</span>
+                                </div>
+                                <p>Comply with legal obligations, prevent fraud, and ensure security.</p>
+                                <div class="legal-basis">
+                                    <strong>Legal Basis:</strong> Legal obligation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Sharing Section -->
+                    <div class="privacy-section" id="data-sharing-section">
+                        <div class="section-header">
+                            <h2>Data Sharing & Third Parties</h2>
+                            <p>When and with whom we share your information</p>
+                        </div>
+
+                        <div class="sharing-partners">
+                            <div class="partner-category">
+                                <h3>Service Providers</h3>
+                                <p>Trusted partners who help us operate our services</p>
+                                <div class="partners-grid">
+                                    <div class="partner-card">
+                                        <div class="partner-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <h4>Delivery Partners</h4>
+                                        <p>Share delivery address and contact information for order fulfillment</p>
+                                        <span class="data-shared">Name, Address, Phone</span>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <h4>Payment Processors</h4>
+                                        <p>Secure payment processing partners for transaction handling</p>
+                                        <span class="data-shared">Payment Information</span>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-icon">
+                                            <i class="fas fa-cloud"></i>
+                                        </div>
+                                        <h4>Cloud Services</h4>
+                                        <p>Infrastructure providers for data storage and processing</p>
+                                        <span class="data-shared">All data (encrypted)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="partner-category">
+                                <h3>Legal Requirements</h3>
+                                <p>When required by law or to protect our rights</p>
+                                <div class="legal-cases">
+                                    <div class="legal-case">
+                                        <i class="fas fa-balance-scale"></i>
+                                        <div class="case-info">
+                                            <h4>Legal Compliance</h4>
+                                            <p>When required by court order, government request, or legal process</p>
+                                        </div>
+                                    </div>
+                                    <div class="legal-case">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <div class="case-info">
+                                            <h4>Safety & Security</h4>
+                                            <p>To protect against fraud, security threats, or illegal activities</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-transfer">
+                            <h3>International Data Transfers</h3>
+                            <div class="transfer-info">
+                                <i class="fas fa-globe-americas"></i>
+                                <div class="transfer-details">
+                                    <p>Your data may be transferred to and processed in countries outside Nigeria. We ensure adequate protection through:</p>
+                                    <ul>
+                                        <li>Standard Contractual Clauses</li>
+                                        <li>Adequacy Decisions</li>
+                                        <li>Binding Corporate Rules</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Your Rights Section -->
+                    <div class="privacy-section" id="your-rights-section">
+                        <div class="section-header">
+                            <h2>Your Privacy Rights</h2>
+                            <p>You have control over your personal data</p>
+                        </div>
+
+                        <div class="rights-grid">
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Right to Access</h3>
+                                <p>Request a copy of all personal data we hold about you</p>
+                                <button class="btn btn-outline btn-sm" data-right="access">
+                                    Request Data
+                                </button>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <h3>Right to Rectification</h3>
+                                <p>Correct inaccurate or incomplete personal data</p>
+                                <button class="btn btn-outline btn-sm" data-right="rectify">
+                                    Update Data
+                                </button>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <h3>Right to Erasure</h3>
+                                <p>Request deletion of your personal data ("right to be forgotten")</p>
+                                <button class="btn btn-outline btn-sm" data-right="delete">
+                                    Delete Data
+                                </button>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-pause-circle"></i>
+                                </div>
+                                <h3>Right to Restrict</h3>
+                                <p>Limit how we use your data in certain circumstances</p>
+                                <button class="btn btn-outline btn-sm" data-right="restrict">
+                                    Restrict Processing
+                                </button>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-file-export"></i>
+                                </div>
+                                <h3>Right to Portability</h3>
+                                <p>Receive your data in a structured, machine-readable format</p>
+                                <button class="btn btn-outline btn-sm" data-right="portability">
+                                    Export Data
+                                </button>
+                            </div>
+
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h3>Right to Object</h3>
+                                <p>Object to certain types of data processing</p>
+                                <button class="btn btn-outline btn-sm" data-right="object">
+                                    Object to Processing
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="rights-actions">
+                            <h3>Exercise Your Rights</h3>
+                            <div class="action-options">
+                                <div class="action-option">
+                                    <i class="fas fa-user-cog"></i>
+                                    <div class="option-info">
+                                        <h4>Account Settings</h4>
+                                        <p>Manage most privacy preferences directly in your account settings</p>
+                                        <a href="settings.html#privacy" class="btn btn-outline btn-sm">Go to Settings</a>
+                                    </div>
+                                </div>
+
+                                <div class="action-option">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="option-info">
+                                        <h4>Email Request</h4>
+                                        <p>Send detailed requests to our data protection team</p>
+                                        <button class="btn btn-outline btn-sm" id="email-request">Email Request</button>
+                                    </div>
+                                </div>
+
+                                <div class="action-option">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div class="option-info">
+                                        <h4>Phone Support</h4>
+                                        <p>Speak directly with our privacy team for assistance</p>
+                                        <button class="btn btn-outline btn-sm" id="call-support">Call +234 901 865 1283</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cookies Section -->
+                    <div class="privacy-section" id="cookies-section">
+                        <div class="section-header">
+                            <h2>Cookies & Tracking Technologies</h2>
+                            <p>How we use cookies and similar technologies</p>
+                        </div>
+
+                        <div class="cookie-types">
+                            <div class="cookie-category essential">
+                                <div class="category-header">
+                                    <h3>Essential Cookies</h3>
+                                    <span class="cookie-status">Always Active</span>
+                                </div>
+                                <p>Required for basic website functionality and security</p>
+                                <div class="cookie-list">
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Session Management</span>
+                                        <span class="cookie-purpose">Maintain user login state</span>
+                                    </div>
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Security</span>
+                                        <span class="cookie-purpose">Prevent fraud and abuse</span>
+                                    </div>
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Shopping Cart</span>
+                                        <span class="cookie-purpose">Remember cart items</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cookie-category optional">
+                                <div class="category-header">
+                                    <h3>Analytics Cookies</h3>
+                                    <div class="cookie-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="analytics-cookies" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+                                <p>Help us understand how visitors interact with our website</p>
+                                <div class="cookie-list">
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Google Analytics</span>
+                                        <span class="cookie-purpose">Website usage statistics</span>
+                                    </div>
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Performance</span>
+                                        <span class="cookie-purpose">Page load times and errors</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cookie-category optional">
+                                <div class="category-header">
+                                    <h3>Marketing Cookies</h3>
+                                    <div class="cookie-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="marketing-cookies" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+                                <p>Used for advertising and personalization across platforms</p>
+                                <div class="cookie-list">
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Facebook Pixel</span>
+                                        <span class="cookie-purpose">Ad targeting and measurement</span>
+                                    </div>
+                                    <div class="cookie-item">
+                                        <span class="cookie-name">Retargeting</span>
+                                        <span class="cookie-purpose">Show relevant ads</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cookie-actions">
+                            <button class="btn btn-primary" id="save-cookie-preferences">
+                                <i class="fas fa-save"></i>
+                                Save Cookie Preferences
+                            </button>
+                            <button class="btn btn-outline" id="reject-all-cookies">
+                                Reject All Optional Cookies
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div class="privacy-section" id="security-section">
+                        <div class="section-header">
+                            <h2>Data Security</h2>
+                            <p>How we protect your information</p>
+                        </div>
+
+                        <div class="security-measures">
+                            <div class="security-card">
+                                <div class="security-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3>Encryption</h3>
+                                <p>All data is encrypted in transit and at rest using industry-standard protocols</p>
+                                <ul class="security-features">
+                                    <li>256-bit SSL encryption</li>
+                                    <li>AES-256 storage encryption</li>
+                                    <li>Encrypted backups</li>
+                                </ul>
+                            </div>
+
+                            <div class="security-card">
+                                <div class="security-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Access Control</h3>
+                                <p>Strict access controls and authentication mechanisms</p>
+                                <ul class="security-features">
+                                    <li>Multi-factor authentication</li>
+                                    <li>Role-based access control</li>
+                                    <li>Regular access reviews</li>
+                                </ul>
+                            </div>
+
+                            <div class="security-card">
+                                <div class="security-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Monitoring & Auditing</h3>
+                                <p>Continuous monitoring and regular security assessments</p>
+                                <ul class="security-features">
+                                    <li>24/7 security monitoring</li>
+                                    <li>Regular penetration testing</li>
+                                    <li>Security incident response</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="breach-protocol">
+                            <h3>Data Breach Protocol</h3>
+                            <div class="protocol-steps">
+                                <div class="protocol-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Immediate Detection</h4>
+                                        <p>24/7 monitoring systems immediately detect potential breaches</p>
+                                    </div>
+                                </div>
+                                <div class="protocol-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Containment</h4>
+                                        <p>Immediate action to contain and isolate the breach</p>
+                                    </div>
+                                </div>
+                                <div class="protocol-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Assessment</h4>
+                                        <p>Comprehensive assessment of impact and affected data</p>
+                                    </div>
+                                </div>
+                                <div class="protocol-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Notification</h4>
+                                        <p>Prompt notification to affected users and authorities as required by law</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-privacy-section">
+            <div class="container">
+                <div class="contact-privacy-card">
+                    <div class="contact-content">
+                        <h2>Contact Our Privacy Team</h2>
+                        <p>Have questions about your privacy or want to exercise your rights?</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <div class="method-info">
+                                    <h4>Email</h4>
+                                    <p>privacy@tangogi.com</p>
+                                    <span>Response within 24 hours</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="method-info">
+                                    <h4>Phone</h4>
+                                    <p>+234 901 865 1283</p>
+                                    <span>Mon-Fri, 9AM-5PM</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="method-info">
+                                    <h4>Mail</h4>
+                                    <p>Data Protection Officer</p>
+                                    <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regulatory Compliance -->
+        <section class="compliance-section">
+            <div class="container">
+                <div class="compliance-grid">
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>GDPR Compliance</h3>
+                        <p>Fully compliant with EU General Data Protection Regulation</p>
+                        <span class="compliance-status">Compliant</span>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>NDPA Ready</h3>
+                        <p>Prepared for Nigeria Data Protection Act requirements</p>
+                        <span class="compliance-status">Ready</span>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>ISO 27001</h3>
+                        <p>Information security management system certified</p>
+                        <span class="compliance-status">Certified</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!-- Rights Request Modal -->
+    <div class="modal" id="rights-request-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="rights-modal-title">Exercise Your Right</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="rights-request-form" id="rights-request-form">
+                    <input type="hidden" id="request-type" name="request_type">
+                    
+                    <div class="form-group">
+                        <label for="requester-name">Full Name *</label>
+                        <input type="text" id="requester-name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requester-email">Email Address *</label>
+                        <input type="email" id="requester-email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="request-details">Request Details *</label>
+                        <textarea id="request-details" name="details" rows="4" placeholder="Please provide specific details about your request..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="verification-method">Verification Method</label>
+                        <select id="verification-method" name="verification_method">
+                            <option value="email">Email Verification</option>
+                            <option value="phone">Phone Verification</option>
+                            <option value="id">ID Document</option>
+                        </select>
+                    </div>
+
+                    <div class="privacy-notice">
+                        <i class="fas fa-info-circle"></i>
+                        <p>We may need to verify your identity before processing this request. We'll respond within 30 days as required by law.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Changes Modal -->
+    <div class="modal" id="policy-changes-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Privacy Policy Change History</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="changes-timeline">
+                    <div class="change-item">
+                        <div class="change-date">January 15, 2024</div>
+                        <div class="change-details">
+                            <h4>Major Update</h4>
+                            <ul>
+                                <li>Added new data processing activities for AI recommendations</li>
+                                <li>Updated international data transfer mechanisms</li>
+                                <li>Enhanced user rights exercise procedures</li>
+                                <li>Added cookie preference management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-date">October 1, 2023</div>
+                        <div class="change-details">
+                            <h4>Compliance Update</h4>
+                            <ul>
+                                <li>Updated for Nigeria Data Protection Act compliance</li>
+                                <li>Added data protection officer contact information</li>
+                                <li>Clarified data retention periods</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="change-item">
+                        <div class="change-date">June 12, 2023</div>
+                        <div class="change-details">
+                            <h4>Minor Updates</h4>
+                            <ul>
+                                <li>Updated third-party service providers list</li>
+                                <li>Clarified marketing communication preferences</li>
+                                <li>Fixed typographical errors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="modal" id="cookie-settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cookie Preferences</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cookie-settings">
+                    <div class="cookie-setting">
+                        <div class="setting-header">
+                            <h4>Essential Cookies</h4>
+                            <span class="setting-status">Always Active</span>
+                        </div>
+                        <p>Required for the website to function properly. Cannot be disabled.</p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="setting-header">
+                            <h4>Analytics Cookies</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="modal-analytics-cookies" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p>Help us understand how visitors interact with our website.</p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="setting-header">
+                            <h4>Marketing Cookies</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="modal-marketing-cookies" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p>Used to show you relevant advertisements and measure ad performance.</p>
+                    </div>
+                </div>
+
+                <div class="cookie-actions">
+                    <button class="btn btn-primary" id="confirm-cookie-settings">
+                        Save Preferences
+                    </button>
+                    <button class="btn btn-outline" id="accept-all-cookies">
+                        Accept All
+                    </button>
+                    <button class="btn btn-outline" id="reject-all-modal-cookies">
+                        Reject All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

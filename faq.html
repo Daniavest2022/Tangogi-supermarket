@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-info">
+                        <i class="fas fa-truck" aria-label="Truck icon"></i>
+                        <span>Free delivery on orders over ₦5,000</span>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
+                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
+                        <div class="language-selector">
+                            <i class="fas fa-globe" aria-label="Globe icon"></i>
+                            <select aria-label="Select language">
+                                <option value="en">EN</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ha">Hausa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="actions-section">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Location -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <span>Use Current Location</span>
+                                    </div>
+                                    <div class="location-option" data-location="Lagos">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lagos</span>
+                                    </div>
+                                    <div class="location-option" data-location="Abuja">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Abuja</span>
+                                    </div>
+                                    <div class="location-option" data-location="Port Harcourt">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Port Harcourt</span>
+                                    </div>
+                                    <div class="location-option" data-location="Ibadan">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Ibadan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span class="user-text">Account</span>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                    </a>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="action-badge" id="wishlist-count">0</span>
+                        </a>
+
+                        <!-- Cart -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <!-- Quick Cart Popup -->
+    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
+        <div class="quick-cart-content">
+            <div class="quick-cart-header">
+                <h3 id="quick-cart-title">Your Cart</h3>
+                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="quick-cart-body">
+                <div id="cart-items" class="cart-items" aria-live="polite"></div>
+                <div id="empty-cart" class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="quick-cart-footer">
+                <div class="cart-totals">
+                    <div>
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div>
+                        <span>Tax (5%):</span>
+                        <span id="cart-tax">₦0</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₦500</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+                <div class="cart-security">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <div class="logo-section">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Tangogi</span>
+                        <span class="logo-tagline">Supermarket</span>
+                    </div>
+                </a>
+            </div>
+            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+        </div>
+        <div class="mobile-nav-menu">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <span>All Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="deals.html" class="nav-link hot-deal">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <span>Hot Deals</span>
+                        <span class="deal-badge">SALE</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <div class="mobile-user-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Create Account</a>
+            </div>
+        </div>
+    </div>
+   </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- FAQ Hero -->
+        <section class="faq-hero">
+            <div class="container">
+                <div class="faq-hero-content">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find quick answers to common questions about shopping with Tangogi</p>
+                    
+                    <!-- Smart Search -->
+                    <div class="faq-search">
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Search for answers... (e.g., delivery, returns, payment)" id="faq-search-input">
+                            <button class="search-btn" id="faq-search-btn">
+                                <i class="fas fa-search"></i>
+                                Search
+                            </button>
+                        </div>
+                        <div class="search-suggestions">
+                            <span class="suggestion-label">Popular searches:</span>
+                            <button class="suggestion-tag" data-search="delivery time">delivery time</button>
+                            <button class="suggestion-tag" data-search="return policy">return policy</button>
+                            <button class="suggestion-tag" data-search="payment methods">payment methods</button>
+                            <button class="suggestion-tag" data-search="track order">track order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Help Categories -->
+        <section class="quick-help-section">
+            <div class="container">
+                <h2 class="section-title">Browse by Category</h2>
+                <div class="help-categories-grid">
+                    <a href="#ordering" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Ordering</h3>
+                        <p>Placing orders, modifications, and order issues</p>
+                        <span class="question-count">12 questions</span>
+                    </a>
+
+                    <a href="#delivery" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Delivery & Shipping</h3>
+                        <p>Delivery times, tracking, and shipping options</p>
+                        <span class="question-count">15 questions</span>
+                    </a>
+
+                    <a href="#payments" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Payments & Billing</h3>
+                        <p>Payment methods, billing issues, and refunds</p>
+                        <span class="question-count">8 questions</span>
+                    </a>
+
+                    <a href="#returns" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3>Returns & Refunds</h3>
+                        <p>Return policies, refund processing, and exchanges</p>
+                        <span class="question-count">10 questions</span>
+                    </a>
+
+                    <a href="#account" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Account & Security</h3>
+                        <p>Account management, login issues, and security</p>
+                        <span class="question-count">6 questions</span>
+                    </a>
+
+                    <a href="#products" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h3>Products & Quality</h3>
+                        <p>Product information, quality, and availability</p>
+                        <span class="question-count">7 questions</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Questions -->
+        <section class="popular-questions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Most Popular Questions</h2>
+                    <div class="view-stats">
+                        <i class="fas fa-eye"></i>
+                        <span>Based on customer searches</span>
+                    </div>
+                </div>
+                
+                <div class="popular-questions-grid">
+                    <div class="popular-question-card">
+                        <div class="question-meta">
+                            <span class="views-count">2,458 views</span>
+                            <span class="helpful-rate">95% helpful</span>
+                        </div>
+                        <h3>How long does delivery take?</h3>
+                        <p>Delivery times vary by location. Express delivery (2-4 hours) available in major cities, standard delivery same day.</p>
+                        <div class="question-actions">
+                            <button class="helpful-btn" data-helpful="yes">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful
+                            </button>
+                            <button class="helpful-btn" data-helpful="no">
+                                <i class="fas fa-thumbs-down"></i>
+                                Not Helpful
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="popular-question-card">
+                        <div class="question-meta">
+                            <span class="views-count">1,892 views</span>
+                            <span class="helpful-rate">92% helpful</span>
+                        </div>
+                        <h3>What is your return policy?</h3>
+                        <p>7-day return window for most items. Free return pickup available. Full refund for eligible returns.</p>
+                        <div class="question-actions">
+                            <button class="helpful-btn" data-helpful="yes">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful
+                            </button>
+                            <button class="helpful-btn" data-helpful="no">
+                                <i class="fas fa-thumbs-down"></i>
+                                Not Helpful
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="popular-question-card">
+                        <div class="question-meta">
+                            <span class="views-count">1,567 views</span>
+                            <span class="helpful-rate">88% helpful</span>
+                        </div>
+                        <h3>What payment methods do you accept?</h3>
+                        <p>We accept cards, bank transfers, USSD, and cash on delivery. All payments are secure and encrypted.</p>
+                        <div class="question-actions">
+                            <button class="helpful-btn" data-helpful="yes">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful
+                            </button>
+                            <button class="helpful-btn" data-helpful="no">
+                                <i class="fas fa-thumbs-down"></i>
+                                Not Helpful
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="popular-question-card">
+                        <div class="question-meta">
+                            <span class="views-count">1,234 views</span>
+                            <span class="helpful-rate">90% helpful</span>
+                        </div>
+                        <h3>Can I change my delivery address after ordering?</h3>
+                        <p>Yes, within 30 minutes of placing your order. After that, contact customer support for assistance.</p>
+                        <div class="question-actions">
+                            <button class="helpful-btn" data-helpful="yes">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful
+                            </button>
+                            <button class="helpful-btn" data-helpful="no">
+                                <i class="fas fa-thumbs-down"></i>
+                                Not Helpful
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Categories -->
+        <section class="faq-categories-section">
+            <div class="container">
+                <!-- Ordering Category -->
+                <div class="faq-category" id="ordering">
+                    <div class="category-header">
+                        <div class="category-icon-title">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h2>Ordering Questions</h2>
+                        </div>
+                        <span class="category-count">12 questions</span>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I place an order?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>To place an order:</p>
+                                <ol>
+                                    <li>Browse products and add items to your cart</li>
+                                    <li>Click the cart icon and review your items</li>
+                                    <li>Proceed to checkout</li>
+                                    <li>Enter your delivery address and contact information</li>
+                                    <li>Choose your preferred payment method</li>
+                                    <li>Confirm and place your order</li>
+                                </ol>
+                                <p>You'll receive an order confirmation email with your order details.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I modify or cancel my order after placing it?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You can modify or cancel your order within 30 minutes of placing it. After this period, the order enters our processing system and cannot be changed automatically.</p>
+                                <p><strong>To request changes after 30 minutes:</strong></p>
+                                <ul>
+                                    <li>Contact our customer support immediately</li>
+                                    <li>Call: +234 901 865 1283</li>
+                                    <li>Use live chat on our website or app</li>
+                                    <li>Email: support@tangogi.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is there a minimum order amount?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>There is no minimum order amount for standard delivery. However, for express delivery (2-4 hours), the minimum order is ₦2,000.</p>
+                                <p><strong>Free delivery thresholds:</strong></p>
+                                <ul>
+                                    <li>Standard delivery: Free on orders over ₦3,000</li>
+                                    <li>Express delivery: Free on orders over ₦5,000</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I use discount codes or coupons?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>To use discount codes:</p>
+                                <ol>
+                                    <li>Add items to your cart and proceed to checkout</li>
+                                    <li>Look for the "Discount Code" or "Promo Code" field</li>
+                                    <li>Enter your code and click "Apply"</li>
+                                    <li>The discount will be automatically applied to your order total</li>
+                                </ol>
+                                <p><strong>Note:</strong> Some codes may have specific terms and conditions, such as minimum order value or product category restrictions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Category -->
+                <div class="faq-category" id="delivery">
+                    <div class="category-header">
+                        <div class="category-icon-title">
+                            <i class="fas fa-truck"></i>
+                            <h2>Delivery & Shipping</h2>
+                        </div>
+                        <span class="category-count">15 questions</span>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What are your delivery areas and times?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p><strong>Delivery Areas:</strong></p>
+                                <ul>
+                                    <li><strong>Lagos:</strong> All major areas including Victoria Island, Ikoyi, Lekki, Ikeja, Surulere, and more</li>
+                                    <li><strong>Abuja:</strong> Maitama, Asokoro, Wuse, Garki, and surrounding areas</li>
+                                    <li><strong>Port Harcourt:</strong> Select areas with expanding coverage</li>
+                                </ul>
+                                <p><strong>Delivery Times:</strong></p>
+                                <ul>
+                                    <li><strong>Express Delivery:</strong> 2-4 hours (available in select areas)</li>
+                                    <li><strong>Standard Delivery:</strong> Same day for orders before 6 PM</li>
+                                    <li><strong>Next Day Delivery:</strong> For areas outside immediate coverage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How can I track my order?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You can track your order in several ways:</p>
+                                <ol>
+                                    <li><strong>Order Tracking Page:</strong> Visit our website and use the order tracking feature</li>
+                                    <li><strong>Mobile App:</strong> Use the Tangogi app for real-time tracking</li>
+                                    <li><strong>SMS Updates:</strong> Receive automatic SMS updates at key delivery milestones</li>
+                                    <li><strong>Email Notifications:</strong> Get detailed email updates with tracking links</li>
+                                    <li><strong>Customer Support:</strong> Call +234 901 865 1283 for live updates</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What if I'm not available during delivery?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>If you're not available during delivery, our delivery agent will:</p>
+                                <ol>
+                                    <li>Attempt to call you on your registered phone number</li>
+                                    <li>Wait for 15 minutes at the delivery location</li>
+                                    <li>If possible, leave the package with a neighbor (with your prior permission)</li>
+                                    <li>Reschedule delivery for the next available time slot</li>
+                                    <li>Return the items to our warehouse after 2 failed attempts</li>
+                                </ol>
+                                <p><strong>Pro Tip:</strong> You can provide delivery instructions in your account settings for safe drop-off locations.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Do you deliver on weekends and public holidays?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, we deliver 7 days a week, including weekends and most public holidays. However, delivery times may be extended on major public holidays.</p>
+                                <p><strong>Weekend Delivery Schedule:</strong></p>
+                                <ul>
+                                    <li><strong>Saturday:</strong> Normal delivery hours (8 AM - 8 PM)</li>
+                                    <li><strong>Sunday:</strong> Reduced hours (10 AM - 6 PM)</li>
+                                    <li><strong>Public Holidays:</strong> Limited delivery slots available</li>
+                                </ul>
+                                <p>We recommend placing orders earlier on weekends and holidays to ensure timely delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Category -->
+                <div class="faq-category" id="payments">
+                    <div class="category-header">
+                        <div class="category-icon-title">
+                            <i class="fas fa-credit-card"></i>
+                            <h2>Payments & Billing</h2>
+                        </div>
+                        <span class="category-count">8 questions</span>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What payment methods do you accept?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We accept a wide range of payment methods for your convenience:</p>
+                                <div class="payment-methods-grid">
+                                    <div class="payment-method">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Credit/Debit Cards</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-university"></i>
+                                        <span>Bank Transfer</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>USSD</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-wallet"></i>
+                                        <span>Tangogi Wallet</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <span>Cash on Delivery</span>
+                                    </div>
+                                </div>
+                                <p><strong>Note:</strong> Cash on delivery is available for orders up to ₦50,000.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is it safe to pay online with my card?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, paying online with your card is completely safe with Tangogi. We implement multiple security measures:</p>
+                                <ul>
+                                    <li><strong>SSL Encryption:</strong> All transactions are protected with 256-bit SSL encryption</li>
+                                    <li><strong>PCI DSS Compliant:</strong> We adhere to Payment Card Industry Data Security Standards</li>
+                                    <li><strong>Secure Payment Gateway:</strong> Partnered with leading payment processors</li>
+                                    <li><strong>No Card Storage:</strong> We don't store your card details on our servers</li>
+                                    <li><strong>3D Secure:</strong> Additional authentication for card transactions</li>
+                                </ul>
+                                <p>Your financial information is always protected and never shared with third parties.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More categories would continue here -->
+            </div>
+        </section>
+
+        <!-- Still Need Help Section -->
+        <section class="help-section">
+            <div class="container">
+                <div class="help-card">
+                    <div class="help-content">
+                        <h2>Still need help?</h2>
+                        <p>Can't find the answer you're looking for? Our support team is ready to help you.</p>
+                        <div class="help-options">
+                            <div class="help-option">
+                                <i class="fas fa-comments"></i>
+                                <div class="option-info">
+                                    <h4>Live Chat</h4>
+                                    <p>Get instant help from our support team</p>
+                                    <span class="status online">Online now</span>
+                                </div>
+                                <button class="btn btn-outline">Start Chat</button>
+                            </div>
+
+                            <div class="help-option">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="option-info">
+                                    <h4>Call Us</h4>
+                                    <p>Speak directly with our support agents</p>
+                                    <span class="status available">24/7 Available</span>
+                                </div>
+                                <button class="btn btn-outline">Call +234 901 865 1283</button>
+                            </div>
+
+                            <div class="help-option">
+                                <i class="fas fa-envelope"></i>
+                                <div class="option-info">
+                                    <h4>Email Us</h4>
+                                    <p>Send us a detailed message</p>
+                                    <span class="status response">Response within 4 hours</span>
+                                </div>
+                                <button class="btn btn-outline">Send Email</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Feedback -->
+        <section class="feedback-section">
+            <div class="container">
+                <div class="feedback-card">
+                    <div class="feedback-content">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Help us improve our FAQ</h3>
+                        <p>Was this information helpful? Suggest new questions or report issues.</p>
+                        <button class="btn btn-outline" id="suggest-question">
+                            <i class="fas fa-plus"></i>
+                            Suggest a Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!-- Search Results Modal -->
+    <div class="modal" id="search-results-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Search Results</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="search-results" id="search-results">
+                    <!-- Search results would be dynamically populated here -->
+                </div>
+                <div class="no-results" id="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h4>No results found</h4>
+                    <p>Try different keywords or browse our categories</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggest Question Modal -->
+    <div class="modal" id="suggest-question-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Suggest a Question</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="suggestion-form" id="suggestion-form">
+                    <div class="form-group">
+                        <label for="suggestion-category">Category</label>
+                        <select id="suggestion-category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="ordering">Ordering</option>
+                            <option value="delivery">Delivery & Shipping</option>
+                            <option value="payments">Payments & Billing</option>
+                            <option value="returns">Returns & Refunds</option>
+                            <option value="account">Account & Security</option>
+                            <option value="products">Products & Quality</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestion-question">Your Question</label>
+                        <textarea id="suggestion-question" name="question" placeholder="What would you like to know?" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestion-answer">Suggested Answer (Optional)</label>
+                        <textarea id="suggestion-answer" name="answer" placeholder="If you know the answer, you can suggest it here..." rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestion-email">Your Email (Optional)</label>
+                        <input type="email" id="suggestion-email" name="email" placeholder="We'll notify you when this question is added">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Suggestion
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Contact Modal -->
+    <div class="modal" id="quick-contact-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quick Contact</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contact-options">
+                    <button class="contact-option-btn" data-method="chat">
+                        <i class="fas fa-comments"></i>
+                        <span>Live Chat</span>
+                        <small>Instant help • Online now</small>
+                    </button>
+
+                    <button class="contact-option-btn" data-method="call">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Call Us</span>
+                        <small>+234 901 865 1283 • 24/7</small>
+                    </button>
+
+                    <button class="contact-option-btn" data-method="email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Us</span>
+                        <small>support@tangogi.com</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+/* header-enhancements.css - Enhancements for the standard site header */
+
+/* ===== TOP BAR ===== */
+/* Ensure the top bar has a consistent height and alignment */
+.header-top-bar {
+  /* Styles already in styles.css */
+  min-height: 40px; /* Adjust if needed */
+  display: flex;
+  align-items: center;
+}
+
+/* ===== MAIN HEADER ===== */
+.header-main {
+  /* Styles already in styles.css */
+  padding-top: var(--space-2); /* Slightly reduce top padding */
+}
+
+/* ===== SEARCH BAR ===== */
+.search-container {
+  /* Styles already in styles.css */
+  transition: box-shadow var(--transition-normal);
+}
+.search-container:focus-within {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Match primary color */
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-btn,
+#dark-mode-toggle {
+  transition: all var(--transition-fast);
+}
+.action-btn:hover,
+#dark-mode-toggle:hover {
+  background: var(--background-alt);
+  transform: scale(1.05); /* Subtle scale on hover */
+}
+
+/* ===== DROPDOWNS (Location & User) ===== */
+.location-dropdown,
+.user-dropdown {
+  /* Styles already in styles.css */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal);
+}
+.location-dropdown.active,
+.user-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Location Search */
+.location-search {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-alt);
+}
+.location-search input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  background: var(--background);
+  color: var(--text-primary);
+}
+.location-search input:focus {
+  outline: 2px solid var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* User Info Section */
+.user-info {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-alt);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+}
+.user-details {
+  flex: 1;
+}
+.user-greeting {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+.user-status {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* User Menu Items */
+.user-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast);
+}
+.user-menu-item:hover {
+  background: var(--background-alt);
+}
+.user-menu-item i {
+  width: 16px;
+  color: var(--primary-color);
+}
+
+/* Divider */
+.user-menu-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: var(--space-2) 0;
+}
+
+/* ===== NAVIGATION MENU ===== */
+.nav-menu {
+  /* Styles already in styles.css */
+  transition: transform var(--transition-normal); /* For mobile */
+}
+
+/* ===== QUICK CART ===== */
+#quick-cart {
+  /* Styles already in styles.css */
+  opacity: 0;
+  visibility: hidden;
+  transition: right var(--transition-normal), opacity var(--transition-normal);
+}
+#quick-cart.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Quick Cart Header */
+.quick-cart-header {
+  /* Styles already in styles.css */
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Cart Items */
+.cart-items {
+  /* Styles already in styles.css */
+  max-height: 60vh; /* Limit height for better UX */
+  overflow-y: auto;
+}
+
+/* Empty Cart */
+.empty-cart {
+  /* Styles already in styles.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 200px; /* Ensure consistent empty state height */
+}
+
+/* Cart Totals & Actions */
+.cart-totals {
+  /* Styles already in styles.css */
+  margin-bottom: var(--space-4);
+}
+.cart-actions {
+  /* Styles already in styles.css */
+  margin-bottom: var(--space-4);
+}
+.cart-security {
+  /* Styles already in styles.css */
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ===== MOBILE NAVIGATION ===== */
+#mobile-navigation {
+  /* Styles already in styles.css */
+  opacity: 0;
+  visibility: hidden;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+#mobile-navigation.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Nav Header */
+.mobile-nav-header {
+  /* Styles already in styles.css */
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile Nav Menu */
+.mobile-nav-menu {
+  /* Styles already in styles.css */
+  padding: var(--space-4) 0;
+}
+#mobile-navigation .nav-menu {
+  /* Styles already in styles.css */
+  flex-direction: column;
+}
+#mobile-navigation .nav-link {
+  /* Styles already in styles.css */
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Mobile Nav Footer */
+.mobile-nav-footer {
+  /* Styles already in styles.css */
+  border-top: 1px solid var(--border-color);
+  padding: var(--space-6);
+}
+.mobile-user-actions {
+  /* Styles already in styles.css */
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE TWEAKS (for header elements) ===== */
+@media (max-width: 768px) {
+  .header-top-bar {
+    display: none; /* Hide on mobile as per styles.css */
+  }
+  .header-main-inner {
+    gap: var(--space-3); /* Adjust gap on smaller screens */
+  }
+  .search-section {
+    order: 3; /* Move search to the bottom row */
+    max-width: 100%;
+    margin-top: var(--space-2);
+  }
+  .actions-section {
+    gap: var(--space-2); /* Adjust gap between action items */
+  }
+  .location-text,
+  .user-text {
+    display: none; /* Hide text labels on mobile */
+  }
+  .nav-menu {
+    display: none; /* Hide main nav menu on mobile */
+  }
+  .mobile-menu-toggle {
+    display: flex; /* Show mobile toggle */
+  }
+  .mobile-nav-menu {
+    flex: 1; /* Make menu take available space */
+  }
+}
+
+@media (max-width: 480px) {
+  .actions-section {
+    gap: var(--space-1); /* Further reduce gap on very small screens */
+  }
+  .action-btn,
+  .mobile-menu-toggle {
+    width: 40px; /* Slightly smaller buttons */
+    height: 40px;
+  }
+  .action-badge {
+    width: 18px; /* Smaller badge */
+    height: 18px;
+    font-size: var(--font-size-xs);
+  }
+}

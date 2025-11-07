@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Refunds - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-info">
+                        <i class="fas fa-truck" aria-label="Truck icon"></i>
+                        <span>Free delivery on orders over ₦5,000</span>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
+                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
+                        <div class="language-selector">
+                            <i class="fas fa-globe" aria-label="Globe icon"></i>
+                            <select aria-label="Select language">
+                                <option value="en">EN</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ha">Hausa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="actions-section">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Location -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <span>Use Current Location</span>
+                                    </div>
+                                    <div class="location-option" data-location="Lagos">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lagos</span>
+                                    </div>
+                                    <div class="location-option" data-location="Abuja">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Abuja</span>
+                                    </div>
+                                    <div class="location-option" data-location="Port Harcourt">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Port Harcourt</span>
+                                    </div>
+                                    <div class="location-option" data-location="Ibadan">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Ibadan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span class="user-text">Account</span>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                    </a>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="action-badge" id="wishlist-count">0</span>
+                        </a>
+
+                        <!-- Cart -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <!-- Quick Cart Popup -->
+    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
+        <div class="quick-cart-content">
+            <div class="quick-cart-header">
+                <h3 id="quick-cart-title">Your Cart</h3>
+                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="quick-cart-body">
+                <div id="cart-items" class="cart-items" aria-live="polite"></div>
+                <div id="empty-cart" class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="quick-cart-footer">
+                <div class="cart-totals">
+                    <div>
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div>
+                        <span>Tax (5%):</span>
+                        <span id="cart-tax">₦0</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₦500</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+                <div class="cart-security">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <div class="logo-section">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Tangogi</span>
+                        <span class="logo-tagline">Supermarket</span>
+                    </div>
+                </a>
+            </div>
+            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+        </div>
+        <div class="mobile-nav-menu">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <span>All Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="deals.html" class="nav-link hot-deal">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <span>Hot Deals</span>
+                        <span class="deal-badge">SALE</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <div class="mobile-user-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Create Account</a>
+            </div>
+        </div>
+    </div>
+   </header>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Returns Hero -->
+        <section class="returns-hero">
+            <div class="container">
+                <div class="returns-hero-content">
+                    <h1>Returns & Refunds</h1>
+                    <p>Easy, hassle-free returns and quick refunds guaranteed</p>
+                    <div class="returns-stats">
+                        <div class="stat">
+                            <span class="stat-number">7 Days</span>
+                            <span class="stat-label">Return Window</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Free</span>
+                            <span class="stat-label">Return Pickup</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24-48h</span>
+                            <span class="stat-label">Refund Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Return Actions -->
+        <section class="quick-actions-section">
+            <div class="container">
+                <h2 class="section-title">Quick Return Actions</h2>
+                <div class="quick-actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3>Start a Return</h3>
+                        <p>Initiate return for items from recent orders</p>
+                        <button class="btn btn-primary" id="start-return">
+                            Start Return
+                        </button>
+                    </div>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Track Return</h3>
+                        <p>Check status of your ongoing returns</p>
+                        <button class="btn btn-outline" id="track-return">
+                            Track Status
+                        </button>
+                    </div>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Return Help</h3>
+                        <p>Get assistance with your return process</p>
+                        <button class="btn btn-outline" id="return-help">
+                            Get Help
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Return Process -->
+        <section class="return-process-section">
+            <div class="container">
+                <h2 class="section-title">How Returns Work</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Initiate Return</h3>
+                            <p>Select items from your orders and choose return reason. You have 7 days from delivery date.</p>
+                            <div class="step-features">
+                                <span class="feature-tag">Online Portal</span>
+                                <span class="feature-tag">Mobile App</span>
+                                <span class="feature-tag">Customer Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Package Items</h3>
+                            <p>Pack items in original packaging with all accessories. Include the return slip in package.</p>
+                            <div class="step-features">
+                                <span class="feature-tag">Original Packaging</span>
+                                <span class="feature-tag">Return Slip</span>
+                                <span class="feature-tag">All Accessories</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Choose Return Method</h3>
+                            <p>Select free pickup from your location or drop off at nearest Tangogi partner store.</p>
+                            <div class="step-features">
+                                <span class="feature-tag">Free Pickup</span>
+                                <span class="feature-tag">Store Drop-off</span>
+                                <span class="feature-tag">Scheduled Pickup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Get Refund</h3>
+                            <p>Receive refund to original payment method within 24-48 hours of return approval.</p>
+                            <div class="step-features">
+                                <span class="feature-tag">Original Payment</span>
+                                <span class="feature-tag">Store Credit</span>
+                                <span class="feature-tag">Bank Transfer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Return Eligibility -->
+        <section class="eligibility-section">
+            <div class="container">
+                <div class="eligibility-grid">
+                    <div class="eligibility-card eligible">
+                        <div class="eligibility-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>What Can Be Returned</h3>
+                        </div>
+                        <ul class="eligibility-list">
+                            <li>Unopened and unused items in original packaging</li>
+                            <li>Defective or damaged products</li>
+                            <li>Wrong items received</li>
+                            <li>Missing parts or accessories</li>
+                            <li>Expired products</li>
+                            <li>Items with quality issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="eligibility-card not-eligible">
+                        <div class="eligibility-header">
+                            <i class="fas fa-times-circle"></i>
+                            <h3>What Cannot Be Returned</h3>
+                        </div>
+                        <ul class="eligibility-list">
+                            <li>Opened perishable goods (unless spoiled)</li>
+                            <li>Personal care and hygiene products</li>
+                            <li>Gift cards and vouchers</li>
+                            <li>Customized or personalized items</li>
+                            <li>Items damaged by customer misuse</li>
+                            <li>Products without original packaging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="special-notes">
+                    <div class="note-card important">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="note-content">
+                            <h4>Important Note on Perishable Items</h4>
+                            <p>Perishable items can only be returned if they are spoiled, expired, or damaged upon delivery. Please contact us within 24 hours of delivery for perishable returns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Refund Information -->
+        <section class="refund-info-section">
+            <div class="container">
+                <h2 class="section-title">Refund Information</h2>
+                <div class="refund-options-grid">
+                    <div class="refund-option-card">
+                        <div class="option-header">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Original Payment Method</h3>
+                        </div>
+                        <div class="option-details">
+                            <p class="processing-time">Processing: 24-48 hours</p>
+                            <ul class="option-features">
+                                <li>Refund to original card/bank account</li>
+                                <li>Appears in 3-7 business days</li>
+                                <li>Most secure option</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="refund-option-card featured">
+                        <div class="option-header">
+                            <i class="fas fa-wallet"></i>
+                            <h3>Tangogi Wallet</h3>
+                            <span class="feature-badge">Instant</span>
+                        </div>
+                        <div class="option-details">
+                            <p class="processing-time">Processing: Instant</p>
+                            <ul class="option-features">
+                                <li>Immediate credit to your account</li>
+                                <li>+10% bonus on refund amount</li>
+                                <li>Use instantly for next purchase</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="refund-option-card">
+                        <div class="option-header">
+                            <i class="fas fa-exchange-alt"></i>
+                            <h3>Store Exchange</h3>
+                        </div>
+                        <div class="option-details">
+                            <p class="processing-time">Processing: Same day</p>
+                            <ul class="option-features">
+                                <li>Exchange for different size/variant</li>
+                                <li>Get store credit for future purchases</li>
+                                <li>Visit any Tangogi store</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="refund-timeline">
+                    <h3>Refund Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Return Received</h4>
+                                <p>We receive and inspect your returned items</p>
+                                <span class="timeline-time">Day 1</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Quality Check</h4>
+                                <p>Items verified for return eligibility</p>
+                                <span class="timeline-time">Day 1-2</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Refund Initiated</h4>
+                                <p>Refund processed to your chosen method</p>
+                                <span class="timeline-time">Day 2</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Refund Received</h4>
+                                <p>Amount appears in your account</p>
+                                <span class="timeline-time">Day 3-7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Return Methods -->
+        <section class="return-methods-section">
+            <div class="container">
+                <h2 class="section-title">Return Methods</h2>
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-header">
+                            <i class="fas fa-truck-pickup"></i>
+                            <h3>Free Pickup Service</h3>
+                            <span class="cost-badge free">FREE</span>
+                        </div>
+                        <div class="method-details">
+                            <p>Schedule a pickup from your home or office</p>
+                            <ul class="method-features">
+                                <li><i class="fas fa-check"></i> Available in major cities</li>
+                                <li><i class="fas fa-check"></i> Next-day pickup available</li>
+                                <li><i class="fas fa-check"></i> No packaging required</li>
+                                <li><i class="fas fa-check"></i> Real-time tracking</li>
+                            </ul>
+                            <div class="coverage">
+                                <span class="coverage-label">Available in:</span>
+                                <span class="coverage-areas">Lagos, Abuja, Port Harcourt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <i class="fas fa-store"></i>
+                            <h3>Store Drop-off</h3>
+                            <span class="cost-badge free">FREE</span>
+                        </div>
+                        <div class="method-details">
+                            <p>Return items at any Tangogi store nationwide</p>
+                            <ul class="method-features">
+                                <li><i class="fas fa-check"></i> Instant processing</li>
+                                <li><i class="fas fa-check"></i> Immediate store credit</li>
+                                <li><i class="fas fa-check"></i> No appointment needed</li>
+                                <li><i class="fas fa-check"></i> 50+ locations</li>
+                            </ul>
+                            <div class="coverage">
+                                <span class="coverage-label">Available in:</span>
+                                <span class="coverage-areas">All store locations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h3>Courier Service</h3>
+                            <span class="cost-badge paid">₦500</span>
+                        </div>
+                        <div class="method-details">
+                            <p>Use any courier service to our warehouse</p>
+                            <ul class="method-features">
+                                <li><i class="fas fa-check"></i> Nationwide coverage</li>
+                                <li><i class="fas fa-check"></i> Flexible timing</li>
+                                <li><i class="fas fa-check"></i> Multiple carrier options</li>
+                                <li><i class="fas fa-check"></i> Cost refunded for eligible returns</li>
+                            </ul>
+                            <div class="coverage">
+                                <span class="coverage-label">Available:</span>
+                                <span class="coverage-areas">Nationwide</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Returns -->
+        <section class="active-returns-section">
+            <div class="container">
+                <h2 class="section-title">Your Active Returns</h2>
+                <div class="returns-list" id="returns-container">
+                    <!-- Return Item 1 -->
+                    <div class="return-item">
+                        <div class="return-header">
+                            <div class="return-info">
+                                <h3>Return #RTN-789123</h3>
+                                <p>From Order #TGO-789123 • Initiated Jan 16, 2024</p>
+                            </div>
+                            <div class="return-status">
+                                <span class="status-badge processing">Processing</span>
+                            </div>
+                        </div>
+
+                        <div class="return-items">
+                            <div class="return-product">
+                                <img src="https://via.placeholder.com/60x60" alt="Fresh Tomatoes" class="product-image">
+                                <div class="product-details">
+                                    <h4>Fresh Tomatoes</h4>
+                                    <p>Reason: Damaged on arrival</p>
+                                    <span class="product-price">₦800</span>
+                                </div>
+                                <div class="return-action">
+                                    <span class="action-status">Quality check in progress</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="return-progress">
+                            <div class="progress-steps">
+                                <div class="step completed">
+                                    <span class="step-dot"></span>
+                                    <span class="step-label">Return Initiated</span>
+                                </div>
+                                <div class="step completed">
+                                    <span class="step-dot"></span>
+                                    <span class="step-label">Item Received</span>
+                                </div>
+                                <div class="step active">
+                                    <span class="step-dot"></span>
+                                    <span class="step-label">Quality Check</span>
+                                </div>
+                                <div class="step">
+                                    <span class="step-dot"></span>
+                                    <span class="step-label">Refund Processed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="return-actions">
+                            <button class="btn btn-outline btn-sm track-return-btn">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Track Return
+                            </button>
+                            <button class="btn btn-outline btn-sm contact-support-btn">
+                                <i class="fas fa-headset"></i>
+                                Contact Support
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Return Item 2 -->
+                    <div class="return-item">
+                        <div class="return-header">
+                            <div class="return-info">
+                                <h3>Return #RTN-789122</h3>
+                                <p>From Order #TGO-789120 • Initiated Jan 14, 2024</p>
+                            </div>
+                            <div class="return-status">
+                                <span class="status-badge completed">Refunded</span>
+                            </div>
+                        </div>
+
+                        <div class="return-items">
+                            <div class="return-product">
+                                <img src="https://via.placeholder.com/60x60" alt="Basmati Rice" class="product-image">
+                                <div class="product-details">
+                                    <h4>Basmati Rice</h4>
+                                    <p>Reason: Wrong item received</p>
+                                    <span class="product-price">₦4,500</span>
+                                </div>
+                                <div class="return-action">
+                                    <span class="action-status completed">Refunded to Tangogi Wallet</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="refund-details">
+                            <div class="refund-amount">
+                                <span class="label">Refund Amount:</span>
+                                <span class="value">₦4,950</span>
+                                <span class="bonus">(+₦450 bonus)</span>
+                            </div>
+                            <div class="refund-method">
+                                <span class="label">Refund Method:</span>
+                                <span class="value">Tangogi Wallet</span>
+                            </div>
+                            <div class="refund-date">
+                                <span class="label">Refund Date:</span>
+                                <span class="value">Jan 16, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="no-returns" id="no-returns" style="display: none;">
+                    <div class="empty-state">
+                        <i class="fas fa-undo-alt"></i>
+                        <h3>No Active Returns</h3>
+                        <p>You don't have any ongoing returns at the moment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Return Policies -->
+        <section class="policies-section">
+            <div class="container">
+                <h2 class="section-title">Return Policies</h2>
+                <div class="policies-grid">
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <h3>7-Day Return Window</h3>
+                        <p>Returns must be initiated within 7 days of delivery. Contact us immediately for perishable items.</p>
+                    </div>
+
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Original Packaging</h3>
+                        <p>Items must be in original packaging with all tags and accessories attached for full refund.</p>
+                    </div>
+
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <h3>Proof of Purchase</h3>
+                        <p>Order confirmation or receipt required for all returns. Keep your order details handy.</p>
+                    </div>
+
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>Non-Returnable Items</h3>
+                        <p>Certain items like perishables, personal care, and customized products cannot be returned.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="returns-faq-section">
+            <div class="container">
+                <h2 class="section-title">Returns FAQ</h2>
+                <div class="faq-grid">
+                    <div class="faq-column">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How long do I have to return an item?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You have 7 days from the delivery date to initiate a return. For perishable items, please contact us within 24 hours of delivery.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What if I received a damaged or wrong item?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Contact us immediately within 24 hours. We'll arrange free pickup and process a full refund or replacement at no extra cost.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I return perishable items?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Perishable items can only be returned if they are spoiled, expired, or damaged upon delivery. Contact us within 24 hours with photos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-column">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How long does refund processing take?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Refunds are processed within 24-48 hours after we receive and inspect your return. It may take 3-7 business days to appear in your account.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What is the 10% bonus on wallet refunds?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>When you choose refund to Tangogi Wallet, we add an extra 10% bonus to your refund amount as a thank you for choosing store credit.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I exchange an item instead of returning?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes! You can request an exchange for a different size, color, or variant. Visit any Tangogi store for instant exchanges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!-- Start Return Modal -->
+    <div class="modal" id="start-return-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Start a Return</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="return-wizard">
+                    <!-- Step 1: Select Order -->
+                    <div class="wizard-step active" data-step="1">
+                        <h4>Select Order</h4>
+                        <div class="recent-orders">
+                            <div class="order-select-card">
+                                <div class="order-info">
+                                    <h5>Order #TGO-789123</h5>
+                                    <p>Placed on Jan 15, 2024 • ₦12,450</p>
+                                    <span class="items-count">5 items</span>
+                                </div>
+                                <button class="btn btn-outline select-order-btn" data-order="TGO-789123">
+                                    Select Order
+                                </button>
+                            </div>
+                            <div class="order-select-card">
+                                <div class="order-info">
+                                    <h5>Order #TGO-789122</h5>
+                                    <p>Placed on Jan 14, 2024 • ₦8,750</p>
+                                    <span class="items-count">3 items</span>
+                                </div>
+                                <button class="btn btn-outline select-order-btn" data-order="TGO-789122">
+                                    Select Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Select Items -->
+                    <div class="wizard-step" data-step="2">
+                        <h4>Select Items to Return</h4>
+                        <div class="return-items-selection">
+                            <div class="return-item-select">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="return-items" value="item1">
+                                    <div class="item-details">
+                                        <img src="https://via.placeholder.com/50x50" alt="Fresh Tomatoes">
+                                        <div class="item-info">
+                                            <h5>Fresh Tomatoes</h5>
+                                            <p>1kg × ₦800</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <select class="return-reason" name="return-reason">
+                                    <option value="">Select reason</option>
+                                    <option value="damaged">Damaged item</option>
+                                    <option value="wrong">Wrong item received</option>
+                                    <option value="quality">Quality issues</option>
+                                    <option value="other">Other reason</option>
+                                </select>
+                            </div>
+                            <!-- More items would be listed here -->
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Choose Method -->
+                    <div class="wizard-step" data-step="3">
+                        <h4>Choose Return Method</h4>
+                        <div class="return-methods-selection">
+                            <label class="method-option">
+                                <input type="radio" name="return-method" value="pickup" checked>
+                                <div class="method-content">
+                                    <i class="fas fa-truck-pickup"></i>
+                                    <div class="method-info">
+                                        <h5>Free Pickup Service</h5>
+                                        <p>Schedule pickup from your location</p>
+                                        <span class="method-details">Next available: Tomorrow, 9AM-1PM</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="return-method" value="store">
+                                <div class="method-content">
+                                    <i class="fas fa-store"></i>
+                                    <div class="method-info">
+                                        <h5>Store Drop-off</h5>
+                                        <p>Return at any Tangogi store</p>
+                                        <span class="method-details">Instant processing • 50+ locations</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Refund Preference -->
+                    <div class="wizard-step" data-step="4">
+                        <h4>Refund Preference</h4>
+                        <div class="refund-preferences">
+                            <label class="refund-option">
+                                <input type="radio" name="refund-method" value="wallet" checked>
+                                <div class="refund-content">
+                                    <i class="fas fa-wallet"></i>
+                                    <div class="refund-info">
+                                        <h5>Tangogi Wallet</h5>
+                                        <p>Instant refund + 10% bonus</p>
+                                        <span class="refund-amount">Estimated: ₦880</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="refund-option">
+                                <input type="radio" name="refund-method" value="original">
+                                <div class="refund-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div class="refund-info">
+                                        <h5>Original Payment Method</h5>
+                                        <p>Refund to card/bank account</p>
+                                        <span class="refund-amount">Estimated: ₦800 (3-7 days)</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="wizard-prev" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous
+                </button>
+                <button class="btn btn-primary" id="wizard-next">
+                    Next
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-primary" id="wizard-submit" style="display: none;">
+                    Submit Return Request
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track Return Modal -->
+    <div class="modal" id="track-return-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Track Your Return</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="track-return-form">
+                    <div class="form-group">
+                        <label for="return-number">Return Number</label>
+                        <input type="text" id="return-number" placeholder="e.g., RTN-789123">
+                    </div>
+                    <div class="form-group">
+                        <label for="return-email">Email Address</label>
+                        <input type="email" id="return-email" placeholder="Your account email">
+                    </div>
+                    <button class="btn btn-primary" id="track-return-btn">
+                        <i class="fas fa-search"></i>
+                        Track Return
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

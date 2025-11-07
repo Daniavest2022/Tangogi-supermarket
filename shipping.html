@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your existing header) -->
+    <header class="site-header">
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-info">
+                        <i class="fas fa-truck" aria-label="Truck icon"></i>
+                        <span>Free delivery on orders over ₦5,000</span>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
+                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
+                        <div class="language-selector">
+                            <i class="fas fa-globe" aria-label="Globe icon"></i>
+                            <select aria-label="Select language">
+                                <option value="en">EN</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ha">Hausa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="actions-section">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Location -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <span>Use Current Location</span>
+                                    </div>
+                                    <div class="location-option" data-location="Lagos">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lagos</span>
+                                    </div>
+                                    <div class="location-option" data-location="Abuja">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Abuja</span>
+                                    </div>
+                                    <div class="location-option" data-location="Port Harcourt">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Port Harcourt</span>
+                                    </div>
+                                    <div class="location-option" data-location="Ibadan">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Ibadan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <span class="user-text">Account</span>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                    </a>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="action-badge" id="wishlist-count">0</span>
+                        </a>
+
+                        <!-- Cart -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+            <!-- Quick Cart Popup -->
+    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
+        <div class="quick-cart-content">
+            <div class="quick-cart-header">
+                <h3 id="quick-cart-title">Your Cart</h3>
+                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="quick-cart-body">
+                <div id="cart-items" class="cart-items" aria-live="polite"></div>
+                <div id="empty-cart" class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="quick-cart-footer">
+                <div class="cart-totals">
+                    <div>
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₦0</span>
+                    </div>
+                    <div>
+                        <span>Tax (5%):</span>
+                        <span id="cart-tax">₦0</span>
+                    </div>
+                    <div>
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">₦500</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₦0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+                <div class="cart-security">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <div class="logo-section">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Tangogi</span>
+                        <span class="logo-tagline">Supermarket</span>
+                    </div>
+                </a>
+            </div>
+            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+        </div>
+        <div class="mobile-nav-menu">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <span>All Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="deals.html" class="nav-link hot-deal">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <span>Hot Deals</span>
+                        <span class="deal-badge">SALE</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <span>About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <div class="mobile-user-actions">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Create Account</a>
+            </div>
+        </div>
+    </div>
+   </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Shipping Hero -->
+        <section class="shipping-hero">
+            <div class="container">
+                <div class="shipping-hero-content">
+                    <h1>Shipping & Delivery</h1>
+                    <p>Fast, reliable delivery services across Nigeria</p>
+                    <div class="shipping-stats">
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">On-Time Delivery</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.8/5</span>
+                            <span class="stat-label">Customer Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Cities Covered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Options -->
+        <section class="delivery-options-section">
+            <div class="container">
+                <h2 class="section-title">Delivery Options</h2>
+                <div class="delivery-options-grid">
+                    <div class="delivery-option-card featured">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="option-badge">Most Popular</div>
+                        </div>
+                        <h3>Express Delivery</h3>
+                        <div class="delivery-time">
+                            <i class="fas fa-clock"></i>
+                            <span>2-4 Hours</span>
+                        </div>
+                        <div class="delivery-cost">
+                            <span class="cost">₦500</span>
+                            <span class="condition">on orders under ₦5,000</span>
+                        </div>
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Real-time tracking</li>
+                            <li><i class="fas fa-check"></i> SMS notifications</li>
+                            <li><i class="fas fa-check"></i> Contactless delivery available</li>
+                            <li><i class="fas fa-check"></i> Free over ₦5,000</li>
+                        </ul>
+                        <div class="coverage">
+                            <span class="coverage-label">Available in:</span>
+                            <span class="coverage-areas">Lagos, Abuja, Port Harcourt</span>
+                        </div>
+                    </div>
+
+                    <div class="delivery-option-card">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                        </div>
+                        <h3>Standard Delivery</h3>
+                        <div class="delivery-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Same Day</span>
+                        </div>
+                        <div class="delivery-cost">
+                            <span class="cost">₦300</span>
+                            <span class="condition">on orders under ₦3,000</span>
+                        </div>
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Delivery by 8 PM</li>
+                            <li><i class="fas fa-check"></i> Order tracking</li>
+                            <li><i class="fas fa-check"></i> Free over ₦3,000</li>
+                            <li><i class="fas fa-check"></i> Available nationwide</li>
+                        </ul>
+                        <div class="coverage">
+                            <span class="coverage-label">Available in:</span>
+                            <span class="coverage-areas">All major cities</span>
+                        </div>
+                    </div>
+
+                    <div class="delivery-option-card">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                        </div>
+                        <h3>Scheduled Delivery</h3>
+                        <div class="delivery-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Choose Your Time</span>
+                        </div>
+                        <div class="delivery-cost">
+                            <span class="cost">₦200</span>
+                            <span class="condition">additional fee</span>
+                        </div>
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Choose delivery date & time</li>
+                            <li><i class="fas fa-check"></i> Perfect for busy schedules</li>
+                            <li><i class="fas fa-check"></i> 2-hour delivery windows</li>
+                            <li><i class="fas fa-check"></i> Advance scheduling up to 7 days</li>
+                        </ul>
+                        <div class="coverage">
+                            <span class="coverage-label">Available in:</span>
+                            <span class="coverage-areas">Lagos, Abuja</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coverage Map -->
+        <section class="coverage-section">
+            <div class="container">
+                <div class="coverage-header">
+                    <h2 class="section-title">Service Coverage Areas</h2>
+                    <p>We're expanding our delivery network across Nigeria</p>
+                </div>
+                
+                <div class="coverage-content">
+                    <div class="coverage-map">
+                        <div class="map-visual">
+                            <!-- Simplified Nigeria map with coverage areas -->
+                            <div class="nigeria-map">
+                                <div class="state lagos active" data-state="lagos">
+                                    <span>Lagos</span>
+                                </div>
+                                <div class="state abuja active" data-state="abuja">
+                                    <span>Abuja</span>
+                                </div>
+                                <div class="state rivers active" data-state="rivers">
+                                    <span>Rivers</span>
+                                </div>
+                                <div class="state oyo" data-state="oyo">
+                                    <span>Oyo</span>
+                                </div>
+                                <div class="state kano" data-state="kano">
+                                    <span>Kano</span>
+                                </div>
+                                <div class="state enugu" data-state="enugu">
+                                    <span>Enugu</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="coverage-legend">
+                            <div class="legend-item">
+                                <span class="legend-color express"></span>
+                                <span>Express Delivery (2-4 hours)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color standard"></span>
+                                <span>Standard Delivery (Same day)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color coming-soon"></span>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="coverage-details">
+                        <div class="state-details active" data-state="lagos">
+                            <h3>Lagos Coverage</h3>
+                            <div class="delivery-areas">
+                                <div class="area-group">
+                                    <h4>Express Delivery Areas</h4>
+                                    <div class="area-list">
+                                        <span class="area-tag">Victoria Island</span>
+                                        <span class="area-tag">Ikoyi</span>
+                                        <span class="area-tag">Lekki</span>
+                                        <span class="area-tag">Ajah</span>
+                                        <span class="area-tag">Ikeja</span>
+                                        <span class="area-tag">Surulere</span>
+                                    </div>
+                                </div>
+                                <div class="area-group">
+                                    <h4>Standard Delivery Areas</h4>
+                                    <div class="area-list">
+                                        <span class="area-tag">Yaba</span>
+                                        <span class="area-tag">Agege</span>
+                                        <span class="area-tag">Alimosho</span>
+                                        <span class="area-tag">Kosofe</span>
+                                        <span class="area-tag">Oshodi</span>
+                                        <span class="area-tag">+15 more areas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="state-details" data-state="abuja">
+                            <h3>Abuja Coverage</h3>
+                            <div class="delivery-areas">
+                                <div class="area-group">
+                                    <h4>Express Delivery Areas</h4>
+                                    <div class="area-list">
+                                        <span class="area-tag">Maitama</span>
+                                        <span class="area-tag">Asokoro</span>
+                                        <span class="area-tag">Wuse</span>
+                                        <span class="area-tag">Garki</span>
+                                    </div>
+                                </div>
+                                <div class="area-group">
+                                    <h4>Standard Delivery Areas</h4>
+                                    <div class="area-list">
+                                        <span class="area-tag">Kubwa</span>
+                                        <span class="area-tag">Gwagwalada</span>
+                                        <span class="area-tag">Lugbe</span>
+                                        <span class="area-tag">+8 more areas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More state details would be here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping Calculator -->
+        <section class="shipping-calculator-section">
+            <div class="container">
+                <div class="calculator-container">
+                    <div class="calculator-header">
+                        <h2>Shipping Cost Calculator</h2>
+                        <p>Estimate your delivery cost and time</p>
+                    </div>
+                    
+                    <div class="calculator-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="delivery-state">State</label>
+                                <select id="delivery-state" name="state">
+                                    <option value="">Select State</option>
+                                    <option value="lagos">Lagos</option>
+                                    <option value="abuja">Abuja</option>
+                                    <option value="rivers">Rivers</option>
+                                    <option value="oyo">Oyo</option>
+                                    <option value="kano">Kano</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="delivery-area">Area/LGA</label>
+                                <select id="delivery-area" name="area" disabled>
+                                    <option value="">Select Area</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-value">Order Value</label>
+                                <div class="input-with-symbol">
+                                    <span class="input-symbol">₦</span>
+                                    <input type="number" id="order-value" name="order_value" placeholder="0" min="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="delivery-type">Delivery Type</label>
+                                <select id="delivery-type" name="delivery_type">
+                                    <option value="standard">Standard Delivery</option>
+                                    <option value="express">Express Delivery</option>
+                                    <option value="scheduled">Scheduled Delivery</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="calculate-shipping">
+                            <i class="fas fa-calculator"></i>
+                            Calculate Shipping
+                        </button>
+                    </div>
+                    
+                    <div class="calculator-results" id="shipping-results" style="display: none;">
+                        <div class="result-card">
+                            <div class="result-header">
+                                <h3>Estimated Delivery</h3>
+                                <span class="result-badge" id="delivery-time-badge">2-4 hours</span>
+                            </div>
+                            <div class="result-details">
+                                <div class="result-item">
+                                    <span class="label">Delivery Cost:</span>
+                                    <span class="value" id="delivery-cost">₦500</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label">Estimated Arrival:</span>
+                                    <span class="value" id="estimated-arrival">Today, 4:30 PM - 6:30 PM</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label">Service Available:</span>
+                                    <span class="value available" id="service-available">Yes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping Policies -->
+        <section class="policies-section">
+            <div class="container">
+                <h2 class="section-title">Shipping Policies</h2>
+                <div class="policies-grid">
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Order Processing</h3>
+                        <p>Orders are processed within 1 hour during business hours (8AM - 8PM). Orders placed after 6PM will be processed the next morning.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>Restricted Items</h3>
+                        <p>Certain items like alcohol, tobacco, and prescription medications have special delivery requirements and may not be available in all areas.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <h3>Delivery Attempts</h3>
+                        <p>We make 2 delivery attempts. If unsuccessful, items are returned to our warehouse. Redelivery charges may apply for additional attempts.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <h3>Perishable Goods</h3>
+                        <p>Perishable items are packed with ice packs and delivered in insulated bags to maintain freshness during transit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- International Shipping -->
+        <section class="international-shipping-section">
+            <div class="container">
+                <div class="international-shipping-card">
+                    <div class="international-content">
+                        <div class="international-info">
+                            <h2>International Shipping</h2>
+                            <p>We now ship Nigerian products worldwide! Share the taste of home with friends and family abroad.</p>
+                            <div class="international-features">
+                                <div class="feature">
+                                    <i class="fas fa-globe-africa"></i>
+                                    <span>30+ Countries</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <span>5-10 Business Days</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-box"></i>
+                                    <span>Carefully Packaged</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="learn-international">
+                                Learn More About International Shipping
+                            </button>
+                        </div>
+                        <div class="international-image">
+                            <div class="placeholder-image">
+                                <i class="fas fa-plane-departure"></i>
+                                <p>Global Delivery Network</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="shipping-faq-section">
+            <div class="container">
+                <h2 class="section-title">Shipping FAQs</h2>
+                <div class="faq-grid">
+                    <div class="faq-column">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What are your delivery hours?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We deliver from 8:00 AM to 9:00 PM daily, including weekends and public holidays. Express delivery is available until 10:00 PM in select areas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I change my delivery address after ordering?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, you can change your delivery address within 30 minutes of placing your order. After that, contact our customer support team immediately for assistance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Do you deliver to PO boxes or military bases?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Currently, we only deliver to physical residential and business addresses. We cannot deliver to PO boxes or military installations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-column">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What happens if I'm not home during delivery?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Our delivery agent will attempt to call you. You can provide delivery instructions in your account settings for safe drop-off locations.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Are there weight or size limits for delivery?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Standard orders are limited to 25kg. For larger orders, contact us for special arrangements. Bulk items may require additional delivery time.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I track my delivery in real-time?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Use our order tracking page or mobile app to see real-time updates, including your delivery agent's location and estimated arrival time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Partners -->
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="section-title">Our Delivery Partners</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <h3>QuickRiders</h3>
+                        <p>Express delivery specialists for urban areas</p>
+                        <div class="partner-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Nigerian Logistics</h3>
+                        <p>Nationwide coverage for standard deliveries</p>
+                        <div class="partner-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.6/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>SwiftCouriers</h3>
+                        <p>Premium service for time-sensitive deliveries</p>
+                        <div class="partner-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!-- Area Check Modal -->
+    <div class="modal" id="area-check-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Check Service Availability</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="area-check-form">
+                    <div class="form-group">
+                        <label for="check-address">Enter Your Full Address</label>
+                        <input type="text" id="check-address" placeholder="e.g., 123 Example Street, Victoria Island, Lagos">
+                    </div>
+                    <button class="btn btn-primary" id="check-availability">
+                        Check Availability
+                    </button>
+                </div>
+                
+                <div class="availability-result" id="availability-result" style="display: none;">
+                    <div class="result-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Service Available!</h4>
+                        <p>We deliver to your location with the following options:</p>
+                        <div class="available-options">
+                            <div class="option">
+                                <span class="option-name">Express Delivery</span>
+                                <span class="option-time">2-4 hours • ₦500</span>
+                            </div>
+                            <div class="option">
+                                <span class="option-name">Standard Delivery</span>
+                                <span class="option-time">Same day • ₦300</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- International Shipping Modal -->
+    <div class="modal" id="international-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>International Shipping Information</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="international-info">
+                    <div class="info-section">
+                        <h4>Available Countries</h4>
+                        <div class="countries-grid">
+                            <span class="country-tag">United Kingdom</span>
+                            <span class="country-tag">United States</span>
+                            <span class="country-tag">Canada</span>
+                            <span class="country-tag">Germany</span>
+                            <span class="country-tag">France</span>
+                            <span class="country-tag">South Africa</span>
+                            <span class="country-tag">Ghana</span>
+                            <span class="country-tag">+20 more</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h4>Shipping Costs & Times</h4>
+                        <div class="shipping-table">
+                            <div class="table-header">
+                                <span>Region</span>
+                                <span>Delivery Time</span>
+                                <span>Starting From</span>
+                            </div>
+                            <div class="table-row">
+                                <span>West Africa</span>
+                                <span>3-5 business days</span>
+                                <span>₦8,000</span>
+                            </div>
+                            <div class="table-row">
+                                <span>Europe</span>
+                                <span>5-7 business days</span>
+                                <span>₦15,000</span>
+                            </div>
+                            <div class="table-row">
+                                <span>North America</span>
+                                <span>7-10 business days</span>
+                                <span>₦18,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h4>Important Notes</h4>
+                        <ul class="notes-list">
+                            <li>Customs duties and import taxes are the responsibility of the recipient</li>
+                            <li>Certain food items may be restricted in some countries</li>
+                            <li>All international orders include tracking and insurance</li>
+                            <li>Contact us for bulk international orders or special requirements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="start-international-order">
+                    Start International Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
