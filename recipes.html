@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes & Cooking Ideas - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as your enhanced header) -->
+    <header class="site-header">
+        <!-- Promotional Top Bar -->
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-promo">
+                        <div class="delivery-info">
+                            <i class="fas fa-truck" aria-label="Truck icon"></i>
+                            <span>Free delivery on orders over ₦5,000</span>
+                        </div>
+                        <div class="promotional-banner">
+                            <span class="promo-text">
+                                <i class="fas fa-gift"></i>
+                                New User Offer: Get ₦1,000 off your first order! 
+                                <a href="register.html" class="promo-link">Claim Now</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html" class="top-link">
+                            <i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> 
+                            <span class="link-text">Track Order</span>
+                        </a>
+                        <a href="help.html" class="top-link">
+                            <i class="fas fa-question-circle" aria-label="Question circle icon"></i> 
+                            <span class="link-text">Help Center</span>
+                        </a>
+                        <div class="language-currency-selector">
+                            <div class="language-selector">
+                                <i class="fas fa-globe" aria-label="Globe icon"></i>
+                                <select aria-label="Select language" id="language-select">
+                                    <option value="en">EN</option>
+                                    <option value="yo">Yoruba</option>
+                                    <option value="ig">Igbo</option>
+                                    <option value="ha">Hausa</option>
+                                </select>
+                            </div>
+                            <div class="currency-selector">
+                                <select aria-label="Select currency" id="currency-select">
+                                    <option value="NGN">NGN ₦</option>
+                                    <option value="USD">USD $</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Enhanced Logo Section -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                        <div class="store-info">
+                            <span class="store-status">
+                                <i class="fas fa-circle status-online"></i>
+                                Open until 10 PM
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Search Section -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                                
+                                <!-- Search Suggestions -->
+                                <div class="search-suggestions" id="search-suggestions">
+                                    <div class="suggestions-header">
+                                        <h4>Popular Searches</h4>
+                                    </div>
+                                    <div class="suggestion-items">
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Fresh Tomatoes</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Basmati Rice</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Chicken Breast</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Organic Vegetables</span>
+                                        </a>
+                                    </div>
+                                    <div class="recent-searches">
+                                        <div class="suggestions-header">
+                                            <h4>Recent Searches</h4>
+                                            <button class="clear-recent" id="clear-recent">Clear</button>
+                                        </div>
+                                        <div class="recent-items" id="recent-searches">
+                                            <!-- Recent searches will be populated here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span class="search-text">Search</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Voice Search -->
+                        <button class="voice-search-btn" id="voice-search-btn" aria-label="Voice search">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+
+                    <!-- Enhanced User Actions -->
+                    <div class="actions-section">
+                        <!-- Store Locator -->
+                        <div class="store-locator">
+                            <button class="locator-btn" id="store-locator-btn" aria-label="Find stores near you">
+                                <i class="fas fa-store"></i>
+                                <span class="btn-text">Stores</span>
+                            </button>
+                        </div>
+
+                        <!-- Enhanced Location Selector -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                                <i class="fas fa-chevron-down location-arrow"></i>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-header">
+                                    <h4>Select Your Location</h4>
+                                    <p>Choose your delivery location for accurate pricing and availability</p>
+                                </div>
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search area or landmark..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option current-location" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <div class="location-details">
+                                            <span class="location-name">Use Current Location</span>
+                                            <span class="location-desc">Detect your location automatically</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-locations">
+                                        <h5>Recent Locations</h5>
+                                        <div class="location-option" data-location="Lagos">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Lagos Mainland</span>
+                                                <span class="location-desc">Anthony Village, Ikeja</span>
+                                            </div>
+                                        </div>
+                                        <div class="location-option" data-location="Abuja">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Abuja Central</span>
+                                                <span class="location-desc">Garki, Wuse</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popular-locations">
+                                        <h5>Popular Cities</h5>
+                                        <div class="location-grid">
+                                            <div class="location-option compact" data-location="Lagos">
+                                                <span>Lagos</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Abuja">
+                                                <span>Abuja</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Port Harcourt">
+                                                <span>Port Harcourt</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Ibadan">
+                                                <span>Ibadan</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Kano">
+                                                <span>Kano</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Benin">
+                                                <span>Benin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="location-footer">
+                                    <button class="btn btn-outline" id="manage-locations">
+                                        <i class="fas fa-cog"></i>
+                                        Manage Saved Locations
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
+                                <span class="user-text">Account</span>
+                                <i class="fas fa-chevron-down user-arrow"></i>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar-large">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                        <span class="menu-badge">3</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                        <span class="menu-badge">12</span>
+                                    </a>
+                                    <a href="addresses.html" class="user-menu-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Saved Addresses</span>
+                                    </a>
+                                    <a href="notifications.html" class="user-menu-item">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Notifications</span>
+                                        <span class="menu-badge">5</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                    <a href="help.html" class="user-menu-item">
+                                        <i class="fas fa-question-circle"></i>
+                                        <span>Help & Support</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Wishlist -->
+                        <div class="wishlist-section">
+                            <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span class="action-badge" id="wishlist-count">12</span>
+                            </a>
+                        </div>
+
+                        <!-- Enhanced Cart Section -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">3</span>
+                            </button>
+                            
+                            <!-- Cart Preview on Hover -->
+                            <div class="cart-preview" id="cart-preview">
+                                <div class="cart-preview-header">
+                                    <h4>Recently Added</h4>
+                                </div>
+                                <div class="cart-preview-items">
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Fresh Tomatoes">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Fresh Tomatoes</span>
+                                            <span class="preview-price">₦800 × 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Basmati Rice">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Basmati Rice</span>
+                                            <span class="preview-price">₦4,500 × 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-preview-footer">
+                                    <div class="preview-total">
+                                        <span>Subtotal:</span>
+                                        <span>₦12,450</span>
+                                    </div>
+                                    <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Dark Mode Toggle -->
+                        <div class="theme-toggle">
+                            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-text">Dark</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item mega-menu">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Fresh Produce</h4>
+                                <ul>
+                                    <li><a href="category.html?type=fruits">Fresh Fruits</a></li>
+                                    <li><a href="category.html?type=vegetables">Vegetables</a></li>
+                                    <li><a href="category.html?type=herbs">Herbs & Seasonings</a></li>
+                                    <li><a href="category.html?type=organic">Organic Produce</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Protein & Dairy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=meat">Meat & Poultry</a></li>
+                                    <li><a href="category.html?type=seafood">Seafood</a></li>
+                                    <li><a href="category.html?type=dairy">Dairy & Eggs</a></li>
+                                    <li><a href="category.html?type=plant-based">Plant-Based Protein</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Pantry Staples</h4>
+                                <ul>
+                                    <li><a href="category.html?type=rice">Rice & Grains</a></li>
+                                    <li><a href="category.html?type=pasta">Pasta & Noodles</a></li>
+                                    <li><a href="category.html?type=oil">Cooking Oil</a></li>
+                                    <li><a href="category.html?type=spices">Spices & Condiments</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Quick & Easy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=frozen">Frozen Foods</a></li>
+                                    <li><a href="category.html?type=canned">Canned Goods</a></li>
+                                    <li><a href="category.html?type=ready-meals">Ready-to-Eat Meals</a></li>
+                                    <li><a href="category.html?type=bakery">Bakery</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-banner">
+                                <div class="banner-content">
+                                    <h4>Weekly Specials</h4>
+                                    <p>Up to 40% off on fresh produce</p>
+                                    <a href="deals.html" class="btn btn-white">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="recipes.html" class="nav-link">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <span>Recipes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Quick Action Bar -->
+                <div class="quick-actions">
+                    <a href="express-delivery.html" class="quick-action">
+                        <i class="fas fa-bolt"></i>
+                        <span>Express Delivery</span>
+                    </a>
+                    <a href="weekly-special.html" class="quick-action">
+                        <i class="fas fa-star"></i>
+                        <span>Weekly Special</span>
+                    </a>
+                    <a href="bulk-order.html" class="quick-action">
+                        <i class="fas fa-box"></i>
+                        <span>Bulk Orders</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sticky Header on Scroll -->
+        <div class="sticky-header" id="sticky-header">
+            <div class="container">
+                <div class="sticky-header-content">
+                    <div class="sticky-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <span class="logo-name">Tangogi</span>
+                        </a>
+                    </div>
+                    <div class="sticky-search">
+                        <div class="search-container compact">
+                            <input type="text" placeholder="Search..." class="search-input">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sticky-actions">
+                        <button class="action-btn cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="action-badge">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Recipes Hero Section -->
+        <section class="recipes-hero">
+            <div class="container">
+                <div class="recipes-hero-content">
+                    <h1>Delicious Recipes</h1>
+                    <p>Discover amazing dishes you can create with ingredients from Tangogi</p>
+                    
+                    <!-- Recipe Search -->
+                    <div class="recipe-search">
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Search recipes by ingredient, cuisine, or dish..." id="recipe-search-input">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                                Search Recipes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Categories -->
+        <section class="recipe-categories-section">
+            <div class="container">
+                <h2 class="section-title">Browse by Category</h2>
+                <div class="categories-scroll">
+                    <div class="categories-container">
+                        <button class="category-filter active" data-category="all">All Recipes</button>
+                        <button class="category-filter" data-category="nigerian">Nigerian</button>
+                        <button class="category-filter" data-category="quick">Quick & Easy</button>
+                        <button class="category-filter" data-category="healthy">Healthy</button>
+                        <button class="category-filter" data-category="vegetarian">Vegetarian</button>
+                        <button class="category-filter" data-category="breakfast">Breakfast</button>
+                        <button class="category-filter" data-category="lunch">Lunch</button>
+                        <button class="category-filter" data-category="dinner">Dinner</button>
+                        <button class="category-filter" data-category="dessert">Desserts</button>
+                        <button class="category-filter" data-category="drinks">Drinks</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Recipes -->
+        <section class="featured-recipes-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Recipes</h2>
+                    <a href="all-recipes.html" class="view-all-link">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="featured-recipes-grid">
+                    <!-- Featured Recipe 1 -->
+                    <div class="featured-recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Jollof Rice" loading="lazy">
+                            <div class="recipe-badges">
+                                <span class="badge popular">Popular</span>
+                                <span class="badge nigerian">Nigerian</span>
+                            </div>
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-title">Classic Nigerian Jollof Rice</h3>
+                            <p class="recipe-description">The ultimate party rice dish with rich tomato sauce and aromatic spices</p>
+                            <div class="recipe-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>45 mins</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-user-friends"></i>
+                                    <span>4 servings</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Medium</span>
+                                </div>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-jollof-rice.html" class="btn btn-primary">View Recipe</a>
+                                <button class="btn btn-outline add-ingredients">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add Ingredients
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Recipe 2 -->
+                    <div class="featured-recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Chicken Pepper Soup" loading="lazy">
+                            <div class="recipe-badges">
+                                <span class="badge healthy">Healthy</span>
+                                <span class="badge quick">Quick</span>
+                            </div>
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-title">Spicy Chicken Pepper Soup</h3>
+                            <p class="recipe-description">Comforting and aromatic soup perfect for cold days or when you're feeling under the weather</p>
+                            <div class="recipe-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>30 mins</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-user-friends"></i>
+                                    <span>2 servings</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Easy</span>
+                                </div>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-pepper-soup.html" class="btn btn-primary">View Recipe</a>
+                                <button class="btn btn-outline add-ingredients">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add Ingredients
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Recipe 3 -->
+                    <div class="featured-recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Plantain Mosa" loading="lazy">
+                            <div class="recipe-badges">
+                                <span class="badge vegetarian">Vegetarian</span>
+                                <span class="badge snack">Snack</span>
+                            </div>
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-title">Sweet Plantain Mosa</h3>
+                            <p class="recipe-description">Crispy fried plantain fritters that make the perfect snack or breakfast</p>
+                            <div class="recipe-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>20 mins</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-user-friends"></i>
+                                    <span>3 servings</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Easy</span>
+                                </div>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-plantain-mosa.html" class="btn btn-primary">View Recipe</a>
+                                <button class="btn btn-outline add-ingredients">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add Ingredients
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Meal Plan -->
+        <section class="meal-plan-section">
+            <div class="container">
+                <div class="meal-plan-header">
+                    <h2 class="section-title">Weekly Meal Plan</h2>
+                    <p>Save time and money with our curated weekly meal plans</p>
+                </div>
+                
+                <div class="meal-plan-card">
+                    <div class="plan-header">
+                        <div class="plan-info">
+                            <h3>Family Dinner Plan</h3>
+                            <p>5 delicious dinners for a family of 4</p>
+                            <div class="plan-stats">
+                                <span class="stat">
+                                    <i class="fas fa-clock"></i>
+                                    Avg. 35 mins prep
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    ₦12,500 total
+                                </span>
+                            </div>
+                        </div>
+                        <div class="plan-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-download"></i>
+                                Get Plan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-days">
+                        <div class="plan-day">
+                            <span class="day-label">Monday</span>
+                            <div class="day-recipe">
+                                <img src="https://via.placeholder.com/60x60" alt="Egusi Soup">
+                                <span>Egusi Soup</span>
+                            </div>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">Tuesday</span>
+                            <div class="day-recipe">
+                                <img src="https://via.placeholder.com/60x60" alt="Fried Rice">
+                                <span>Fried Rice</span>
+                            </div>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">Wednesday</span>
+                            <div class="day-recipe">
+                                <img src="https://via.placeholder.com/60x60" alt="Beans Porridge">
+                                <span>Beans Porridge</span>
+                            </div>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">Thursday</span>
+                            <div class="day-recipe">
+                                <img src="https://via.placeholder.com/60x60" alt="Yam & Egg Sauce">
+                                <span>Yam & Egg Sauce</span>
+                            </div>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">Friday</span>
+                            <div class="day-recipe">
+                                <img src="https://via.placeholder.com/60x60" alt="Suya Chicken">
+                                <span>Suya Chicken</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Collections -->
+        <section class="collections-section">
+            <div class="container">
+                <h2 class="section-title">Recipe Collections</h2>
+                <div class="collections-grid">
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Budget Meals">
+                            <div class="collection-overlay">
+                                <h3>Budget-Friendly Meals</h3>
+                                <p>Delicious meals under ₦2,000 per serving</p>
+                                <span class="recipe-count">15 recipes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://via.placeholder.com/300x200" alt="30 Minute Meals">
+                            <div class="collection-overlay">
+                                <h3>30-Minute Meals</h3>
+                                <p>Quick and easy recipes for busy weekdays</p>
+                                <span class="recipe-count">22 recipes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Healthy Choices">
+                            <div class="collection-overlay">
+                                <h3>Healthy Choices</h3>
+                                <p>Nutritious and balanced meal options</p>
+                                <span class="recipe-count">18 recipes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Weekend Specials">
+                            <div class="collection-overlay">
+                                <h3>Weekend Specials</h3>
+                                <p>Show-stopping dishes for special occasions</p>
+                                <span class="recipe-count">12 recipes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Recipes Grid -->
+        <section class="recipes-grid-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Popular Recipes</h2>
+                    <div class="sort-options">
+                        <label for="recipe-sort">Sort by:</label>
+                        <select id="recipe-sort">
+                            <option value="popular">Most Popular</option>
+                            <option value="recent">Recently Added</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="time">Quickest to Make</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="recipes-grid" id="recipes-container">
+                    <!-- Recipe Card 1 -->
+                    <div class="recipe-card" data-category="nigerian" data-time="60" data-difficulty="medium">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Pounded Yam & Egusi" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Pounded Yam & Egusi Soup</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 60 mins</span>
+                                <span class="difficulty medium">Medium</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.5 (128)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-pounded-yam.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More recipe cards would follow the same pattern -->
+                    <!-- Recipe Card 2 -->
+                    <div class="recipe-card" data-category="quick" data-time="25" data-difficulty="easy">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Nigerian Salad" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Fresh Nigerian Salad</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 25 mins</span>
+                                <span class="difficulty easy">Easy</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.0 (89)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-nigerian-salad.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Card 3 -->
+                    <div class="recipe-card" data-category="breakfast" data-time="15" data-difficulty="easy">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Yam & Egg Sauce" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Yam & Egg Sauce</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 15 mins</span>
+                                <span class="difficulty easy">Easy</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">5.0 (204)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-yam-egg.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Card 4 -->
+                    <div class="recipe-card" data-category="dinner" data-time="40" data-difficulty="medium">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Beef Stew" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Nigerian Beef Stew</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 40 mins</span>
+                                <span class="difficulty medium">Medium</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.5 (156)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-beef-stew.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Card 5 -->
+                    <div class="recipe-card" data-category="vegetarian" data-time="35" data-difficulty="easy">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Beans Porridge" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Beans Porridge</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 35 mins</span>
+                                <span class="difficulty easy">Easy</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.0 (112)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-beans-porridge.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Card 6 -->
+                    <div class="recipe-card" data-category="dessert" data-time="50" data-difficulty="hard">
+                        <div class="recipe-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Chin Chin" loading="lazy">
+                            <button class="save-recipe-btn" aria-label="Save recipe">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">Homemade Chin Chin</h3>
+                            <div class="recipe-meta">
+                                <span class="time"><i class="fas fa-clock"></i> 50 mins</span>
+                                <span class="difficulty hard">Hard</span>
+                            </div>
+                            <div class="recipe-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.5 (76)</span>
+                            </div>
+                            <div class="recipe-actions">
+                                <a href="recipe-chin-chin.html" class="btn btn-outline btn-sm">View Recipe</a>
+                                <button class="btn btn-primary btn-sm add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Load More -->
+                <div class="load-more-section">
+                    <button class="btn btn-outline" id="load-more-recipes">
+                        <i class="fas fa-chevron-down"></i>
+                        Load More Recipes
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cooking Tips Section -->
+        <section class="cooking-tips-section">
+            <div class="container">
+                <h2 class="section-title">Cooking Tips & Guides</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-knife-kitchen"></i>
+                        </div>
+                        <h3>Knife Skills 101</h3>
+                        <p>Learn proper cutting techniques for faster and safer cooking</p>
+                        <a href="#" class="tip-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Fresh Produce Storage</h3>
+                        <p>Keep your fruits and vegetables fresh longer with proper storage</p>
+                        <a href="#" class="tip-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Measurement Conversion</h3>
+                        <p>Handy conversion charts for cups, grams, and tablespoons</p>
+                        <a href="#" class="tip-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Perfect Heat Control</h3>
+                        <p>Master stove temperature for perfectly cooked meals every time</p>
+                        <a href="#" class="tip-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="recipes-newsletter">
+            <div class="container">
+                <div class="newsletter-card">
+                    <div class="newsletter-content">
+                        <h2>Get Weekly Recipe Inspiration</h2>
+                        <p>Join our newsletter and receive new recipes, cooking tips, and exclusive offers every week</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </div>
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Send me weekly meal plans</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="newsletter-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Cooking Inspiration">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as your existing footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@tangogi.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+    <!-- Recipe Quick View Modal -->
+    <div class="modal" id="recipe-quick-view">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Recipe Quick View</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quick-recipe-content">
+                    <!-- Quick recipe details would be loaded here -->
+                    <div class="quick-recipe-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading recipe details...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Ingredients Modal -->
+    <div class="modal" id="add-ingredients-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Recipe Ingredients to Cart</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="ingredients-list">
+                    <h4>Ingredients for <span id="recipe-name">Jollof Rice</span></h4>
+                    <div class="ingredients-checklist">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Rice - 2 cups (₦800)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Tomatoes - 4 large (₦400)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Bell peppers - 2 (₦300)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Onions - 2 medium (₦200)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Chicken - 500g (₦1,500)</span>
+                        </label>
+                    </div>
+                    <div class="ingredients-total">
+                        <span>Total: ₦3,200</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancel-add-ingredients">Cancel</button>
+                <button class="btn btn-primary" id="confirm-add-ingredients">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Recipe Confirmation -->
+    <div class="tangogi-notification" id="save-recipe-notification" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span>Recipe saved to your collection!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

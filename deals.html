@@ -27,34 +27,59 @@
 <body>
     <!-- Header (same as index.html) -->
     <header class="site-header">
-       <div class="header-top-bar">
+        <!-- Promotional Top Bar -->
+        <div class="header-top-bar">
             <div class="container">
                 <div class="header-top-content">
-                    <div class="delivery-info">
-                        <i class="fas fa-truck" aria-label="Truck icon"></i>
-                        <span>Free delivery on orders over ₦5,000</span>
+                    <div class="delivery-promo">
+                        <div class="delivery-info">
+                            <i class="fas fa-truck" aria-label="Truck icon"></i>
+                            <span>Free delivery on orders over ₦5,000</span>
+                        </div>
+                        <div class="promotional-banner">
+                            <span class="promo-text">
+                                <i class="fas fa-gift"></i>
+                                New User Offer: Get ₦1,000 off your first order! 
+                                <a href="register.html" class="promo-link">Claim Now</a>
+                            </span>
+                        </div>
                     </div>
                     <div class="header-top-links">
-                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
-                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
-                        <div class="language-selector">
-                            <i class="fas fa-globe" aria-label="Globe icon"></i>
-                            <select aria-label="Select language">
-                                <option value="en">EN</option>
-                                <option value="yo">Yoruba</option>
-                                <option value="ig">Igbo</option>
-                                <option value="ha">Hausa</option>
-                            </select>
+                        <a href="tracking.html" class="top-link">
+                            <i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> 
+                            <span class="link-text">Track Order</span>
+                        </a>
+                        <a href="help.html" class="top-link">
+                            <i class="fas fa-question-circle" aria-label="Question circle icon"></i> 
+                            <span class="link-text">Help Center</span>
+                        </a>
+                        <div class="language-currency-selector">
+                            <div class="language-selector">
+                                <i class="fas fa-globe" aria-label="Globe icon"></i>
+                                <select aria-label="Select language" id="language-select">
+                                    <option value="en">EN</option>
+                                    <option value="yo">Yoruba</option>
+                                    <option value="ig">Igbo</option>
+                                    <option value="ha">Hausa</option>
+                                </select>
+                            </div>
+                            <div class="currency-selector">
+                                <select aria-label="Select currency" id="currency-select">
+                                    <option value="NGN">NGN ₦</option>
+                                    <option value="USD">USD $</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Main Header -->
         <div class="header-main">
             <div class="container">
                 <div class="header-main-inner">
-                    <!-- Logo -->
+                    <!-- Enhanced Logo Section -->
                     <div class="logo-section">
                         <a href="index.html" class="site-logo">
                             <div class="logo-icon">
@@ -65,9 +90,15 @@
                                 <span class="logo-tagline">Supermarket</span>
                             </div>
                         </a>
+                        <div class="store-info">
+                            <span class="store-status">
+                                <i class="fas fa-circle status-online"></i>
+                                Open until 10 PM
+                            </span>
+                        </div>
                     </div>
 
-                    <!-- Search Bar -->
+                    <!-- Enhanced Search Section -->
                     <div class="search-section">
                         <div class="search-container">
                             <div class="search-input-wrapper">
@@ -82,66 +113,149 @@
                                 <button class="search-clear" id="search-clear" aria-label="Clear search">
                                     <i class="fas fa-times" aria-hidden="true"></i>
                                 </button>
+                                
+                                <!-- Search Suggestions -->
+                                <div class="search-suggestions" id="search-suggestions">
+                                    <div class="suggestions-header">
+                                        <h4>Popular Searches</h4>
+                                    </div>
+                                    <div class="suggestion-items">
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Fresh Tomatoes</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Basmati Rice</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Chicken Breast</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Organic Vegetables</span>
+                                        </a>
+                                    </div>
+                                    <div class="recent-searches">
+                                        <div class="suggestions-header">
+                                            <h4>Recent Searches</h4>
+                                            <button class="clear-recent" id="clear-recent">Clear</button>
+                                        </div>
+                                        <div class="recent-items" id="recent-searches">
+                                            <!-- Recent searches will be populated here -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button class="search-btn" id="search-btn" aria-label="Search">
                                 <i class="fas fa-search" aria-hidden="true"></i>
-                                <span>Search</span>
+                                <span class="search-text">Search</span>
                             </button>
                         </div>
+                        
+                        <!-- Voice Search -->
+                        <button class="voice-search-btn" id="voice-search-btn" aria-label="Voice search">
+                            <i class="fas fa-microphone"></i>
+                        </button>
                     </div>
 
-                    <!-- User Actions -->
+                    <!-- Enhanced User Actions -->
                     <div class="actions-section">
-                        <!-- Dark Mode Toggle -->
-                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
+                        <!-- Store Locator -->
+                        <div class="store-locator">
+                            <button class="locator-btn" id="store-locator-btn" aria-label="Find stores near you">
+                                <i class="fas fa-store"></i>
+                                <span class="btn-text">Stores</span>
+                            </button>
+                        </div>
 
-                        <!-- Location -->
+                        <!-- Enhanced Location Selector -->
                         <div class="location-selector">
                             <button class="location-btn" id="location-btn" aria-label="Select location">
                                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                                 <span class="location-text">Lagos</span>
+                                <i class="fas fa-chevron-down location-arrow"></i>
                             </button>
                             <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-header">
+                                    <h4>Select Your Location</h4>
+                                    <p>Choose your delivery location for accurate pricing and availability</p>
+                                </div>
                                 <div class="location-search">
                                     <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search location..." id="location-search-input">
+                                    <input type="text" placeholder="Search area or landmark..." id="location-search-input">
                                 </div>
                                 <div class="location-options">
-                                    <div class="location-option" data-location="use-current">
+                                    <div class="location-option current-location" data-location="use-current">
                                         <i class="fas fa-crosshairs"></i>
-                                        <span>Use Current Location</span>
+                                        <div class="location-details">
+                                            <span class="location-name">Use Current Location</span>
+                                            <span class="location-desc">Detect your location automatically</span>
+                                        </div>
                                     </div>
-                                    <div class="location-option" data-location="Lagos">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Lagos</span>
+                                    <div class="recent-locations">
+                                        <h5>Recent Locations</h5>
+                                        <div class="location-option" data-location="Lagos">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Lagos Mainland</span>
+                                                <span class="location-desc">Anthony Village, Ikeja</span>
+                                            </div>
+                                        </div>
+                                        <div class="location-option" data-location="Abuja">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Abuja Central</span>
+                                                <span class="location-desc">Garki, Wuse</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="location-option" data-location="Abuja">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Abuja</span>
+                                    <div class="popular-locations">
+                                        <h5>Popular Cities</h5>
+                                        <div class="location-grid">
+                                            <div class="location-option compact" data-location="Lagos">
+                                                <span>Lagos</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Abuja">
+                                                <span>Abuja</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Port Harcourt">
+                                                <span>Port Harcourt</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Ibadan">
+                                                <span>Ibadan</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Kano">
+                                                <span>Kano</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Benin">
+                                                <span>Benin</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="location-option" data-location="Port Harcourt">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Port Harcourt</span>
-                                    </div>
-                                    <div class="location-option" data-location="Ibadan">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Ibadan</span>
-                                    </div>
+                                </div>
+                                <div class="location-footer">
+                                    <button class="btn btn-outline" id="manage-locations">
+                                        <i class="fas fa-cog"></i>
+                                        Manage Saved Locations
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- User Account -->
+                        <!-- Enhanced User Account -->
                         <div class="user-account">
                             <button class="user-btn" id="user-btn" aria-label="My account">
-                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <div class="user-avatar">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
                                 <span class="user-text">Account</span>
+                                <i class="fas fa-chevron-down user-arrow"></i>
                             </button>
                             <div class="user-dropdown" id="user-dropdown">
                                 <div class="user-info">
-                                    <div class="user-avatar">
+                                    <div class="user-avatar-large">
                                         <i class="fas fa-user"></i>
                                     </div>
                                     <div class="user-details">
@@ -162,45 +276,101 @@
                                     <a href="orders.html" class="user-menu-item">
                                         <i class="fas fa-shopping-bag"></i>
                                         <span>My Orders</span>
+                                        <span class="menu-badge">3</span>
                                     </a>
                                     <a href="wishlist.html" class="user-menu-item">
                                         <i class="fas fa-heart"></i>
                                         <span>Wishlist</span>
+                                        <span class="menu-badge">12</span>
                                     </a>
+                                    <a href="addresses.html" class="user-menu-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Saved Addresses</span>
+                                    </a>
+                                    <a href="notifications.html" class="user-menu-item">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Notifications</span>
+                                        <span class="menu-badge">5</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
                                     <a href="settings.html" class="user-menu-item">
                                         <i class="fas fa-cog"></i>
                                         <span>Settings</span>
+                                    </a>
+                                    <a href="help.html" class="user-menu-item">
+                                        <i class="fas fa-question-circle"></i>
+                                        <span>Help & Support</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Wishlist -->
-                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                            <span class="action-badge" id="wishlist-count">0</span>
-                        </a>
+                        <!-- Enhanced Wishlist -->
+                        <div class="wishlist-section">
+                            <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span class="action-badge" id="wishlist-count">12</span>
+                            </a>
+                        </div>
 
-                        <!-- Cart -->
+                        <!-- Enhanced Cart Section -->
                         <div class="cart-section">
                             <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
                                 <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="action-badge" id="cart-count">0</span>
+                                <span class="action-badge" id="cart-count">3</span>
+                            </button>
+                            
+                            <!-- Cart Preview on Hover -->
+                            <div class="cart-preview" id="cart-preview">
+                                <div class="cart-preview-header">
+                                    <h4>Recently Added</h4>
+                                </div>
+                                <div class="cart-preview-items">
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Fresh Tomatoes">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Fresh Tomatoes</span>
+                                            <span class="preview-price">₦800 × 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Basmati Rice">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Basmati Rice</span>
+                                            <span class="preview-price">₦4,500 × 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-preview-footer">
+                                    <div class="preview-total">
+                                        <span>Subtotal:</span>
+                                        <span>₦12,450</span>
+                                    </div>
+                                    <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Dark Mode Toggle -->
+                        <div class="theme-toggle">
+                            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-text">Dark</span>
                             </button>
                         </div>
 
                         <!-- Mobile Menu Toggle -->
                         <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Navigation -->
+        <!-- Enhanced Navigation -->
         <nav class="main-navigation" aria-label="Main navigation">
             <div class="container">
                 <ul class="nav-menu">
@@ -211,11 +381,57 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item mega-menu">
                         <a href="categories.html" class="nav-link">
                             <i class="fas fa-th-large" aria-hidden="true"></i>
                             <span>Categories</span>
+                            <i class="fas fa-chevron-down nav-arrow"></i>
                         </a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Fresh Produce</h4>
+                                <ul>
+                                    <li><a href="category.html?type=fruits">Fresh Fruits</a></li>
+                                    <li><a href="category.html?type=vegetables">Vegetables</a></li>
+                                    <li><a href="category.html?type=herbs">Herbs & Seasonings</a></li>
+                                    <li><a href="category.html?type=organic">Organic Produce</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Protein & Dairy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=meat">Meat & Poultry</a></li>
+                                    <li><a href="category.html?type=seafood">Seafood</a></li>
+                                    <li><a href="category.html?type=dairy">Dairy & Eggs</a></li>
+                                    <li><a href="category.html?type=plant-based">Plant-Based Protein</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Pantry Staples</h4>
+                                <ul>
+                                    <li><a href="category.html?type=rice">Rice & Grains</a></li>
+                                    <li><a href="category.html?type=pasta">Pasta & Noodles</a></li>
+                                    <li><a href="category.html?type=oil">Cooking Oil</a></li>
+                                    <li><a href="category.html?type=spices">Spices & Condiments</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Quick & Easy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=frozen">Frozen Foods</a></li>
+                                    <li><a href="category.html?type=canned">Canned Goods</a></li>
+                                    <li><a href="category.html?type=ready-meals">Ready-to-Eat Meals</a></li>
+                                    <li><a href="category.html?type=bakery">Bakery</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-banner">
+                                <div class="banner-content">
+                                    <h4>Weekly Specials</h4>
+                                    <p>Up to 40% off on fresh produce</p>
+                                    <a href="deals.html" class="btn btn-white">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
 
                     <li class="nav-item">
@@ -234,6 +450,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="recipes.html" class="nav-link">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <span>Recipes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="about.html" class="nav-link">
                             <i class="fas fa-info-circle" aria-hidden="true"></i>
                             <span>About Us</span>
@@ -247,119 +470,54 @@
                         </a>
                     </li>
                 </ul>
+                
+                <!-- Quick Action Bar -->
+                <div class="quick-actions">
+                    <a href="express-delivery.html" class="quick-action">
+                        <i class="fas fa-bolt"></i>
+                        <span>Express Delivery</span>
+                    </a>
+                    <a href="weekly-special.html" class="quick-action">
+                        <i class="fas fa-star"></i>
+                        <span>Weekly Special</span>
+                    </a>
+                    <a href="bulk-order.html" class="quick-action">
+                        <i class="fas fa-box"></i>
+                        <span>Bulk Orders</span>
+                    </a>
+                </div>
             </div>
         </nav>
 
-            <!-- Quick Cart Popup -->
-    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
-        <div class="quick-cart-content">
-            <div class="quick-cart-header">
-                <h3 id="quick-cart-title">Your Cart</h3>
-                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
-            </div>
-            <div class="quick-cart-body">
-                <div id="cart-items" class="cart-items" aria-live="polite"></div>
-                <div id="empty-cart" class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
-                </div>
-            </div>
-            <div class="quick-cart-footer">
-                <div class="cart-totals">
-                    <div>
-                        <span>Subtotal:</span>
-                        <span id="cart-subtotal">₦0</span>
+        <!-- Sticky Header on Scroll -->
+        <div class="sticky-header" id="sticky-header">
+            <div class="container">
+                <div class="sticky-header-content">
+                    <div class="sticky-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <span class="logo-name">Tangogi</span>
+                        </a>
                     </div>
-                    <div>
-                        <span>Tax (5%):</span>
-                        <span id="cart-tax">₦0</span>
+                    <div class="sticky-search">
+                        <div class="search-container compact">
+                            <input type="text" placeholder="Search..." class="search-input">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div>
-                        <span>Shipping:</span>
-                        <span id="cart-shipping">₦500</span>
+                    <div class="sticky-actions">
+                        <button class="action-btn cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="action-badge">3</span>
+                        </button>
                     </div>
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cart-total">₦0</span>
-                    </div>
-                </div>
-                <div class="cart-actions">
-                    <a href="cart.html" class="btn btn-outline">View Cart</a>
-                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
-                </div>
-                <div class="cart-security">
-                    <i class="fas fa-lock"></i>
-                    <span>Secure checkout</span>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
-        <div class="mobile-nav-header">
-            <div class="logo-section">
-                <a href="index.html" class="site-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-name">Tangogi</span>
-                        <span class="logo-tagline">Supermarket</span>
-                    </div>
-                </a>
-            </div>
-            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
-        </div>
-        <div class="mobile-nav-menu">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categories.html" class="nav-link">
-                        <i class="fas fa-th-large" aria-hidden="true"></i>
-                        <span>Categories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">
-                        <i class="fas fa-store" aria-hidden="true"></i>
-                        <span>All Products</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="deals.html" class="nav-link hot-deal">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
-                        <span>Hot Deals</span>
-                        <span class="deal-badge">SALE</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i>
-                        <span>About Us</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile-nav-footer">
-            <div class="mobile-user-actions">
-                <a href="login.html" class="btn btn-outline">Sign In</a>
-                <a href="register.html" class="btn btn-primary">Create Account</a>
-            </div>
-        </div>
-    </div>
     </header>
     
     <!-- Skip link for accessibility -->
@@ -775,7 +933,7 @@
         </button>
     </div>
 
-    <script src="app.js"></script>
+    <script type="module" src="js/main.js"></script>
     
     <script>
         // Additional JavaScript for the deals page

@@ -3,362 +3,576 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products - Tangogi Supermarket</title>
+  <title>Products - Tangogi Supermarket | Fresh Groceries & Quality Products</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Browse Tangogi's extensive collection of fresh groceries, quality products, and household essentials. Fresh produce, dairy, meat, and pantry staples delivered to your door.">
+  <meta name="keywords" content="fresh groceries, online supermarket, food delivery, Lagos groceries, Tangogi products">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Products - Tangogi Supermarket | Fresh Groceries & Quality Products">
+  <meta property="og:description" content="Browse Tangogi's extensive collection of fresh groceries and quality products. Fresh delivery across Lagos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tangogi.com/products">
+  <meta property="og:image" content="https://tangogi.com/images/products-og.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Products - Tangogi Supermarket">
+  <meta name="twitter:description" content="Fresh groceries and quality products delivered to your door in Lagos.">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Tangogi Supermarket Products",
+    "description": "Fresh groceries and quality products available for delivery",
+    "url": "https://tangogi.com/products",
+    "numberOfItems": 50,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Fresh Tomatoes",
+          "description": "Fresh locally sourced tomatoes",
+          "offers": {
+            "@type": "Offer",
+            "price": "1200",
+            "priceCurrency": "NGN"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="products-enhancements.css">
   <link rel="stylesheet" href="header-enhancements.css">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <meta name="theme-color" content="#4caf50">
 </head>
 <body>
-  <!-- Header (your complete header code remains the same) -->
-  <header class="site-header">
-        <div class="header-top-bar">
-            <div class="container">
-                <div class="header-top-content">
-                    <div class="delivery-info">
-                        <i class="fas fa-truck" aria-label="Truck icon"></i>
-                        <span>Free delivery on orders over ₦5,000</span>
-                    </div>
-                    <div class="header-top-links">
-                        <a href="tracking.html"><i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> Track Order</a>
-                        <a href="help.html"><i class="fas fa-question-circle" aria-label="Question circle icon"></i> Help Center</a>
-                        <div class="language-selector">
-                            <i class="fas fa-globe" aria-label="Globe icon"></i>
-                            <select aria-label="Select language">
-                                <option value="en">EN</option>
-                                <option value="yo">Yoruba</option>
-                                <option value="ig">Igbo</option>
-                                <option value="ha">Hausa</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header Component -->
+  <header class="site-header" id="main-header">
+    <!-- Header content remains exactly the same as your original -->
+    <!-- Promotional Top Bar -->
+    <div class="header-top-bar">
+      <div class="container">
+        <div class="header-top-content">
+          <div class="delivery-promo">
+            <div class="delivery-info">
+              <i class="fas fa-truck" aria-label="Truck icon"></i>
+              <span>Free delivery on orders over ₦5,000</span>
             </div>
-        </div>
-
-        <div class="header-main">
-            <div class="container">
-                <div class="header-main-inner">
-                    <!-- Logo -->
-                    <div class="logo-section">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Search Bar -->
-                    <div class="search-section">
-                        <div class="search-container">
-                            <div class="search-input-wrapper">
-                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                                <input
-                                    type="text"
-                                    class="search-input"
-                                    placeholder="Search for fresh tomatoes, rice, chicken..."
-                                    id="search-input"
-                                    aria-label="Search for products"
-                                >
-                                <button class="search-clear" id="search-clear" aria-label="Clear search">
-                                    <i class="fas fa-times" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <button class="search-btn" id="search-btn" aria-label="Search">
-                                <i class="fas fa-search" aria-hidden="true"></i>
-                                <span>Search</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- User Actions -->
-                    <div class="actions-section">
-                        <!-- Dark Mode Toggle -->
-                        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-
-                        <!-- Location -->
-                        <div class="location-selector">
-                            <button class="location-btn" id="location-btn" aria-label="Select location">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span class="location-text">Lagos</span>
-                            </button>
-                            <div class="location-dropdown" id="location-dropdown">
-                                <div class="location-search">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search location..." id="location-search-input">
-                                </div>
-                                <div class="location-options">
-                                    <div class="location-option" data-location="use-current">
-                                        <i class="fas fa-crosshairs"></i>
-                                        <span>Use Current Location</span>
-                                    </div>
-                                    <div class="location-option" data-location="Lagos">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Lagos</span>
-                                    </div>
-                                    <div class="location-option" data-location="Abuja">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Abuja</span>
-                                    </div>
-                                    <div class="location-option" data-location="Port Harcourt">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Port Harcourt</span>
-                                    </div>
-                                    <div class="location-option" data-location="Ibadan">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Ibadan</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- User Account -->
-                        <div class="user-account">
-                            <button class="user-btn" id="user-btn" aria-label="My account">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                <span class="user-text">Account</span>
-                            </button>
-                            <div class="user-dropdown" id="user-dropdown">
-                                <div class="user-info">
-                                    <div class="user-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="user-details">
-                                        <div class="user-greeting">Hello, Guest</div>
-                                        <div class="user-status">Sign in to your account</div>
-                                    </div>
-                                </div>
-                                <div class="user-menu">
-                                    <a href="login.html" class="user-menu-item">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        <span>Sign In</span>
-                                    </a>
-                                    <a href="register.html" class="user-menu-item">
-                                        <i class="fas fa-user-plus"></i>
-                                        <span>Create Account</span>
-                                    </a>
-                                    <div class="user-menu-divider"></div>
-                                    <a href="orders.html" class="user-menu-item">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <span>My Orders</span>
-                                    </a>
-                                    <a href="wishlist.html" class="user-menu-item">
-                                        <i class="fas fa-heart"></i>
-                                        <span>Wishlist</span>
-                                    </a>
-                                    <a href="settings.html" class="user-menu-item">
-                                        <i class="fas fa-cog"></i>
-                                        <span>Settings</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Wishlist -->
-                        <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                            <span class="action-badge" id="wishlist-count">0</span>
-                        </a>
-
-                        <!-- Cart -->
-                        <div class="cart-section">
-                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
-                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="action-badge" id="cart-count">0</span>
-                            </button>
-                        </div>
-
-                        <!-- Mobile Menu Toggle -->
-                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
+            <div class="promotional-banner">
+              <span class="promo-text">
+                <i class="fas fa-gift"></i>
+                New User Offer: Get ₦1,000 off your first order! 
+                <a href="register.html" class="promo-link">Claim Now</a>
+              </span>
             </div>
+          </div>
+          <div class="header-top-links">
+            <a href="tracking.html" class="top-link">
+              <i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> 
+              <span class="link-text">Track Order</span>
+            </a>
+            <a href="help.html" class="top-link">
+              <i class="fas fa-question-circle" aria-label="Question circle icon"></i> 
+              <span class="link-text">Help Center</span>
+            </a>
+            <div class="language-currency-selector">
+              <div class="language-selector">
+                <i class="fas fa-globe" aria-label="Globe icon"></i>
+                <select aria-label="Select language" id="language-select">
+                  <option value="en">EN</option>
+                  <option value="yo">Yoruba</option>
+                  <option value="ig">Igbo</option>
+                  <option value="ha">Hausa</option>
+                </select>
+              </div>
+              <div class="currency-selector">
+                <select aria-label="Select currency" id="currency-select">
+                  <option value="NGN">NGN ₦</option>
+                  <option value="USD">USD $</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Navigation -->
-        <nav class="main-navigation" aria-label="Main navigation">
-            <div class="container">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
+    <!-- Main Header -->
+    <div class="header-main">
+      <div class="container">
+        <div class="header-main-inner">
+          <!-- Logo Section -->
+          <div class="logo-section">
+            <a href="index.html" class="site-logo">
+              <div class="logo-icon">
+                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+              </div>
+              <div class="logo-text">
+                <span class="logo-name">Tangogi</span>
+                <span class="logo-tagline">Supermarket</span>
+              </div>
+            </a>
+            <div class="store-info">
+              <span class="store-status">
+                <i class="fas fa-circle status-online"></i>
+                Open until 10 PM
+              </span>
+            </div>
+          </div>
 
-                    <li class="nav-item">
-                        <a href="categories.html" class="nav-link">
-                            <i class="fas fa-th-large" aria-hidden="true"></i>
-                            <span>Categories</span>
-                        </a>
-                    </li>
+          <!-- Search Section -->
+          <div class="search-section">
+            <div class="search-container">
+              <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search for fresh tomatoes, rice, chicken..."
+                  id="search-input"
+                  aria-label="Search for products"
+                >
+                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                  <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+                
+                <!-- Search Suggestions -->
+                <div class="search-suggestions" id="search-suggestions">
+                  <div class="suggestions-header">
+                    <h4>Popular Searches</h4>
+                  </div>
+                  <div class="suggestion-items">
+                    <a href="#" class="suggestion-item">
+                      <i class="fas fa-search"></i>
+                      <span>Fresh Tomatoes</span>
+                    </a>
+                    <a href="#" class="suggestion-item">
+                      <i class="fas fa-search"></i>
+                      <span>Basmati Rice</span>
+                    </a>
+                    <a href="#" class="suggestion-item">
+                      <i class="fas fa-search"></i>
+                      <span>Chicken Breast</span>
+                    </a>
+                    <a href="#" class="suggestion-item">
+                      <i class="fas fa-search"></i>
+                      <span>Organic Vegetables</span>
+                    </a>
+                  </div>
+                  <div class="recent-searches">
+                    <div class="suggestions-header">
+                      <h4>Recent Searches</h4>
+                      <button class="clear-recent" id="clear-recent">Clear</button>
+                    </div>
+                    <div class="recent-items" id="recent-searches">
+                      <!-- Recent searches will be populated here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="search-btn" id="search-btn" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <span class="search-text">Search</span>
+              </button>
+            </div>
+            
+            <!-- Voice Search -->
+            <button class="voice-search-btn" id="voice-search-btn" aria-label="Voice search">
+              <i class="fas fa-microphone"></i>
+            </button>
+          </div>
 
-                    <li class="nav-item">
-                        <a href="products.html" class="nav-link">
-                            <i class="fas fa-store" aria-hidden="true"></i>
-                            <span>All Products</span>
-                        </a>
-                    </li>
+          <!-- User Actions -->
+          <div class="actions-section">
+            <!-- Store Locator -->
+            <div class="store-locator">
+              <button class="locator-btn" id="store-locator-btn" aria-label="Find stores near you">
+                <i class="fas fa-store"></i>
+                <span class="btn-text">Stores</span>
+              </button>
+            </div>
 
-                    <li class="nav-item">
-                        <a href="deals.html" class="nav-link hot-deal">
-                            <i class="fas fa-bolt" aria-hidden="true"></i>
-                            <span>Hot Deals</span>
-                            <span class="deal-badge">SALE</span>
-                        </a>
-                    </li>
+            <!-- Location Selector -->
+            <div class="location-selector">
+              <button class="location-btn" id="location-btn" aria-label="Select location">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span class="location-text">Lagos</span>
+                <i class="fas fa-chevron-down location-arrow"></i>
+              </button>
+              <div class="location-dropdown" id="location-dropdown">
+                <div class="location-header">
+                  <h4>Select Your Location</h4>
+                  <p>Choose your delivery location for accurate pricing and availability</p>
+                </div>
+                <div class="location-search">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Search area or landmark..." id="location-search-input">
+                </div>
+                <div class="location-options">
+                  <div class="location-option current-location" data-location="use-current">
+                    <i class="fas fa-crosshairs"></i>
+                    <div class="location-details">
+                      <span class="location-name">Use Current Location</span>
+                      <span class="location-desc">Detect your location automatically</span>
+                    </div>
+                  </div>
+                  <div class="recent-locations">
+                    <h5>Recent Locations</h5>
+                    <div class="location-option" data-location="Lagos">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div class="location-details">
+                        <span class="location-name">Lagos Mainland</span>
+                        <span class="location-desc">Anthony Village, Ikeja</span>
+                      </div>
+                    </div>
+                    <div class="location-option" data-location="Abuja">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div class="location-details">
+                        <span class="location-name">Abuja Central</span>
+                        <span class="location-desc">Garki, Wuse</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="popular-locations">
+                    <h5>Popular Cities</h5>
+                    <div class="location-grid">
+                      <div class="location-option compact" data-location="Lagos">
+                        <span>Lagos</span>
+                      </div>
+                      <div class="location-option compact" data-location="Abuja">
+                        <span>Abuja</span>
+                      </div>
+                      <div class="location-option compact" data-location="Port Harcourt">
+                        <span>Port Harcourt</span>
+                      </div>
+                      <div class="location-option compact" data-location="Ibadan">
+                        <span>Ibadan</span>
+                      </div>
+                      <div class="location-option compact" data-location="Kano">
+                        <span>Kano</span>
+                      </div>
+                      <div class="location-option compact" data-location="Benin">
+                        <span>Benin</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="location-footer">
+                  <button class="btn btn-outline" id="manage-locations">
+                    <i class="fas fa-cog"></i>
+                    Manage Saved Locations
+                  </button>
+                </div>
+              </div>
+            </div>
 
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">
-                            <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            <span>About Us</span>
-                        </a>
-                    </li>
+            <!-- User Account -->
+            <div class="user-account">
+              <button class="user-btn" id="user-btn" aria-label="My account">
+                <div class="user-avatar">
+                  <i class="fas fa-user" aria-hidden="true"></i>
+                </div>
+                <span class="user-text">Account</span>
+                <i class="fas fa-chevron-down user-arrow"></i>
+              </button>
+              <div class="user-dropdown" id="user-dropdown">
+                <div class="user-info">
+                  <div class="user-avatar-large">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="user-details">
+                    <div class="user-greeting">Hello, Guest</div>
+                    <div class="user-status">Sign in to your account</div>
+                  </div>
+                </div>
+                <div class="user-menu">
+                  <a href="login.html" class="user-menu-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Sign In</span>
+                  </a>
+                  <a href="register.html" class="user-menu-item">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span>
+                  </a>
+                  <div class="user-menu-divider"></div>
+                  <a href="orders.html" class="user-menu-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>My Orders</span>
+                    <span class="menu-badge">3</span>
+                  </a>
+                  <a href="wishlist.html" class="user-menu-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                    <span class="menu-badge">12</span>
+                  </a>
+                  <a href="addresses.html" class="user-menu-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Saved Addresses</span>
+                  </a>
+                  <a href="notifications.html" class="user-menu-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="menu-badge">5</span>
+                  </a>
+                  <div class="user-menu-divider"></div>
+                  <a href="settings.html" class="user-menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                  </a>
+                  <a href="help.html" class="user-menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
+            <!-- Wishlist -->
+            <div class="wishlist-section">
+              <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+                <span class="action-badge" id="wishlist-count">12</span>
+              </a>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="cart-section">
+              <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                <span class="action-badge" id="cart-count">3</span>
+              </button>
+              
+              <!-- Cart Preview on Hover -->
+              <div class="cart-preview" id="cart-preview">
+                <div class="cart-preview-header">
+                  <h4>Recently Added</h4>
+                </div>
+                <div class="cart-preview-items">
+                  <div class="preview-item">
+                    <img src="https://via.placeholder.com/40x40" alt="Fresh Tomatoes">
+                    <div class="preview-details">
+                      <span class="preview-name">Fresh Tomatoes</span>
+                      <span class="preview-price">₦800 × 2</span>
+                    </div>
+                  </div>
+                  <div class="preview-item">
+                    <img src="https://via.placeholder.com/40x40" alt="Basmati Rice">
+                    <div class="preview-details">
+                      <span class="preview-name">Basmati Rice</span>
+                      <span class="preview-price">₦4,500 × 1</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-preview-footer">
+                  <div class="preview-total">
+                    <span>Subtotal:</span>
+                    <span>₦12,450</span>
+                  </div>
+                  <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="theme-toggle">
+              <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <span class="theme-text">Dark</span>
+              </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-navigation" aria-label="Main navigation">
+      <div class="container">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home" aria-hidden="true"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item mega-menu">
+            <a href="categories.html" class="nav-link">
+              <i class="fas fa-th-large" aria-hidden="true"></i>
+              <span>Categories</span>
+              <i class="fas fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-column">
+                <h4>Fresh Produce</h4>
+                <ul>
+                  <li><a href="category.html?type=fruits">Fresh Fruits</a></li>
+                  <li><a href="category.html?type=vegetables">Vegetables</a></li>
+                  <li><a href="category.html?type=herbs">Herbs & Seasonings</a></li>
+                  <li><a href="category.html?type=organic">Organic Produce</a></li>
                 </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Protein & Dairy</h4>
+                <ul>
+                  <li><a href="category.html?type=meat">Meat & Poultry</a></li>
+                  <li><a href="category.html?type=seafood">Seafood</a></li>
+                  <li><a href="category.html?type=dairy">Dairy & Eggs</a></li>
+                  <li><a href="category.html?type=plant-based">Plant-Based Protein</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Pantry Staples</h4>
+                <ul>
+                  <li><a href="category.html?type=rice">Rice & Grains</a></li>
+                  <li><a href="category.html?type=pasta">Pasta & Noodles</a></li>
+                  <li><a href="category.html?type=oil">Cooking Oil</a></li>
+                  <li><a href="category.html?type=spices">Spices & Condiments</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <h4>Quick & Easy</h4>
+                <ul>
+                  <li><a href="category.html?type=frozen">Frozen Foods</a></li>
+                  <li><a href="category.html?type=canned">Canned Goods</a></li>
+                  <li><a href="category.html?type=ready-meals">Ready-to-Eat Meals</a></li>
+                  <li><a href="category.html?type=bakery">Bakery</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-banner">
+                <div class="banner-content">
+                  <h4>Weekly Specials</h4>
+                  <p>Up to 40% off on fresh produce</p>
+                  <a href="deals.html" class="btn btn-white">Shop Now</a>
+                </div>
+              </div>
             </div>
-        </nav>
+          </li>
 
-            <!-- Quick Cart Popup -->
-    <div id="quick-cart" class="quick-cart" aria-labelledby="quick-cart-title" role="dialog" aria-modal="true">
-        <div class="quick-cart-content">
-            <div class="quick-cart-header">
-                <h3 id="quick-cart-title">Your Cart</h3>
-                <button id="close-cart" class="close-btn" aria-label="Close cart">&times;</button>
-            </div>
-            <div class="quick-cart-body">
-                <div id="cart-items" class="cart-items" aria-live="polite"></div>
-                <div id="empty-cart" class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
-                </div>
-            </div>
-            <div class="quick-cart-footer">
-                <div class="cart-totals">
-                    <div>
-                        <span>Subtotal:</span>
-                        <span id="cart-subtotal">₦0</span>
-                    </div>
-                    <div>
-                        <span>Tax (5%):</span>
-                        <span id="cart-tax">₦0</span>
-                    </div>
-                    <div>
-                        <span>Shipping:</span>
-                        <span id="cart-shipping">₦500</span>
-                    </div>
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cart-total">₦0</span>
-                    </div>
-                </div>
-                <div class="cart-actions">
-                    <a href="cart.html" class="btn btn-outline">View Cart</a>
-                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
-                </div>
-                <div class="cart-security">
-                    <i class="fas fa-lock"></i>
-                    <span>Secure checkout</span>
-                </div>
-            </div>
-        </div>
-    </div>
+          <li class="nav-item">
+            <a href="products.html" class="nav-link active">
+              <i class="fas fa-store" aria-hidden="true"></i>
+              <span>All Products</span>
+            </a>
+          </li>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile menu" role="dialog" aria-modal="true">
-        <div class="mobile-nav-header">
-            <div class="logo-section">
-                <a href="index.html" class="site-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-name">Tangogi</span>
-                        <span class="logo-tagline">Supermarket</span>
-                    </div>
-                </a>
+          <li class="nav-item">
+            <a href="deals.html" class="nav-link hot-deal">
+              <i class="fas fa-bolt" aria-hidden="true"></i>
+              <span>Hot Deals</span>
+              <span class="deal-badge">SALE</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="recipes.html" class="nav-link">
+              <i class="fas fa-utensils" aria-hidden="true"></i>
+              <span>Recipes</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+        
+        <!-- Quick Action Bar -->
+        <div class="quick-actions">
+          <a href="express-delivery.html" class="quick-action">
+            <i class="fas fa-bolt"></i>
+            <span>Express Delivery</span>
+          </a>
+          <a href="weekly-special.html" class="quick-action">
+            <i class="fas fa-star"></i>
+            <span>Weekly Special</span>
+          </a>
+          <a href="bulk-order.html" class="quick-action">
+            <i class="fas fa-box"></i>
+            <span>Bulk Orders</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sticky Header on Scroll -->
+    <div class="sticky-header" id="sticky-header">
+      <div class="container">
+        <div class="sticky-header-content">
+          <div class="sticky-logo">
+            <a href="index.html" class="site-logo">
+              <div class="logo-icon">
+                <i class="fas fa-shopping-basket"></i>
+              </div>
+              <span class="logo-name">Tangogi</span>
+            </a>
+          </div>
+          <div class="sticky-search">
+            <div class="search-container compact">
+              <input type="text" placeholder="Search..." class="search-input">
+              <button class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
             </div>
-            <button id="close-mobile-nav" class="close-mobile-nav" aria-label="Close mobile menu">&times;</button>
+          </div>
+          <div class="sticky-actions">
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="action-badge">3</span>
+            </button>
+          </div>
         </div>
-        <div class="mobile-nav-menu">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categories.html" class="nav-link">
-                        <i class="fas fa-th-large" aria-hidden="true"></i>
-                        <span>Categories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">
-                        <i class="fas fa-store" aria-hidden="true"></i>
-                        <span>All Products</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="deals.html" class="nav-link hot-deal">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
-                        <span>Hot Deals</span>
-                        <span class="deal-badge">SALE</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i>
-                        <span>About Us</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile-nav-footer">
-            <div class="mobile-user-actions">
-                <a href="login.html" class="btn btn-outline">Sign In</a>
-                <a href="register.html" class="btn btn-primary">Create Account</a>
-            </div>
-        </div>
+      </div>
     </div>
-   </header>
-  
+  </header>
+
   <!-- Breadcrumb -->
-  <div class="breadcrumb">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
       <div class="breadcrumb-content">
         <a href="index.html">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>All Products</span>
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        <span aria-current="page">All Products</span>
       </div>
     </div>
-  </div>
-  
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  </nav>
 
   <main id="main-content">
     <!-- Page Header -->
@@ -366,37 +580,56 @@
       <div class="container">
         <h1 class="page-title">Our Products</h1>
         <p class="page-subtitle">Discover our wide range of fresh groceries and quality products</p>
+        
+        <!-- Quick Stats -->
+        <div class="page-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="total-products">500+</span>
+            <span class="stat-label">Products</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Local Farmers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Fresh Delivery</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Products Controls -->
-    <section class="products-controls">
+    <!-- Enhanced Products Controls -->
+    <section class="products-controls" aria-label="Products controls">
       <div class="container">
         <div class="controls-flex">
           <div class="view-options">
-            <button class="view-btn active" data-view="grid" aria-label="Grid view">
+            <button class="view-btn active" data-view="grid" aria-label="Grid view" aria-pressed="true">
               <i class="fas fa-th"></i>
+              <span class="view-label">Grid</span>
             </button>
-            <button class="view-btn" data-view="list" aria-label="List view">
+            <button class="view-btn" data-view="list" aria-label="List view" aria-pressed="false">
               <i class="fas fa-list"></i>
+              <span class="view-label">List</span>
             </button>
           </div>
           
           <div class="products-meta">
             <span id="products-count" class="results-count">Loading products...</span>
             <div class="products-per-page">
-              <label for="per-page">Show:</label>
-              <select id="per-page" class="per-page-select">
-                <option value="12">12</option>
-                <option value="24">24</option>
-                <option value="48">48</option>
+              <label for="per-page" class="sr-only">Products per page</label>
+              <select id="per-page" class="per-page-select" aria-label="Number of products to show per page">
+                <option value="12">12 per page</option>
+                <option value="24">24 per page</option>
+                <option value="48">48 per page</option>
+                <option value="all">Show all</option>
               </select>
             </div>
           </div>
         </div>
         
         <!-- Search results header -->
-        <div id="search-results-header" class="search-results-header">
+        <div id="search-results-header" class="search-results-header" hidden>
           <h3>Search Results for: "<span id="search-query"></span>"</h3>
           <button id="clear-search" class="btn btn-outline btn-sm">
             <i class="fas fa-times"></i> Clear Search
@@ -405,10 +638,18 @@
       </div>
     </section>
 
-    <!-- Filters Section -->
-    <section class="filters-section">
+    <!-- Enhanced Filters Section -->
+    <section class="filters-section" aria-label="Product filters">
       <div class="container">
-        <div class="filters-grid">
+        <div class="filters-header">
+          <h2 class="filters-title">Filter Products</h2>
+          <button id="toggle-filters" class="btn btn-outline btn-sm filters-toggle" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+            <span class="filters-toggle-text">Show Filters</span>
+          </button>
+        </div>
+
+        <div class="filters-grid" id="filters-grid" hidden>
           <div class="filter-group">
             <label for="category-filter">Category</label>
             <select id="category-filter" class="filter-select">
@@ -416,10 +657,13 @@
               <option value="fruits">Fresh Fruits</option>
               <option value="vegetables">Vegetables</option>
               <option value="meat">Meat & Poultry</option>
+              <option value="seafood">Seafood</option>
               <option value="dairy">Dairy & Eggs</option>
               <option value="grains">Grains & Staples</option>
               <option value="beverages">Beverages</option>
               <option value="snacks">Snacks</option>
+              <option value="frozen">Frozen Foods</option>
+              <option value="bakery">Bakery</option>
             </select>
           </div>
           
@@ -431,6 +675,8 @@
               <option value="price-desc">Price: High to Low</option>
               <option value="rating">Top Rated</option>
               <option value="name">Name A-Z</option>
+              <option value="newest">Newest First</option>
+              <option value="bestselling">Best Selling</option>
             </select>
           </div>
           
@@ -453,92 +699,55 @@
               <option value="out-of-stock">Out of Stock</option>
             </select>
           </div>
+
+          <div class="filter-group">
+            <label for="rating-filter">Minimum Rating</label>
+            <select id="rating-filter" class="filter-select">
+              <option value="">Any Rating</option>
+              <option value="4">4 Stars & Up</option>
+              <option value="3">3 Stars & Up</option>
+              <option value="2">2 Stars & Up</option>
+              <option value="1">1 Star & Up</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="dietary-filter">Dietary</label>
+            <select id="dietary-filter" class="filter-select">
+              <option value="">All</option>
+              <option value="organic">Organic</option>
+              <option value="gluten-free">Gluten Free</option>
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian</option>
+            </select>
+          </div>
         </div>
         
-        <div class="active-filters" id="active-filters">
+        <!-- Active Filters -->
+        <div class="active-filters" id="active-filters" aria-live="polite">
           <!-- Active filters will appear here -->
         </div>
       </div>
     </section>
 
     <!-- Products Grid Section -->
-    <section class="products-grid-section">
+    <section class="products-grid-section" aria-label="Products listing">
       <div class="container">
         <!-- Enhanced loading state -->
-        <div id="products-loading" class="loading-state">
+        <div id="products-loading" class="loading-state" aria-live="polite" aria-label="Loading products">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Loading fresh products...</span>
+          </div>
           <div class="skeleton-grid">
-            <!-- Skeleton cards repeated 8 times -->
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
-            <div class="skeleton-card">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line medium"></div>
-                <div class="skeleton-line long"></div>
-              </div>
-            </div>
+            <!-- Skeleton cards will be generated by JavaScript -->
           </div>
         </div>
 
         <!-- No Products State -->
-        <div id="no-products" class="no-products-state">
+        <div id="no-products" class="no-products-state" hidden>
           <div class="no-products-content">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search" aria-hidden="true"></i>
             <h3>No products found</h3>
             <p>Try adjusting your filters or search terms</p>
             <button id="reset-filters" class="btn btn-primary">
@@ -548,190 +757,77 @@
         </div>
 
         <!-- Products Grid -->
-        <div id="products-grid" class="products-grid">
-          <!-- Sample products for demonstration -->
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/4CAF50/FFFFFF?text=Fresh+Tomatoes" alt="Fresh Tomatoes" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Fresh Tomatoes</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="rating-value">4.5</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦1,200</span>
-                <span class="unit">/ kg</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/FF9800/FFFFFF?text=Premium+Rice" alt="Premium Rice" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Premium Rice</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <span class="rating-value">4.0</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦4,500</span>
-                <span class="unit">/ 5kg bag</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/2196F3/FFFFFF?text=Chicken+Breast" alt="Chicken Breast" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Chicken Breast</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span class="rating-value">5.0</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦3,800</span>
-                <span class="unit">/ kg</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/8BC34A/FFFFFF?text=Organic+Spinach" alt="Organic Spinach" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Organic Spinach</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="rating-value">4.5</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦900</span>
-                <span class="unit">/ bunch</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/795548/FFFFFF?text=Brown+Bread" alt="Brown Bread" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Brown Bread</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <span class="rating-value">4.0</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦1,500</span>
-                <span class="unit">/ loaf</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="https://via.placeholder.com/300x200/FFC107/FFFFFF?text=Orange+Juice" alt="Orange Juice" class="lazy-load">
-              <button class="wishlist-btn" aria-label="Add to wishlist">
-                <i class="far fa-heart"></i>
-              </button>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Orange Juice</h3>
-              <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="rating-value">4.5</span>
-              </div>
-              <div class="product-price">
-                <span class="price">₦1,800</span>
-                <span class="unit">/ 1L bottle</span>
-              </div>
-              <button class="btn btn-primary add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
+        <div id="products-grid" class="products-grid" data-view="grid" aria-live="polite">
+          <!-- Products will be loaded by JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container" id="load-more-container" hidden>
+          <button id="load-more-btn" class="btn btn-outline btn-load-more">
+            <i class="fas fa-spinner fa-spin" hidden></i>
+            <span class="load-more-text">Load More Products</span>
+          </button>
         </div>
 
         <!-- Pagination -->
-        <div class="pagination-container">
-          <div class="pagination">
-            <button class="pagination-btn prev" disabled>
+        <div class="pagination-container" id="pagination-container" hidden>
+          <nav class="pagination" aria-label="Products pagination">
+            <button class="pagination-btn prev" disabled aria-label="Previous page">
               <i class="fas fa-chevron-left"></i> Previous
             </button>
             
-            <div class="pagination-numbers">
-              <button class="pagination-btn active">1</button>
-              <button class="pagination-btn">2</button>
-              <button class="pagination-btn">3</button>
-              <span class="pagination-ellipsis">...</span>
-              <button class="pagination-btn">8</button>
+            <div class="pagination-numbers" aria-label="Pagination pages">
+              <!-- Pagination numbers will be generated by JavaScript -->
             </div>
             
-            <button class="pagination-btn next">
+            <button class="pagination-btn next" aria-label="Next page">
               Next <i class="fas fa-chevron-right"></i>
             </button>
+          </nav>
+          
+          <div class="pagination-info">
+            <span id="pagination-info">Showing 1-12 of 500 products</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories" aria-label="Featured categories">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories-grid">
+          <a href="category.html?type=fruits" class="category-card" aria-label="Fresh Fruits">
+            <div class="category-icon">
+              <i class="fas fa-apple-alt"></i>
+            </div>
+            <h3>Fresh Fruits</h3>
+            <p>Seasonal & tropical fruits</p>
+          </a>
+          
+          <a href="category.html?type=vegetables" class="category-card" aria-label="Fresh Vegetables">
+            <div class="category-icon">
+              <i class="fas fa-carrot"></i>
+            </div>
+            <h3>Vegetables</h3>
+            <p>Farm-fresh vegetables</p>
+          </a>
+          
+          <a href="category.html?type=meat" class="category-card" aria-label="Meat & Poultry">
+            <div class="category-icon">
+              <i class="fas fa-drumstick-bite"></i>
+            </div>
+            <h3>Meat & Poultry</h3>
+            <p>Quality cuts & poultry</p>
+          </a>
+          
+          <a href="category.html?type=dairy" class="category-card" aria-label="Dairy & Eggs">
+            <div class="category-icon">
+              <i class="fas fa-egg"></i>
+            </div>
+            <h3>Dairy & Eggs</h3>
+            <p>Fresh dairy products</p>
+          </a>
         </div>
       </div>
     </section>
@@ -739,78 +835,78 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <a href="index.html" class="site-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-name">Tangogi</span>
-                                <span class="logo-tagline">Supermarket</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="deals.html">Hot Deals</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul class="footer-links">
-                        <li><a href="help.html">Help Center</a></li>
-                        <li><a href="tracking.html">Track Order</a></li>
-                        <li><a href="returns.html">Returns & Refunds</a></li>
-                        <li><a href="shipping.html">Shipping Info</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+234 901 865 1283<br>+234 805 301 9459</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>support@tangogi.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <a href="index.html" class="site-logo">
+              <div class="logo-icon">
+                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+              </div>
+              <div class="logo-text">
+                <span class="logo-name">Tangogi</span>
+                <span class="logo-tagline">Supermarket</span>
+              </div>
+            </a>
+          </div>
+          <p class="footer-description">Your trusted partner for fresh groceries and quality products since 2020.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
-   </footer>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="deals.html">Hot Deals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="tracking.html">Track Order</a></li>
+            <li><a href="returns.html">Returns & Refunds</a></li>
+            <li><a href="shipping.html">Shipping Info</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>No. 1 Campground Rd, Anthony Village, Lagos</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+234 901 865 1283<br>+234 805 301 9459</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@tangogi.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Tangogi Supermarket. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Quick View Modal -->
-  <div id="quick-view-modal" class="modal" aria-hidden="true">
+  <div id="quick-view-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="quick-view-title">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">
         <i class="fas fa-times"></i>
@@ -822,185 +918,30 @@
     </div>
   </div>
 
+  <!-- Add to Cart Notification -->
+  <div id="cart-notification" class="cart-notification" aria-live="polite" aria-atomic="true" hidden>
+    <div class="notification-content">
+      <i class="fas fa-check-circle"></i>
+      <span id="notification-message"></span>
+      <a href="cart.html" class="btn btn-sm">View Cart</a>
+    </div>
+  </div>
+
   <!-- Floating Actions -->
   <div class="floating-actions">
     <button class="floating-btn" id="quick-cart-btn" aria-label="Quick Cart">
       <i class="fas fa-shopping-cart"></i>
       <span class="floating-badge" id="floating-cart-count">0</span>
     </button>
+    <button class="floating-btn" id="scroll-top-btn" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <button class="floating-btn" id="quick-filters-btn" aria-label="Quick filters">
+      <i class="fas fa-filter"></i>
+    </button>
   </div>
 
-  <script src="app.js"></script>
-  
-  <!-- Additional JavaScript for products page functionality -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // View toggle functionality
-      const viewButtons = document.querySelectorAll('.view-btn');
-      const productsGrid = document.getElementById('products-grid');
-      
-      viewButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const view = this.getAttribute('data-view');
-          
-          // Update active button
-          viewButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Update grid class
-          productsGrid.className = 'products-grid';
-          if (view === 'list') {
-            productsGrid.classList.add('list-view');
-          }
-        });
-      });
-      
-      // Filter functionality
-      const filters = document.querySelectorAll('.filter-select');
-      const activeFiltersContainer = document.getElementById('active-filters');
-      
-      filters.forEach(filter => {
-        filter.addEventListener('change', function() {
-          updateActiveFilters();
-          // In a real implementation, you would filter products here
-        });
-      });
-      
-      function updateActiveFilters() {
-        activeFiltersContainer.innerHTML = '';
-        
-        filters.forEach(filter => {
-          if (filter.value) {
-            const filterTag = document.createElement('div');
-            filterTag.className = 'filter-tag';
-            
-            const filterName = filter.previousElementSibling.textContent;
-            const filterValue = filter.options[filter.selectedIndex].text;
-            
-            filterTag.innerHTML = `
-              <span>${filterName}: ${filterValue}</span>
-              <button data-filter="${filter.id}" aria-label="Remove ${filterName} filter">
-                <i class="fas fa-times"></i>
-              </button>
-            `;
-            
-            activeFiltersContainer.appendChild(filterTag);
-          }
-        });
-        
-        // Add event listeners to remove buttons
-        const removeButtons = activeFiltersContainer.querySelectorAll('button');
-        removeButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const filterId = this.getAttribute('data-filter');
-            const filter = document.getElementById(filterId);
-            filter.value = '';
-            updateActiveFilters();
-            // In a real implementation, you would update products here
-          });
-        });
-      }
-      
-      // Reset filters button
-      const resetFiltersBtn = document.getElementById('reset-filters');
-      if (resetFiltersBtn) {
-        resetFiltersBtn.addEventListener('click', function() {
-          filters.forEach(filter => {
-            filter.value = '';
-          });
-          updateActiveFilters();
-          // In a real implementation, you would reset products here
-        });
-      }
-      
-      // Add to cart functionality
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const productCard = this.closest('.product-card');
-          const productName = productCard.querySelector('.product-name').textContent;
-          const productPrice = productCard.querySelector('.price').textContent;
-          
-          // Show notification
-          showNotification(`${productName} added to cart!`, 'success');
-          
-          // Update cart count (in a real app, you would update actual cart data)
-          updateCartCount();
-        });
-      });
-      
-      // Wishlist functionality
-      const wishlistButtons = document.querySelectorAll('.wishlist-btn');
-      wishlistButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const icon = this.querySelector('i');
-          const productCard = this.closest('.product-card');
-          const productName = productCard.querySelector('.product-name').textContent;
-          
-          if (icon.classList.contains('far')) {
-            icon.classList.remove('far');
-            icon.classList.add('fas');
-            this.classList.add('active');
-            showNotification(`${productName} added to wishlist!`, 'success');
-          } else {
-            icon.classList.remove('fas');
-            icon.classList.add('far');
-            this.classList.remove('active');
-            showNotification(`${productName} removed from wishlist!`, 'info');
-          }
-          
-          // Update wishlist count (in a real app, you would update actual wishlist data)
-          updateWishlistCount();
-        });
-      });
-      
-      // Notification function
-      function showNotification(message, type = 'success') {
-        const notification = document.createElement('div');
-        notification.className = `tangogi-notification notification-${type}`;
-        notification.innerHTML = `
-          <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-          <span>${message}</span>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Remove notification after 3 seconds
-        setTimeout(() => {
-          notification.style.animation = 'slideOutRight 0.3s ease-out';
-          setTimeout(() => {
-            if (notification.parentNode) {
-              notification.parentNode.removeChild(notification);
-            }
-          }, 300);
-        }, 3000);
-      }
-      
-      // Update cart count (placeholder function)
-      function updateCartCount() {
-        const cartCounts = document.querySelectorAll('#cart-count, #floating-cart-count');
-        let currentCount = parseInt(cartCounts[0].textContent) || 0;
-        currentCount++;
-        
-        cartCounts.forEach(count => {
-          count.textContent = currentCount;
-        });
-      }
-      
-      // Update wishlist count (placeholder function)
-      function updateWishlistCount() {
-        const wishlistCount = document.getElementById('wishlist-count');
-        let currentCount = parseInt(wishlistCount.textContent) || 0;
-        
-        // This is a simplified toggle - in a real app, you'd track actual wishlist items
-        currentCount = Math.max(0, currentCount + (Math.random() > 0.5 ? 1 : -1));
-        wishlistCount.textContent = currentCount;
-      }
-      
-      // Initialize counts
-      updateCartCount();
-      updateWishlistCount();
-    });
-  </script>
+  <!-- Main JavaScript -->
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

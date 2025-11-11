@@ -2726,3 +2726,10 @@ body.dark-mode #dark-mode-toggle:hover {
 .save-btn:hover {
   background: var(--primary-dark);
 }
+/* styles.css */
+
+/* Add this to the very end of the file */
+
+.hidden {
+  display: none !important;
+}
