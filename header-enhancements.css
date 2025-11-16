@@ -803,18 +803,25 @@
   right: 0;
   background: var(--background);
   border: 1px solid var(--border-color);
-  border-top: none;
-  border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
   box-shadow: var(--shadow-xl);
   padding: var(--space-8);
   display: grid;
-  grid-template-columns: repeat(4, 1fr) 200px; /* 4 columns + 1 banner */
+  grid-template-columns: repeat(4, 1fr) 200px;
   gap: var(--space-8);
   z-index: var(--z-dropdown);
+  
+  /* These lines control the show/hide animation */
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all var(--transition-normal);
+}
+
+/* NEW RULE: This makes the menu visible when JS adds the .active class */
+.mega-menu-content.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 .mega-menu:hover .mega-menu-content {
   opacity: 1;
@@ -876,13 +883,13 @@
 }
 
 /* Quick Actions */
+/* Find the .quick-actions rule and REPLACE it with this: */
 .quick-actions {
-  position: absolute;
-  right: var(--space-8);
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  gap: var(--space-4);
+  gap: 1.5rem;
+  margin-left: auto;
+  position: relative; /* This is the key change */
+  z-index: 1;         /* Place it just below the actions-section */
 }
 .quick-action {
   display: flex;

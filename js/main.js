@@ -1,103 +1,127 @@
-// js/main.js - CORRECTED VERSION
+// js/main.js - Main Application Logic
 
-import { HeaderManager } from './header.js';
-import { CartManager } from './cart.js';
-// import { WishlistManager } from './wishlist.js'; // REMOVED - File does not exist
-import { ProductManager } from './products.js';
-import { SearchManager } from './search.js';
-import { NotificationManager } from './notifications.js';
-import { StorageManager } from './storage.js';
-// import { ThemeManager } from './theme.js'; // REMOVED - File does not exist
-import { PageRouter } from './router.js';
-
-// NEW MANAGERS BASED ON YOUR FILE STRUCTURE
-import { AuthManager } from './auth.js';
-import { OrderManager } from './orders.js';
-import { CategoryManager } from './categories.js';
-import { DealManager } from './deals.js';
-import { RecipeManager } from './recipes.js';
-import { FormManager } from './forms.js';
-import { SettingsManager } from './settings.js';
-import { FAQManager } from './faq.js';
-import { HelpManager } from './help.js';
-
-
-class TangogiApp {
-    constructor() {
-        this.storage = new StorageManager();
-        this.state = this.storage.loadState();
-        
-        // Core Managers
-        this.header = new HeaderManager(this);
-        this.cart = new CartManager(this);
-        // this.wishlist = new WishlistManager(this); // REMOVED
-        this.products = new ProductManager(this);
-        this.search = new SearchManager(this);
-        this.notifications = new NotificationManager();
-        // this.theme = new ThemeManager(); // REMOVED
-        this.router = new PageRouter(this);
-        
-        // NEW MANAGERS
-        this.auth = new AuthManager(this);
-        this.orders = new OrderManager(this);
-        this.categories = new CategoryManager(this);
-        this.deals = new DealManager(this);
-        this.recipes = new RecipeManager(this);
-        this.forms = new FormManager(this);
-        this.settings = new SettingsManager(this);
-        this.faq = new FAQManager(this);
-        this.help = new HelpManager(this);
-    }
-
-    async init() {
-        console.log('🛒 Tangogi Supermarket Initialized');
-        
-        // Initialize core managers
-        this.header.init();
-        this.cart.init();
-        // this.wishlist.init(); // REMOVED
-        this.products.init(); // This should now run successfully
-        this.search.init();
-        // this.theme.init(); // REMOVED
-        
-        // Initialize new managers
-        this.auth.init();
-        this.orders.init();
-        this.categories.init();
-        this.deals.init();
-        this.recipes.init();
-        this.forms.init();
-        this.settings.init();
-        this.faq.init();
-        this.help.init();
-        
-        await this.router.init();
-        this.bindGlobalEvents();
-    }
-
-    bindGlobalEvents() {
-        window.addEventListener('online', () => this.notifications.show('Connection restored', 'success'));
-        window.addEventListener('offline', () => this.notifications.show('You are offline', 'warning'));
-        
-        // Global error handling
-        window.addEventListener('error', (event) => {
-            console.error('Global error:', event.error);
-            this.notifications.show('Something went wrong', 'error');
-        });
-    }
-
-    updateState(newState) {
-        this.state = { ...this.state, ...newState };
-        this.storage.saveState(this.state);
-    }
-
-    getState() {
-        return this.state;
+// A simple notification handler
+class NotificationManager {
+    show(message, type = 'info') {
+        console.log(`[Notification (${type})]: ${message}`);
+        // In the future, you can create a popup element here.
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🚀 DOM Content Loaded - Initializing TangogiApp');
-    window.app = new TangogiApp();
-    await window.app.init();
+// A simple class to handle browser's localStorage
+class StorageManager {
+    get(key) {
+        try {
+            return JSON.parse(localStorage.getItem(key));
+        } catch (e) {
+            return null;
+        }
+    }
+    set(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+}
+
+// The main App class that holds everything together
+class App {
+    constructor() {
+        console.log('🚀 Tangogi App Initializing...');
+        this.notifications = new NotificationManager();
+        this.storage = new StorageManager();
+        // You can add other managers like WishlistManager here later
+    }
+
+    init() {
+        this.initDarkMode();
+        this.initHeaderUI();
+        console.log('✅ Tangogi App Initialized Successfully');
+    }
+
+    // --- All the functionality for your header buttons ---
+    initHeaderUI() {
+        // Dropdown Toggle Logic
+        const dropdownToggles = document.querySelectorAll('#user-btn, #location-btn');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const dropdownId = toggle.id.replace('-btn', '-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                // Close other open dropdowns
+                document.querySelectorAll('.user-dropdown.active, .location-dropdown.active').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+
+                dropdown.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns if clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.user-dropdown.active, .location-dropdown.active').forEach(d => {
+                d.classList.remove('active');
+            });
+        });
+
+        // Prevent dropdowns from closing when clicking inside them
+        document.querySelectorAll('.user-dropdown, .location-dropdown').forEach(d => {
+            d.addEventListener('click', e => e.stopPropagation());
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        // NOTE: Your HTML doesn't have a mobile navigation element yet.
+        // When you create one (e.g., <div id="mobile-navigation">...</div>), this will work.
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+                // document.getElementById('mobile-navigation').classList.toggle('active');
+            });
+            
+    }
+
+    // --- Add this code for the Stores button ---
+    const storeLocatorBtn = document.getElementById('store-locator-btn');
+    if (storeLocatorBtn) {
+        storeLocatorBtn.addEventListener('click', () => {
+            window.location.href = 'stores.html'; // Navigate to stores page
+        });
+    }
+}
+
+// --- Dark Mode Functionality ---
+    initDarkMode() {
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const themeIcon = darkModeToggle.querySelector('i');
+        const themeText = darkModeToggle.querySelector('.theme-text');
+
+        // Check for saved theme in storage
+        if (this.storage.get('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.className = 'fas fa-sun';
+            themeText.textContent = 'Light';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+
+            if (document.body.classList.contains('dark-mode')) {
+                this.storage.set('theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light';
+            } else {
+                this.storage.set('theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark';
+            }
+        });
+    }
+}
+
+// --- Initialize the App ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Create the global app object that other scripts can use
+    window.app = new App();
+    window.app.init();
 });

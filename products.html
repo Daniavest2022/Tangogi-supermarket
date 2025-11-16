@@ -364,35 +364,37 @@
               </button>
               
               <!-- Cart Preview on Hover -->
-              <div class="cart-preview" id="cart-preview">
-                <div class="cart-preview-header">
-                  <h4>Recently Added</h4>
-                </div>
-                <div class="cart-preview-items">
-                  <div class="preview-item">
-                    <img src="https://via.placeholder.com/40x40" alt="Fresh Tomatoes">
-                    <div class="preview-details">
-                      <span class="preview-name">Fresh Tomatoes</span>
-                      <span class="preview-price">₦800 × 2</span>
-                    </div>
-                  </div>
-                  <div class="preview-item">
-                    <img src="https://via.placeholder.com/40x40" alt="Basmati Rice">
-                    <div class="preview-details">
-                      <span class="preview-name">Basmati Rice</span>
-                      <span class="preview-price">₦4,500 × 1</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="cart-preview-footer">
-                  <div class="preview-total">
-                    <span>Subtotal:</span>
-                    <span>₦12,450</span>
-                  </div>
-                  <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
-                </div>
-              </div>
-            </div>
+              <!-- Cart Preview on Hover (FIXED with REAL images) -->
+<div class="cart-preview" id="cart-preview">
+  <div class="cart-preview-header">
+    <h4>Recently Added</h4>
+  </div>
+  <div class="cart-preview-items">
+    <div class="preview-item">
+      <!-- CHANGE THIS LINE -->
+      <img src="images/products/tomatoes.jpg" alt="Fresh Tomatoes">
+      <div class="preview-details">
+        <span class="preview-name">Fresh Tomatoes</span>
+        <span class="preview-price">₦800 × 2</span>
+      </div>
+    </div>
+    <div class="preview-item">
+      <!-- AND CHANGE THIS LINE -->
+      <img src="images/products/rice.jpg" alt="Basmati Rice">
+      <div class="preview-details">
+        <span class="preview-name">Basmati Rice</span>
+        <span class="preview-price">₦4,500 × 1</span>
+      </div>
+    </div>
+  </div>
+  <div class="cart-preview-footer">
+    <div class="preview-total">
+      <span>Subtotal:</span>
+      <span>₦12,450</span>
+    </div>
+    <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+  </div>
+</div>
 
             <!-- Dark Mode Toggle -->
             <div class="theme-toggle">
@@ -920,12 +922,12 @@
 
   <!-- Add to Cart Notification -->
   <div id="cart-notification" class="cart-notification" aria-live="polite" aria-atomic="true" hidden>
-    <div class="notification-content">
-      <i class="fas fa-check-circle"></i>
-      <span id="notification-message"></span>
-      <a href="cart.html" class="btn btn-sm">View Cart</a>
-    </div>
+  <div class="notification-content">
+    <i class="fas fa-check-circle"></i>
+    <span id="notification-message"></span>
+    <a href="cart.html" class="btn btn-sm">View Cart</a>
   </div>
+</div>
 
   <!-- Floating Actions -->
   <div class="floating-actions">
@@ -943,5 +945,6 @@
 
   <!-- Main JavaScript -->
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/products.js"></script>
 </body>
 </html>

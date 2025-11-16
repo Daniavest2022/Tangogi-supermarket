@@ -328,6 +328,7 @@
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
+
 .member-photo {
   height: 200px;
   background: var(--primary-light);
@@ -336,6 +337,15 @@
   justify-content: center;
   color: var(--primary-color);
   font-size: var(--font-size-4xl);
+  /* ADD THIS LINE to prevent the image from overflowing */
+  overflow: hidden; 
+}
+
+/* ADD THIS ENTIRE NEW RULE */
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image cover the area without stretching */
 }
 .team-member h3 {
   font-size: var(--font-size-xl);
@@ -497,23 +507,21 @@
   opacity: 0.3;
   z-index: 0;
 }
+/* Add this new, corrected code to about.css */
 .testimonial-content p {
   position: relative;
   z-index: 1;
-  color: var(--text-primary);
+  color: var(--text-primary) !important; /* Force the correct color */
   line-height: var(--line-height-relaxed);
   font-style: italic;
 }
 .testimonial-author {
   text-align: right;
   font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
+  color: var(--text-primary) !important; /* Force the correct color */
 }
 .testimonial-author span {
-  display: block;
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  font-weight: normal;
+  color: var(--text-secondary) !important; /* Force the correct color */
 }
 
 /* ===== CTA SECTION ===== */
@@ -685,4 +693,26 @@
 .timeline-item.active .timeline-year {
     background: var(--primary-color);
     color: white;
+}
+/* FIX: Ensure testimonial text color is correct in both light and dark modes */
+
+/* ============================================= */
+/* == FINAL FIX FOR TESTIMONIAL TEXT COLOR == */
+/* ============================================= */
+
+/* Rule for LIGHT MODE */
+body:not(.dark-mode) .testimonial-card p,
+body:not(.dark-mode) .testimonial-card strong {
+    color: #212121 !important; /* This is a dark grey color */
+}
+
+body:not(.dark-mode) .testimonial-card span {
+    color: #757575 !important; /* This is a medium grey color */
+}
+
+/* Rule for DARK MODE (ensures it stays white) */
+body.dark-mode .testimonial-card p,
+body.dark-mode .testimonial-card strong,
+body.dark-mode .testimonial-card span {
+    color: #ffffff !important; /* This is pure white */
 }

@@ -1,0 +1,339 @@
+/* weekly-special.css - Page Specific Styles */
+
+.weekly-special-hero {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.week-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+}
+
+.sale-countdown {
+    margin: 2rem 0;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.time-unit {
+    text-align: center;
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 12px;
+    min-width: 80px;
+    backdrop-filter: blur(10px);
+}
+
+.time-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.time-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Featured Deals */
+.featured-deals-section {
+    padding: 3rem 0;
+}
+
+.featured-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.featured-deal-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--error-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Category Tabs */
+.category-deals-section {
+    padding: 3rem 0;
+    background: var(--background-alt);
+}
+
+.category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color);
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.deal-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--error-color);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Mega Deals */
+.mega-deals-section {
+    padding: 4rem 0;
+}
+
+.mega-deal-banner {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.mega-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.banner-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.banner-image {
+    flex-shrink: 0;
+}
+
+/* Limited Offers */
+.limited-offers-section {
+    padding: 3rem 0;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.offer-card {
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-card.flash-offer {
+    background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+}
+
+.offer-card.early-bird {
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+}
+
+.offer-card.weekend-special {
+    background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+}
+
+.offer-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.offer-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: var(--background-alt);
+    padding: 4rem 0;
+}
+
+.newsletter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.newsletter-form .form-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-note {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Previous Weeks */
+.previous-weeks-section {
+    padding: 3rem 0;
+}
+
+.previous-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.previous-deal-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--border-color);
+    opacity: 0.7;
+    position: relative;
+}
+
+.deal-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.expired-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .countdown-timer {
+        flex-wrap: wrap;
+    }
+    
+    .newsletter-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .mega-deal-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .banner-actions {
+        justify-content: center;
+    }
+    
+    .category-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+}

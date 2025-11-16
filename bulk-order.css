@@ -1,0 +1,33 @@
+/* css/bulk-order.css - Page-Specific Styles */
+
+.bulk-orders-hero {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+.clients-section, .benefits-section, .pricing-tiers-section {
+    padding: 3rem 0;
+}
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+.clients-grid, .benefits-grid, .pricing-tiers {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.client-card, .benefit-card, .tier-card {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.client-card i, .benefit-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}

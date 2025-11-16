@@ -1,38 +1,51 @@
-// js/wishlist.js
+// js/wishlist.js - The GLOBAL Wishlist Manager
 
 export class WishlistManager {
     constructor(app) {
         this.app = app;
-        console.log('❤️ Wishlist Manager Initialized');
+        this.items = [];
+        console.log('❤️ Global Wishlist Manager Initialized');
     }
 
     init() {
-        // This is where you will add logic to load the wishlist,
-        // bind events to wishlist buttons, etc.
+        this.loadWishlist();
+    }
+
+    loadWishlist() {
+        // Load items from browser storage
+        this.items = this.app.storage.get('wishlist_items') || [];
         this.updateWishlistCount();
     }
 
-    addItem(product) {
-        // Logic to add an item to the wishlist
-        console.log(`Added ${product.name} to wishlist.`);
+    saveWishlist() {
+        this.app.storage.set('wishlist_items', this.items);
+    }
+
+    // This function will be called from other pages (like products.js)
+    toggleItem(product) {
+        const existingIndex = this.items.findIndex(item => item.id === product.id);
+
+        if (existingIndex > -1) {
+            // Item exists, so remove it
+            this.items.splice(existingIndex, 1);
+            this.app.notifications.show(`${product.name} removed from wishlist.`, 'info');
+        } else {
+            // Item does not exist, so add it
+            this.items.push(product);
+            this.app.notifications.show(`${product.name} added to wishlist!`, 'success');
+        }
+
+        this.saveWishlist();
         this.updateWishlistCount();
     }
 
-    removeItem(productId) {
-        // Logic to remove an item
-        console.log(`Removed product ${productId} from wishlist.`);
-        this.updateWishlistCount();
-    }
-
-
-
+    // This function updates the number on the heart icon in the header
     updateWishlistCount() {
-        // Update the number on the wishlist icon in the header
+        const count = this.items.length;
         const countElement = document.getElementById('wishlist-count');
         if (countElement) {
-            // Replace this with the actual number of items in the wishlist
-            // For now, we can just show a placeholder
-            // countElement.textContent = this.app.storage.getWishlist().length;
+            countElement.textContent = count;
+            countElement.style.display = count > 0 ? 'flex' : 'none';
         }
     }
 }

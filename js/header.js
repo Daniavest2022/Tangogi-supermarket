@@ -1,325 +1,125 @@
-// js/header.js - FINAL CORRECTED VERSION
+// js/header.js - FINAL FULLY-FEATURED VERSION
 
-import { NotificationManager } from './notifications.js';
-
-const debounce = (func, wait, immediate = false) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      timeout = null;
-      if (!immediate) func(...args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func(...args);
-  };
-};
-
-export class HeaderManager { // The class starts here
+export class HeaderManager {
     constructor(app) {
-        if (!app) {
-            console.error('HeaderManager: app instance is required.');
-            return;
-        }
         this.app = app;
-        this.notification = new NotificationManager();
-        this.state = app.getState?.() || {};
-        
-        this.searchTimeout = null;
-        this.stickyHeaderThreshold = 100;
-        this.isSticky = false;
-        
-        this.handleScroll = this.handleScroll.bind(this);
-        this.handleSearchInput = debounce(this.handleSearchInput.bind(this), 300);
-        this.handleDocumentClick = this.handleDocumentClick.bind(this);
-        this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.handleResize = debounce(this.handleResize.bind(this), 250);
+        this.elements = {};
+        console.log('🛒 HeaderManager Initialized');
     }
 
     init() {
-        console.log('🛒 HeaderManager: Initializing enhanced header...');
-        this.setupEventListeners();
-        this.setupMobileMenu();
-        this.setupSearch();
-        this.setupLocationSelector();
-        this.setupUserDropdown();
-        this.setupQuickCart();
-        this.setupVoiceSearch();
-        this.setupThemeToggle();
-        this.setupStoreLocator();
-        this.setupMegaMenu();
-        this.setupCartPreview();
-        this.setupAccessibility();
-        this.setupPerformanceMonitoring();
-        
-        // this.updateCartBadge(); // Let's comment this out for now
-        // this.updateWishlistBadge(); // Let's comment this out for now
-        
-        console.log('🛒 HeaderManager: Enhanced initialization complete.');
+        this.cacheDOMElements();
+        this.bindEvents();
+        console.log('HeaderManager: Enhanced initialization complete.');
     }
 
-    updateStickyHeaderState() {
-        const stickyHeader = document.getElementById('sticky-header');
-        if (stickyHeader) {
-            if (window.scrollY > 150) {
-                stickyHeader.classList.add('is-sticky');
+    cacheDOMElements() {
+        // Dark Mode
+        this.elements.darkModeToggle = document.getElementById('dark-mode-toggle');
+
+        // Dropdown Buttons
+        this.elements.locationBtn = document.getElementById('location-btn');
+        this.elements.userBtn = document.getElementById('user-btn');
+        
+        // Dropdown Menus
+        this.elements.locationDropdown = document.getElementById('location-dropdown');
+        this.elements.userDropdown = document.getElementById('user-dropdown');
+
+        // ** NEW: Mega Menu Elements **
+        this.elements.megaMenuItems = document.querySelectorAll('.mega-menu');
+
+        // ** NEW: Store Locator Button **
+        this.elements.storeLocatorBtn = document.getElementById('store-locator-btn');
+    }
+
+    bindEvents() {
+        // Dark Mode
+        if (this.elements.darkModeToggle) {
+            this.elements.darkModeToggle.addEventListener('click', () => this.handleThemeToggle());
+        }
+
+        // Dropdowns
+        if (this.elements.locationBtn) {
+            this.elements.locationBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleDropdown('location');
+            });
+        }
+        if (this.elements.userBtn) {
+            this.elements.userBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleDropdown('user');
+            });
+        }
+
+        // ** NEW: Mega Menu Logic **
+        this.elements.megaMenuItems.forEach(item => {
+            // Show on hover (for desktop)
+            item.addEventListener('mouseenter', () => this.toggleMegaMenu(item, true));
+            // Hide when mouse leaves (for desktop)
+            item.addEventListener('mouseleave', () => this.toggleMegaMenu(item, false));
+        });
+
+        // ** NEW: Store Locator Logic **
+        if (this.elements.storeLocatorBtn) {
+            this.elements.storeLocatorBtn.addEventListener('click', () => {
+                // When clicked, go to the stores page
+                window.location.href = 'stores.html'; // Make sure you have a stores.html file
+            });
+        }
+
+        // Global click to close menus
+        document.addEventListener('click', () => {
+            this.closeAllDropdowns();
+            this.closeAllMegaMenus();
+        });
+    }
+
+    handleThemeToggle() {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        const icon = this.elements.darkModeToggle.querySelector('i');
+        if (icon) {
+            icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    toggleDropdown(type) {
+        const btn = (type === 'location') ? this.elements.locationBtn : this.elements.userBtn;
+        const dropdown = (type === 'location') ? this.elements.locationDropdown : this.elements.userDropdown;
+
+        const isActive = dropdown.classList.contains('active');
+        this.closeAllDropdowns();
+        if (!isActive) {
+            btn.classList.add('active');
+            dropdown.classList.add('active');
+        }
+    }
+
+    closeAllDropdowns() {
+        document.querySelectorAll('.location-btn.active, .user-btn.active').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.location-dropdown.active, .user-dropdown.active').forEach(dropdown => dropdown.classList.remove('active'));
+    }
+
+    // ** NEW: Mega Menu Functions **
+    toggleMegaMenu(menuItem, show) {
+        const content = menuItem.querySelector('.mega-menu-content');
+        if (content) {
+            if (show) {
+                this.closeAllMegaMenus(); // Close others before opening a new one
+                content.classList.add('active');
+                menuItem.classList.add('active');
             } else {
-                stickyHeader.classList.remove('is-sticky');
+                content.classList.remove('active');
+                menuItem.classList.remove('active');
             }
         }
     }
 
-    setupEventListeners() {
-        document.addEventListener('click', this.handleDocumentClick);
-        document.addEventListener('keydown', this.handleKeyDown);
-        window.addEventListener('scroll', this.handleScroll, { passive: true });
-        window.addEventListener('resize', this.handleResize);
-        
-        document.addEventListener('mousemove', this.trackUserInteraction.bind(this));
-        document.addEventListener('click', this.trackUserInteraction.bind(this));
+    closeAllMegaMenus() {
+        this.elements.megaMenuItems.forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.mega-menu-content')?.classList.remove('active');
+        });
     }
-
-    trackUserInteraction() {
-        // Placeholder
-    }
-
-    handleDocumentClick(event) {
-        // Placeholder
-    }
-
-    handleKeyDown(event) {
-        // Placeholder
-    }
-
-    closeAllDropdowns() {
-        // Placeholder
-    }
-
-    handleScroll() {
-        this.updateStickyHeaderState();
-    }
-
-    handleResize() {
-        this.handleResponsiveLayout();
-    }
-
-    handleResponsiveLayout() {
-        // Placeholder
-    }
-
-    setupMobileMenu() {
-        // Placeholder
-    }
-
-    setupSearch() {
-        // Placeholder
-    }
-
-    navigateSearchSuggestions(event) {
-        // Placeholder
-    }
-
-    async handleSearchInput() {
-        // Placeholder
-    }
-
-    async getFallbackSuggestions(query) {
-       // Placeholder
-    }
-
-    getRecentAndPopularSearches() {
-       // Placeholder
-    }
-
-    getPopularSearches() {
-        return [];
-    }
-
-    renderSearchSuggestions(suggestions, isQueryBased = false) {
-        // Placeholder
-    }
-
-    groupSuggestions(suggestions) {
-        return [];
-    }
-
-    buildSuggestionHTML(groupedSuggestions, isQueryBased) {
-        return '';
-    }
-
-    getGroupTitle(type, isQueryBased) {
-        return '';
-    }
-
-    getSuggestionIcon(type) {
-        return '';
-    }
-
-    attachSuggestionEventListeners() {
-        // Placeholder
-    }
-    
-    setupLocationSelector() {
-        // Placeholder
-    }
-
-    async detectCurrentLocation() {
-        // Placeholder
-    }
-
-    async reverseGeocode(lat, lng) {
-        return "Lagos";
-    }
-
-    setLocation(location) {
-        // Placeholder
-    }
-
-    filterLocations(query) {
-        // Placeholder
-    }
-
-    loadLocationSuggestions() {
-        // Placeholder
-    }
-
-    setupUserDropdown() {
-        // Placeholder
-    }
-
-    updateUserDropdown() {
-        // Placeholder
-    }
-
-    updateUserDisplay(user) {
-        // Placeholder
-    }
-
-    setupQuickCart() {
-        // Placeholder
-    }
-
-    updateQuickCartContent() {
-        // Placeholder
-    }
-
-    updateCartTotals() {
-        // Placeholder
-    }
-
-    updateCartBadge(count = null) {
-        // Placeholder
-    }
-
-    updateWishlistBadge(count = null) {
-        // Placeholder
-    }
-
-    setupVoiceSearch() {
-        // Placeholder
-    }
-
-    showVoiceSearchFeedback(transcript) {
-        // Placeholder
-    }
-
-    hideVoiceSearchFeedback() {
-        // Placeholder
-    }
-
-    setupThemeToggle() {
-        // Placeholder
-    }
-
-
-
-    initializeTheme() {
-        // Placeholder
-    }
-
-    setTheme(isDarkMode) {
-        // Placeholder
-    }
-
-    isThemeManuallySet() {
-        return false;
-    }
-
-    setupStoreLocator() {
-        // Placeholder
-    }
-
-    setupMegaMenu() {
-        // Placeholder
-    }
-
-    showMegaMenu(menuItem) {
-        // Placeholder
-    }
-
-    hideMegaMenu() {
-        // Placeholder
-    }
-
-    toggleMegaMenu(menuItem) {
-        // Placeholder
-    }
-
-    setupCartPreview() {
-        // Placeholder
-    }
-
-    showCartPreview() {
-        // Placeholder
-    }
-
-    hideCartPreview() {
-        // Placeholder
-    }
-
-    updateCartPreview() {
-        // Placeholder
-    }
-
-    setupAccessibility() {
-        // Placeholder
-    }
-
-    trapMobileMenuFocus(e) {
-        // Placeholder
-    }
-
-    setupPerformanceMonitoring() {
-        // Placeholder
-    }
-
-    saveToRecentSearches(query) {
-        // Placeholder
-    }
-
-    loadRecentSearches() {
-        return [];
-    }
-
-    loadSavedLocations() {
-        return [];
-    }
-
-    loadUserPreferences() {
-        return {};
-    }
-
-    saveUserPreference(key, value) {
-        // Placeholder
-    }
-
-    trackEvent(eventName, properties = {}) {
-        // Placeholder
-    }
-
-    destroy() {
-        // Placeholder
-    }
-
-} // <-- The class correctly ends here.
+}

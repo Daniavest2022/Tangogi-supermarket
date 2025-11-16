@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Tangogi Supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <!-- Promotional Top Bar -->
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="delivery-promo">
+                        <div class="delivery-info">
+                            <i class="fas fa-truck" aria-label="Truck icon"></i>
+                            <span>Free delivery on orders over ₦5,000</span>
+                        </div>
+                        <div class="promotional-banner">
+                            <span class="promo-text">
+                                <i class="fas fa-gift"></i>
+                                New User Offer: Get ₦1,000 off your first order! 
+                                <a href="register.html" class="promo-link">Claim Now</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="header-top-links">
+                        <a href="tracking.html" class="top-link">
+                            <i class="fas fa-map-marker-alt" aria-label="Map marker icon"></i> 
+                            <span class="link-text">Track Order</span>
+                        </a>
+                        <a href="help.html" class="top-link">
+                            <i class="fas fa-question-circle" aria-label="Question circle icon"></i> 
+                            <span class="link-text">Help Center</span>
+                        </a>
+                        <div class="language-currency-selector">
+                            <div class="language-selector">
+                                <i class="fas fa-globe" aria-label="Globe icon"></i>
+                                <select aria-label="Select language" id="language-select">
+                                    <option value="en">EN</option>
+                                    <option value="yo">Yoruba</option>
+                                    <option value="ig">Igbo</option>
+                                    <option value="ha">Hausa</option>
+                                </select>
+                            </div>
+                            <div class="currency-selector">
+                                <select aria-label="Select currency" id="currency-select">
+                                    <option value="NGN">NGN ₦</option>
+                                    <option value="USD">USD $</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-inner">
+                    <!-- Enhanced Logo Section -->
+                    <div class="logo-section">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Tangogi</span>
+                                <span class="logo-tagline">Supermarket</span>
+                            </div>
+                        </a>
+                        <div class="store-info">
+                            <span class="store-status">
+                                <i class="fas fa-circle status-online"></i>
+                                Open until 10 PM
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Search Section -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    placeholder="Search for fresh tomatoes, rice, chicken..."
+                                    id="search-input"
+                                    aria-label="Search for products"
+                                >
+                                <button class="search-clear" id="search-clear" aria-label="Clear search">
+                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                </button>
+                                
+                                <!-- Search Suggestions -->
+                                <div class="search-suggestions" id="search-suggestions">
+                                    <div class="suggestions-header">
+                                        <h4>Popular Searches</h4>
+                                    </div>
+                                    <div class="suggestion-items">
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Fresh Tomatoes</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Basmati Rice</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Chicken Breast</span>
+                                        </a>
+                                        <a href="#" class="suggestion-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Organic Vegetables</span>
+                                        </a>
+                                    </div>
+                                    <div class="recent-searches">
+                                        <div class="suggestions-header">
+                                            <h4>Recent Searches</h4>
+                                            <button class="clear-recent" id="clear-recent">Clear</button>
+                                        </div>
+                                        <div class="recent-items" id="recent-searches">
+                                            <!-- Recent searches will be populated here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="search-btn" id="search-btn" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span class="search-text">Search</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Voice Search -->
+                        <button class="voice-search-btn" id="voice-search-btn" aria-label="Voice search">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+
+                    <!-- Enhanced User Actions -->
+                    <div class="actions-section">
+                        <!-- Store Locator -->
+                        <div class="store-locator">
+                            <button class="locator-btn" id="store-locator-btn" aria-label="Find stores near you">
+                                <i class="fas fa-store"></i>
+                                <span class="btn-text">Stores</span>
+                            </button>
+                        </div>
+
+                        <!-- Enhanced Location Selector -->
+                        <div class="location-selector">
+                            <button class="location-btn" id="location-btn" aria-label="Select location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span class="location-text">Lagos</span>
+                                <i class="fas fa-chevron-down location-arrow"></i>
+                            </button>
+                            <div class="location-dropdown" id="location-dropdown">
+                                <div class="location-header">
+                                    <h4>Select Your Location</h4>
+                                    <p>Choose your delivery location for accurate pricing and availability</p>
+                                </div>
+                                <div class="location-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search area or landmark..." id="location-search-input">
+                                </div>
+                                <div class="location-options">
+                                    <div class="location-option current-location" data-location="use-current">
+                                        <i class="fas fa-crosshairs"></i>
+                                        <div class="location-details">
+                                            <span class="location-name">Use Current Location</span>
+                                            <span class="location-desc">Detect your location automatically</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-locations">
+                                        <h5>Recent Locations</h5>
+                                        <div class="location-option" data-location="Lagos">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Lagos Mainland</span>
+                                                <span class="location-desc">Anthony Village, Ikeja</span>
+                                            </div>
+                                        </div>
+                                        <div class="location-option" data-location="Abuja">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="location-details">
+                                                <span class="location-name">Abuja Central</span>
+                                                <span class="location-desc">Garki, Wuse</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popular-locations">
+                                        <h5>Popular Cities</h5>
+                                        <div class="location-grid">
+                                            <div class="location-option compact" data-location="Lagos">
+                                                <span>Lagos</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Abuja">
+                                                <span>Abuja</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Port Harcourt">
+                                                <span>Port Harcourt</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Ibadan">
+                                                <span>Ibadan</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Kano">
+                                                <span>Kano</span>
+                                            </div>
+                                            <div class="location-option compact" data-location="Benin">
+                                                <span>Benin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="location-footer">
+                                    <button class="btn btn-outline" id="manage-locations">
+                                        <i class="fas fa-cog"></i>
+                                        Manage Saved Locations
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced User Account -->
+                        <div class="user-account">
+                            <button class="user-btn" id="user-btn" aria-label="My account">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
+                                <span class="user-text">Account</span>
+                                <i class="fas fa-chevron-down user-arrow"></i>
+                            </button>
+                            <div class="user-dropdown" id="user-dropdown">
+                                <div class="user-info">
+                                    <div class="user-avatar-large">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-details">
+                                        <div class="user-greeting">Hello, Guest</div>
+                                        <div class="user-status">Sign in to your account</div>
+                                    </div>
+                                </div>
+                                <div class="user-menu">
+                                    <a href="login.html" class="user-menu-item">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span>Sign In</span>
+                                    </a>
+                                    <a href="register.html" class="user-menu-item">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Create Account</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="orders.html" class="user-menu-item">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>My Orders</span>
+                                        <span class="menu-badge">3</span>
+                                    </a>
+                                    <a href="wishlist.html" class="user-menu-item">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Wishlist</span>
+                                        <span class="menu-badge">12</span>
+                                    </a>
+                                    <a href="addresses.html" class="user-menu-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Saved Addresses</span>
+                                    </a>
+                                    <a href="notifications.html" class="user-menu-item">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Notifications</span>
+                                        <span class="menu-badge">5</span>
+                                    </a>
+                                    <div class="user-menu-divider"></div>
+                                    <a href="settings.html" class="user-menu-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                    <a href="help.html" class="user-menu-item">
+                                        <i class="fas fa-question-circle"></i>
+                                        <span>Help & Support</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Wishlist -->
+                        <div class="wishlist-section">
+                            <a href="wishlist.html" class="action-btn wishlist-btn" aria-label="Wishlist">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span class="action-badge" id="wishlist-count">12</span>
+                            </a>
+                        </div>
+
+                        <!-- Enhanced Cart Section -->
+                        <div class="cart-section">
+                            <button class="action-btn cart-btn" id="cart-btn" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="action-badge" id="cart-count">3</span>
+                            </button>
+                            
+                            <!-- Cart Preview on Hover -->
+                            <div class="cart-preview" id="cart-preview">
+                                <div class="cart-preview-header">
+                                    <h4>Recently Added</h4>
+                                </div>
+                                <div class="cart-preview-items">
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Fresh Tomatoes">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Fresh Tomatoes</span>
+                                            <span class="preview-price">₦800 × 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item">
+                                        <img src="https://via.placeholder.com/40x40" alt="Basmati Rice">
+                                        <div class="preview-details">
+                                            <span class="preview-name">Basmati Rice</span>
+                                            <span class="preview-price">₦4,500 × 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-preview-footer">
+                                    <div class="preview-total">
+                                        <span>Subtotal:</span>
+                                        <span>₦12,450</span>
+                                    </div>
+                                    <a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Dark Mode Toggle -->
+                        <div class="theme-toggle">
+                            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-text">Dark</span>
+                            </button>
+                        </div>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item mega-menu">
+                        <a href="categories.html" class="nav-link">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Fresh Produce</h4>
+                                <ul>
+                                    <li><a href="category.html?type=fruits">Fresh Fruits</a></li>
+                                    <li><a href="category.html?type=vegetables">Vegetables</a></li>
+                                    <li><a href="category.html?type=herbs">Herbs & Seasonings</a></li>
+                                    <li><a href="category.html?type=organic">Organic Produce</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Protein & Dairy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=meat">Meat & Poultry</a></li>
+                                    <li><a href="category.html?type=seafood">Seafood</a></li>
+                                    <li><a href="category.html?type=dairy">Dairy & Eggs</a></li>
+                                    <li><a href="category.html?type=plant-based">Plant-Based Protein</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Pantry Staples</h4>
+                                <ul>
+                                    <li><a href="category.html?type=rice">Rice & Grains</a></li>
+                                    <li><a href="category.html?type=pasta">Pasta & Noodles</a></li>
+                                    <li><a href="category.html?type=oil">Cooking Oil</a></li>
+                                    <li><a href="category.html?type=spices">Spices & Condiments</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Quick & Easy</h4>
+                                <ul>
+                                    <li><a href="category.html?type=frozen">Frozen Foods</a></li>
+                                    <li><a href="category.html?type=canned">Canned Goods</a></li>
+                                    <li><a href="category.html?type=ready-meals">Ready-to-Eat Meals</a></li>
+                                    <li><a href="category.html?type=bakery">Bakery</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-banner">
+                                <div class="banner-content">
+                                    <h4>Weekly Specials</h4>
+                                    <p>Up to 40% off on fresh produce</p>
+                                    <a href="deals.html" class="btn btn-white">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <span>All Products</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="deals.html" class="nav-link hot-deal">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                            <span>Hot Deals</span>
+                            <span class="deal-badge">SALE</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="recipes.html" class="nav-link">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <span>Recipes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Quick Action Bar -->
+                <div class="quick-actions">
+                    <a href="express-delivery.html" class="quick-action">
+                        <i class="fas fa-bolt"></i>
+                        <span>Express Delivery</span>
+                    </a>
+                    <a href="weekly-special.html" class="quick-action">
+                        <i class="fas fa-star"></i>
+                        <span>Weekly Special</span>
+                    </a>
+                    <a href="bulk-order.html" class="quick-action">
+                        <i class="fas fa-box"></i>
+                        <span>Bulk Orders</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sticky Header on Scroll -->
+        <div class="sticky-header" id="sticky-header">
+            <div class="container">
+                <div class="sticky-header-content">
+                    <div class="sticky-logo">
+                        <a href="index.html" class="site-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <span class="logo-name">Tangogi</span>
+                        </a>
+                    </div>
+                    <div class="sticky-search">
+                        <div class="search-container compact">
+                            <input type="text" placeholder="Search..." class="search-input">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sticky-actions">
+                        <button class="action-btn cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="action-badge">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="account.html">My Account</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Notifications</span>
+                </div>
+                <div class="page-title-section">
+                    <h1 class="page-title">Notifications</h1>
+                    <p class="page-subtitle">Stay updated with your orders, deals, and important updates</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section class="notifications-section">
+            <div class="container">
+                <div class="notifications-layout">
+                    <!-- Notifications Sidebar -->
+                    <div class="notifications-sidebar">
+                        <div class="sidebar-header">
+                            <h3>Notification Settings</h3>
+                        </div>
+                        
+                        <div class="settings-categories">
+                            <div class="category-item active" data-category="all">
+                                <i class="fas fa-bell"></i>
+                                <span>All Notifications</span>
+                                <span class="count-badge">12</span>
+                            </div>
+                            <div class="category-item" data-category="orders">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Orders</span>
+                                <span class="count-badge">5</span>
+                            </div>
+                            <div class="category-item" data-category="promotions">
+                                <i class="fas fa-tags"></i>
+                                <span>Promotions</span>
+                                <span class="count-badge">4</span>
+                            </div>
+                            <div class="category-item" data-category="delivery">
+                                <i class="fas fa-truck"></i>
+                                <span>Delivery Updates</span>
+                                <span class="count-badge">2</span>
+                            </div>
+                            <div class="category-item" data-category="system">
+                                <i class="fas fa-cog"></i>
+                                <span>System</span>
+                                <span class="count-badge">1</span>
+                            </div>
+                            <div class="category-item" data-category="unread">
+                                <i class="fas fa-envelope"></i>
+                                <span>Unread</span>
+                                <span class="count-badge">3</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn btn-outline btn-block" onclick="markAllAsRead()">
+                                <i class="fas fa-check-double"></i>
+                                Mark All as Read
+                            </button>
+                            <button class="btn btn-outline btn-block" onclick="openNotificationSettings()">
+                                <i class="fas fa-cog"></i>
+                                Notification Settings
+                            </button>
+                            <button class="btn btn-outline btn-block btn-danger" onclick="clearAllNotifications()">
+                                <i class="fas fa-trash"></i>
+                                Clear All
+                            </button>
+                        </div>
+
+                        <div class="notification-stats">
+                            <div class="stat">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Total</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">3</div>
+                                <div class="stat-label">Unread</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">7</div>
+                                <div class="stat-label">This Week</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications List -->
+                    <div class="notifications-main">
+                        <div class="notifications-header">
+                            <div class="header-left">
+                                <h2 id="notifications-category-title">All Notifications</h2>
+                                <span class="subtitle" id="notifications-count">12 notifications</span>
+                            </div>
+                            <div class="header-right">
+                                <div class="filter-dropdown">
+                                    <select id="time-filter" onchange="filterNotifications()">
+                                        <option value="all">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="week">This Week</option>
+                                        <option value="month">This Month</option>
+                                    </select>
+                                </div>
+                                <div class="sort-dropdown">
+                                    <select id="sort-filter" onchange="sortNotifications()">
+                                        <option value="newest">Newest First</option>
+                                        <option value="oldest">Oldest First</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notifications-list" id="notifications-list">
+                            <!-- Today's Notifications -->
+                            <div class="notification-group">
+                                <div class="group-header">
+                                    <h3>Today</h3>
+                                </div>
+                                
+                                <!-- Order Delivered -->
+                                <div class="notification-item unread" data-category="orders" data-id="1">
+                                    <div class="notification-icon order-delivered">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Order Delivered Successfully
+                                            <span class="unread-dot"></span>
+                                        </div>
+                                        <div class="notification-message">
+                                            Your order #TGO-2024-00123 has been delivered. Please rate your delivery experience.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">2 hours ago</span>
+                                            <span class="order-id">#TGO-2024-00123</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Rate order" onclick="rateOrder('TGO-2024-00123')">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Promotion -->
+                                <div class="notification-item unread" data-category="promotions" data-id="2">
+                                    <div class="notification-icon promotion">
+                                        <i class="fas fa-tag"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Weekly Specials Are Here!
+                                            <span class="unread-dot"></span>
+                                        </div>
+                                        <div class="notification-message">
+                                            New deals on fresh produce and dairy products. Save up to 40% this week only.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">5 hours ago</span>
+                                            <span class="expires">Expires in 6 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="View deals" onclick="viewWeeklySpecials()">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Yesterday's Notifications -->
+                            <div class="notification-group">
+                                <div class="group-header">
+                                    <h3>Yesterday</h3>
+                                </div>
+
+                                <!-- Delivery Update -->
+                                <div class="notification-item" data-category="delivery" data-id="3">
+                                    <div class="notification-icon delivery">
+                                        <i class="fas fa-truck"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Your Order is Out for Delivery
+                                        </div>
+                                        <div class="notification-message">
+                                            Order #TGO-2024-00123 is with our delivery partner and will arrive between 2:00 PM - 4:00 PM.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">Yesterday, 10:30 AM</span>
+                                            <span class="status">In transit</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Track order" onclick="trackOrder('TGO-2024-00123')">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Price Drop -->
+                                <div class="notification-item" data-category="promotions" data-id="4">
+                                    <div class="notification-icon price-drop">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Price Drop on Your Wishlist Item
+                                        </div>
+                                        <div class="notification-message">
+                                            "Premium Basmati Rice" price has dropped from ₦4,500 to ₦3,800. Limited stock available!
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">Yesterday, 3:15 PM</span>
+                                            <span class="discount">16% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="View product" onclick="viewProduct('prod-002')">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- This Week -->
+                            <div class="notification-group">
+                                <div class="group-header">
+                                    <h3>This Week</h3>
+                                </div>
+
+                                <!-- Order Confirmed -->
+                                <div class="notification-item" data-category="orders" data-id="5">
+                                    <div class="notification-icon order-confirmed">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Order Confirmed
+                                        </div>
+                                        <div class="notification-message">
+                                            Your order #TGO-2024-00122 has been confirmed and is being processed.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">3 days ago</span>
+                                            <span class="amount">₦15,750</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- New Feature -->
+                                <div class="notification-item unread" data-category="system" data-id="6">
+                                    <div class="notification-icon system">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            New: Express Delivery Available
+                                            <span class="unread-dot"></span>
+                                        </div>
+                                        <div class="notification-message">
+                                            Get your groceries delivered in under 2 hours with our new express delivery service.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">4 days ago</span>
+                                            <span class="feature">New Feature</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Learn more" onclick="learnExpressDelivery()">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Back in Stock -->
+                                <div class="notification-item" data-category="promotions" data-id="7">
+                                    <div class="notification-icon back-in-stock">
+                                        <i class="fas fa-box-open"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Item Back in Stock
+                                        </div>
+                                        <div class="notification-message">
+                                            "Organic Bananas" are back in stock. Order now before they run out again.
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">5 days ago</span>
+                                            <span class="stock">In Stock</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Buy now" onclick="viewProduct('prod-003')">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Older Notifications -->
+                            <div class="notification-group">
+                                <div class="group-header">
+                                    <h3>Older</h3>
+                                </div>
+
+                                <!-- Monthly Summary -->
+                                <div class="notification-item" data-category="system" data-id="8">
+                                    <div class="notification-icon summary">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">
+                                            Your January Shopping Summary
+                                        </div>
+                                        <div class="notification-message">
+                                            You saved ₦3,450 last month with our deals and loyalty points. Keep shopping smart!
+                                        </div>
+                                        <div class="notification-meta">
+                                            <span class="time">1 week ago</span>
+                                            <span class="savings">₦3,450 saved</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-actions">
+                                        <button class="btn-icon mark-read" title="Mark as read">
+                                            <i class="far fa-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Load More -->
+                        <div class="load-more-section">
+                            <button class="btn btn-outline" id="load-more-notifications">
+                                <i class="fas fa-history"></i>
+                                Load Older Notifications
+                            </button>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div class="empty-notifications hidden" id="empty-notifications">
+                            <div class="empty-content">
+                                <i class="fas fa-bell-slash"></i>
+                                <h3>No Notifications</h3>
+                                <p>You're all caught up! New notifications will appear here.</p>
+                                <button class="btn btn-primary" onclick="browseProducts()">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    Start Shopping
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Include your standard footer here -->
+    </footer>
+
+    <!-- Notification Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeSettingsModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2>Notification Settings</h2>
+                <p>Choose what notifications you want to receive</p>
+            </div>
+
+            <div class="settings-form">
+                <div class="setting-category">
+                    <h3>Order Updates</h3>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Order confirmations</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Delivery updates</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Delivery completed</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-category">
+                    <h3>Promotions & Deals</h3>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Weekly specials</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Price drops</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Partner offers</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-category">
+                    <h3>Product Updates</h3>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Back in stock alerts</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">New product arrivals</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-category">
+                    <h3>System & Account</h3>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Account security</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Feature updates</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle-label">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Monthly summaries</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeSettingsModal()">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="saveNotificationSettings()">
+                        <i class="fas fa-save"></i>
+                        Save Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- notifications.html -->
+
+  <!-- ... (rest of your HTML) ... -->
+
+  <!-- Add these two lines -->
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/notifications-page.js"></script>
+
+</body>
+</html>

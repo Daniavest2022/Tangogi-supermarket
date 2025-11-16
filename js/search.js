@@ -1,6 +1,5 @@
-// js/search.js
+// js/search.js - FINAL CORRECTED VERSION
 
-// The "export" keyword here is the crucial fix.
 export class SearchManager {
     constructor(app) {
         this.app = app;
@@ -26,9 +25,19 @@ export class SearchManager {
     }
 
     performSearch(query) {
-        console.log(`Performing search for: ${query}`);
-        if (this.app.products) {
+        console.log(`SearchManager is telling ProductManager to search for: ${query}`);
+        
+        // Check if the ProductManager and its handleSearch function are available
+        if (this.app.products && typeof this.app.products.handleSearch === 'function') {
+            
+            // Call the handleSearch function in the ProductManager
             this.app.products.handleSearch(query);
+
+        } else {
+            // If we're not on the products page (or the function doesn't exist),
+            // redirect to the products page with the search query in the URL.
+            console.log('Not on products page or handleSearch not found. Redirecting...');
+            window.location.href = `/products.html?search=${encodeURIComponent(query)}`;
         }
     }
 }

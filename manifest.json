@@ -60,22 +60,7 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "images/screenshots/mobile.png",
-      "sizes": "375x667",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Tangogi Mobile Shopping Experience"
-    },
-    {
-      "src": "images/screenshots/desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Tangogi Desktop Shopping Experience"
-    }
-  ],
+  "screenshots": [],
   "features": [
     "Fast grocery delivery",
     "Fresh local products", 
